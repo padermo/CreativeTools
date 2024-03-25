@@ -1,0 +1,122 @@
+{
+  "Header": {
+    "title": "Creative Tools",
+    "legend": "Design, Development, and More..."
+  },
+  "Content": {
+    "Search": {
+      "title": "Find all kinds of utilities you can use for your projects."
+    },
+    "Account": {
+      "title": "By creating an account, you'll be able to create new utilities and/or add them to your favorites list.",
+      "cta": "Join"
+    }
+  },
+  "Footer": {
+    "title": "Creative Tools. All rights reserved."
+  },
+  "Contact": {
+    "form": {
+      "email": {
+        "text": "Email",
+        "placeholder": "email@example.com"
+      },
+      "subject": {
+        "text": "Subject",
+        "placeholder": "subject..."
+      }
+    },
+    "handlers": {
+      "success": "Message sent.",
+      "errors": {
+        "email": {
+          "required": "This field is required.",
+          "pattern": "Please enter a valid email."
+        },
+        "subject": {
+          "required": "This field is required."
+        }
+      }
+    },
+    "button": "Send"
+  },
+  "Navbar": {
+    "title": "Menu",
+    "home": "Home",
+    "tools": "Tools",
+    "favorites": "Favorites",
+    "login": "Log In",
+    "register": "Sign Up"
+  },
+  "Login": {
+    "form": {
+      "email": {
+        "text": "Email",
+        "placeholder": "email@example.com"
+      },
+      "password": {
+        "text": "Password",
+        "placeholder": "********"
+      }
+    },
+    "handlers": {
+      "success": "Account created successfully.",
+      "errors": {
+        "email": {
+          "required": "This field is required."
+        },
+        "password": {
+          "required": "This field is required."
+        }
+      }
+    },
+    "button": "Log In"
+  },
+  "Register": {
+    "form": {
+      "email": {
+        "text": "Email",
+        "placeholder": "email@example.com"
+      },
+      "password": {
+        "text": "Password",
+        "placeholder": "********"
+      },
+      "confirm_password": {
+        "text": "Confirm Password",
+        "placeholder": "********"
+      }
+    },
+    "handlers": {
+      "success": "Account created successfully.",
+      "errors": {
+        "email": {
+          "required": "This field is required.",
+          "pattern": "Please enter a valid email."
+        },
+        "password": {
+          "required": "This field is required.",
+          "pattern": "Password must contain: \n- One uppercase letter. \n- One lowercase letter. \n- One special character (@,!,#,$...). \n- One number."
+        },
+        "confirm_password": {
+          "required": "This field is required.",
+          "pattern": "Password does not match."
+        }
+      }
+    },
+    "button": "Sign Up"
+  },
+  "Tools": {
+    "categories": "Documentation, Utilities, Modules",
+    "subcategories": {
+      "documents": "programming languages,frameworks,libraries,APIs,databases,operating systems,network protocols,others",
+      "utilities": "icons,colors,images,animations,alerts,compressors,gradients,emulators,carousels,components,patterns,editors,fonts,generators,videos,mockups,templates,vectors,sounds,others",
+      "modules": "npm,yarn,pnpm,pipy,others"
+    }
+  },
+  "Report": {
+    "tooltip": "Report",
+    "description": "Add a brief description of the reason you're creating the report.",
+    "button": "Send Report"
+  }
+}

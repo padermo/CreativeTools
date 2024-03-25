@@ -1,0 +1,122 @@
+{
+  "Header": {
+    "title": "Creative Tools",
+    "legend": "Herramientas de Diseño, Desarrollo y mas..."
+  },
+  "Content": {
+    "Search": {
+      "title": "Encuentra todo tipo de utilidades que podrás emplear para tus proyectos."
+    },
+    "Account": {
+      "title": "Al crear una cuenta podrás crear nuevas utilidades y/o agregar a tu lista de favoritos.",
+      "cta": "Únete"
+    }
+  },
+  "Footer": {
+    "title": "Creative Tools. Todos los derechos reservados."
+  },
+  "Contact": {
+    "form": {
+      "email": {
+        "text": "Correo Electrónico",
+        "placeholder": "correo@correo.com"
+      },
+      "subject": {
+        "text": "Asunto",
+        "placeholder": "asunto..."
+      }
+    },
+    "handlers": {
+      "success": "Mensaje enviado.",
+      "errors": {
+        "email": {
+          "required": "Este campo es obligatorio.",
+          "pattern": "Ingresa un correo electrónico valido."
+        },
+        "subject": {
+          "required": "Este campo es obligatorio."
+        }
+      }
+    },
+    "button": "Enviar"
+  },
+  "Navbar": {
+    "title": "Menú",
+    "home": "Inicio",
+    "tools": "Herramientas",
+    "favorites": "Favoritos",
+    "login": "Iniciar Sesión",
+    "register": "Registrarse"
+  },
+  "Login": {
+    "form": {
+      "email": {
+        "text": "Correo Electrónico",
+        "placeholder": "correo@correo.com"
+      },
+      "password": {
+        "text": "Contraseña",
+        "placeholder": "********"
+      }
+    },
+    "handlers": {
+      "success": "Cuenta creada correctamente.",
+      "errors": {
+        "email": {
+          "required": "Este campo es obligatorio."
+        },
+        "password": {
+          "required": "Este campo es obligatorio."
+        }
+      }
+    },
+    "button": "Iniciar Sesión"
+  },
+  "Register": {
+    "form": {
+      "email": {
+        "text": "Correo Electrónico",
+        "placeholder": "correo@correo.com"
+      },
+      "password": {
+        "text": "Contraseña",
+        "placeholder": "********"
+      },
+      "confirm_password": {
+        "text": "Confirmar Contraseña",
+        "placeholder": "********"
+      }
+    },
+    "handlers": {
+      "success": "Cuenta creada correctamente.",
+      "errors": {
+        "email": {
+          "required": "Este campo es obligatorio.",
+          "pattern": "Ingresa un correo electrónico valido."
+        },
+        "password": {
+          "required": "Este campo es obligatorio.",
+          "pattern": "La contraseña debe tener: \nUna letra mayúscula. \nUna letra minúscula. \nUn carácter especial (@,!,#,$...). \nUN número."
+        },
+        "confirm_password": {
+          "required": "Este campo es obligatorio.",
+          "pattern": "La contraseña no coincide."
+        }
+      }
+    },
+    "button": "Registrarse"
+  },
+  "Tools": {
+    "categories": "Documentación,Utilidades,Módulos",
+    "subcategories": {
+      "documents": "lenguajes programación,frameworks,librerías,apis,bases de datos,sistemas operativos,protocolos de red,otros",
+      "utilities": "iconos,colores,imágenes,animaciones,alertas,compresores,gradientes,emuladores,carruseles,componentes,patrones,editores,fuentes,generadores,videos,mockups,plantillas,vectores,sonidos,otros",
+      "modules": "npm,yarn,pnpm,pipy,otros"
+    }
+  },
+  "Report": {
+    "tooltip": "Reportar",
+    "description": "Agrega una breve descripción del motivo por el que creas el reporte.",
+    "button": "Enviar Reporte"
+  }
+}
