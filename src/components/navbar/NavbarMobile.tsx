@@ -22,7 +22,7 @@ export default function NavbarMobile({texts}:NavbarProps){
       </ButtonReusable>
 
       <Drawer
-        style={{background: '#fff'}}
+        style={{background: '#e8e8e8'}}
         width={200}
         className='text-[#222] text-xl dark:text-white'
         open={isView}

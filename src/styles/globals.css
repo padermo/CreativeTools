@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar{
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,6 +31,14 @@
   }
 }
 
-body {
-  /*Agregar colores de darkmode*/  
+.search{
+  background-image: linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(https://res.cloudinary.com/dultasdzm/image/upload/v1711406281/creativetools/tools_iusjmi.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.pattern{
+  background-image: url(../assets/pattern.png);
+  background-repeat: repeat;
 }
