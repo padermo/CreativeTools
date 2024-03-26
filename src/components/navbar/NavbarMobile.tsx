@@ -4,6 +4,8 @@ import LinkReusable from '../reusable/LinkReusable';
 import { Drawer } from 'antd';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
 import ButtonReusable from '../reusable/ButtonReusable';
+import SwitchLang from '../config/SwitchLang';
+import SwitchTheme from '../config/SwitchTheme';
 
 // types
 import type { NavbarProps } from '@/types/generals.types';
@@ -35,7 +37,8 @@ export default function NavbarMobile({texts}:NavbarProps){
         }
         footer={
           <div className='flex justify-around items-center'>
-
+            <SwitchTheme/>
+            <SwitchLang/>
           </div>
         }
       >

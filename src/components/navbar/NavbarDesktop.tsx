@@ -1,5 +1,8 @@
 'use client';
 import LinkReusable from '../reusable/LinkReusable';
+import SwitchTheme from '../config/SwitchTheme';
+import SwitchLang from '../config/SwitchLang';
+
 // types
 import type { NavbarProps } from '@/types/generals.types';
 
@@ -13,6 +16,8 @@ export default function NavbarDesktop({ texts }: NavbarProps) {
         <LinkReusable href='/favorites' text={texts('favorites')}/>
         <LinkReusable href='/auth/login' text={texts('login')}/>
         <LinkReusable href='/auth/register' text={texts('register')}/>
+        <SwitchTheme/>
+        <SwitchLang/>
       </div>
     </nav>
   );

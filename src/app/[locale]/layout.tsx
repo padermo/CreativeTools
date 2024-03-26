@@ -3,6 +3,8 @@ import type { RootLayout } from '@/types/generals.types';
 import { Poppins } from 'next/font/google';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
+import ThemeProvider from '@/context/ThemeContext';
+import ScrollTop from '@/components/config/ScrollTop';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import '@/styles/globals.css';
 
@@ -23,9 +25,12 @@ export default function RootLayout({
     <html lang={locale}>
       <body className={`${poppins.className} max-w-screen-2xl m-auto bg-gray-200 dark:bg-[#222]`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Navbar/>
-          {children}
-          <Footer/>
+          <ThemeProvider>
+            <Navbar/>
+            {children}
+            <ScrollTop/>
+            <Footer/>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

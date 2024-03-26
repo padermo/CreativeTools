@@ -22,3 +22,8 @@ export interface ButtonProps extends Children{
   onClick: () => void;
   type: ButtonType;
 }
+
+export interface Theme{
+  theme: string;
+  handleTheme: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
