@@ -6,16 +6,17 @@ import SwitchLang from '../config/SwitchLang';
 // types
 import type { NavbarProps } from '@/types/generals.types';
 
-export default function NavbarDesktop({ texts }: NavbarProps) {
+export default function NavbarDesktop({ texts, locale }: NavbarProps) {
+
   return (
-    <nav className='items-center justify-between absolute top-0 z-10 px-8 py-4 hidden lg:flex'>
+    <nav className='items-center justify-between px-8 py-4 hidden lg:flex'>
       <picture></picture>
 
       <div className='flex items-center gap-4'>
-        <LinkReusable href='/tools' text={texts('tools')}/>
-        <LinkReusable href='/favorites' text={texts('favorites')}/>
-        <LinkReusable href='/auth/login' text={texts('login')}/>
-        <LinkReusable href='/auth/register' text={texts('register')}/>
+        <LinkReusable href={`/${locale}/tools`} text={texts('tools')}/>
+        <LinkReusable href={`/${locale}/favorites`} text={texts('favorites')}/>
+        <LinkReusable href={`/${locale}/auth/login`} text={texts('login')}/>
+        <LinkReusable href={`/${locale}/auth/register`} text={texts('register')}/>
         <SwitchTheme/>
         <SwitchLang/>
       </div>

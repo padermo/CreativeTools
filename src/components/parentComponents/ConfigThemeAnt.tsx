@@ -27,6 +27,27 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorPrimaryHover: '#D000FA',
             colorTextLightSolid: theme === 'dark' ? '#fff' : '#222',
             handleBg: theme === 'dark' ? '#fff' : '#222'
+          },
+          Menu: {
+            itemBg: 'transparent',
+            itemHeight: 20,
+            itemBorderRadius: 0,
+            colorSplit: 'transparent',
+            padding: 0,
+            dropdownWidth: 100
+          },
+          Pagination: {
+            itemActiveBg: 'transparent',
+            colorPrimaryBorder: '#9337A5',
+            colorPrimary: '#9337A5',
+            colorPrimaryHover: '#D000FA',
+            colorText: theme === 'dark' ? '#fff' : '#222',
+            borderRadius: 50
+          },
+          Tag: {
+            colorPrimary: '#EA69D9',
+            colorPrimaryActive: '#EA42D7',
+            colorPrimaryHover: '#EA88D6'
           }
         },
       }}

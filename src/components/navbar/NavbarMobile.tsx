@@ -18,7 +18,7 @@ export default function NavbarMobile({texts}:NavbarProps){
   }
 
   return(
-    <nav className='absolute top-0 py-4 px-4 md:px-8 md:py-8 lg:hidden'>
+    <nav className='py-4 px-4 md:px-8 md:py-8 lg:hidden'>
       <ButtonReusable type='primary' onClick={handleViewDrawer}>
         <MenuOutlined/>
       </ButtonReusable>

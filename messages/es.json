@@ -107,16 +107,31 @@
     "button": "Registrarse"
   },
   "Tools": {
-    "categories": "Documentación,Utilidades,Módulos",
+    "categories": "Documentación,Recursos,Módulos",
+    "categories_click": "documents,resources,modules",
     "subcategories": {
       "documents": "lenguajes programación,frameworks,librerías,apis,bases de datos,sistemas operativos,protocolos de red,otros",
-      "utilities": "iconos,colores,imágenes,animaciones,alertas,compresores,gradientes,emuladores,carruseles,componentes,patrones,editores,fuentes,generadores,videos,mockups,plantillas,vectores,sonidos,otros",
+      "resources": "iconos,colores,imágenes,animaciones,alertas,compresores,gradientes,emuladores,carruseles,componentes,patrones,editores,fuentes,generadores,videos,mockups,plantillas,vectores,sonidos,otros",
       "modules": "npm,yarn,pnpm,pipy,otros"
+    },
+    "cards": {
+      "status": {
+        "free": "Gratis",
+        "pay": "Pago"
+      },
+      "options": {
+        "report": "Reportar",
+        "favorite": "Agregar Favorito",
+        "tooltip": "Más opciones"
+      }
     }
   },
   "Report": {
     "tooltip": "Reportar",
     "description": "Agrega una breve descripción del motivo por el que creas el reporte.",
     "button": "Enviar Reporte"
+  },
+  "ScrollTop": {
+    "tooltip": "Ir Arriba"
   }
 }

@@ -107,16 +107,31 @@
     "button": "Sign Up"
   },
   "Tools": {
-    "categories": "Documentation, Utilities, Modules",
+    "categories": "Documentation,Resources,Modules",
+    "categories_click": "documents,resources,modules",
     "subcategories": {
       "documents": "programming languages,frameworks,libraries,APIs,databases,operating systems,network protocols,others",
-      "utilities": "icons,colors,images,animations,alerts,compressors,gradients,emulators,carousels,components,patterns,editors,fonts,generators,videos,mockups,templates,vectors,sounds,others",
+      "resources": "icons,colors,images,animations,alerts,compressors,gradients,emulators,carousels,components,patterns,editors,fonts,generators,videos,mockups,templates,vectors,sounds,others",
       "modules": "npm,yarn,pnpm,pipy,others"
+    },
+    "cards": {
+      "status": {
+        "free": "Free",
+        "pay": "Pay"
+      },
+      "options": {
+        "report": "Report",
+        "favorite": "Add Favorite",
+        "tooltip": "More options"
+      }
     }
   },
   "Report": {
     "tooltip": "Report",
     "description": "Add a brief description of the reason you're creating the report.",
     "button": "Send Report"
+  },
+  "ScrollTop": {
+    "tooltip": "To Top"
   }
 }
