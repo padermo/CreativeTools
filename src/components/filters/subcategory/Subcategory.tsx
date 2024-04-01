@@ -6,17 +6,19 @@ import ConfigThemeAnt from '@/components/parentComponents/ConfigThemeAnt';
 import type { SubcategoryProps } from '@/types/generals.types';
 
 export default function Subcategory({
-  subcategory,
-  handleSubcategory,
+  title,
+  list,
+  onClick,
 }: SubcategoryProps) {
   const [selectedTag, setSelectedTag] = useState<string>('');
-  const tagsData = subcategory;
+  const tagsData = list;
 
   const handleChangeTag = (tag:string, checked:boolean) => {
     setSelectedTag(checked ? tag : '');
   };
   return (
     <div className='flex items-center gap-1 flex-wrap'>
+      <span className='text-[#222] text-xs font-medium dark:text-white'>{title}:</span>
       <ConfigThemeAnt>
         {tagsData &&
           tagsData.map((tag, index) => (
@@ -24,8 +26,8 @@ export default function Subcategory({
               key={index}
               checked={selectedTag.includes(tag)}
               onChange={(checked) => handleChangeTag(tag, checked)}
-              onClick={() => handleSubcategory(index)}
-              className='cursor-pointer text-[#222] dark:text-white'
+              onClick={() => onClick(index)}
+              className='cursor-pointer text-[#222] font-light dark:text-white'
             >
               {tag}
             </Tag.CheckableTag>

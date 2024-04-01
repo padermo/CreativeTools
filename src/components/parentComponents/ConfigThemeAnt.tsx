@@ -45,9 +45,9 @@ export default function ConfigThemeAnt({ children }: Children) {
             borderRadius: 50
           },
           Tag: {
-            colorPrimary: '#EA69D9',
-            colorPrimaryActive: '#EA42D7',
-            colorPrimaryHover: '#EA88D6'
+            colorPrimary: '#DB4CFE',
+            colorPrimaryActive: '#DA63FF',
+            colorPrimaryHover: '#E681FF'
           }
         },
       }}

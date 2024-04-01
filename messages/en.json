@@ -114,6 +114,19 @@
       "resources": "icons,colors,images,animations,alerts,compressors,gradients,emulators,carousels,components,patterns,editors,fonts,generators,videos,mockups,templates,vectors,sounds,others",
       "modules": "npm,yarn,pnpm,pipy,others"
     },
+    "sections": {
+      "subcategory": "Subcategories",
+      "accessType": "Access Type",
+      "liked": "Popularity"
+    },
+    "accessType": {
+      "free": "Free",
+      "pay": "Pay"
+    },
+    "liked": {
+      "most": "Most Liked",
+      "least": "Least Liked"
+    },
     "cards": {
       "status": {
         "free": "Free",

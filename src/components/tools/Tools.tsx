@@ -9,11 +9,14 @@ import Filters from '../filters/Filters';
 export default function Tools() {
   const [selectCategory, setSelectCategory] = useState<string>('')
   const [selectSubcategory, setSelectSubcategory] = useState<string>('')
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [accessType, setAccessType] = useState<boolean|undefined>(undefined)
   const { setItems, setPages, setCategory, pages, items } = useItems();
 
   useEffect(() => {
+    let newAccessType = accessType !== undefined && accessType;
     const getData = async () => {
-      const resItems = await axiosConfig.get(`/item/${selectCategory}/${selectSubcategory}`);
+      const resItems = await axiosConfig.get(`/item?category=${selectCategory}&subcategory=${selectSubcategory}&type=${newAccessType}&page=${currentPage}`);
       const resCategory = await axiosConfig.get('/category')
       setItems(resItems.data.items);
       setPages(resItems.data.config);
@@ -21,12 +24,12 @@ export default function Tools() {
     };
 
     getData();
-  }, [selectCategory, selectSubcategory]);
+  }, [selectCategory, selectSubcategory, currentPage, accessType]);
 
   return (
     <div className='flex flex-col w-full min-h-dvh max-h-full gap-4 justify-center items-center py-8'>
-      <Filters setSelectCategory={setSelectCategory} setSelectSubcategory={setSelectSubcategory}/>
-      <div className='flex flex-wrap justify-between gap-5'>
+      <Filters setSelectCategory={setSelectCategory} setSelectSubcategory={setSelectSubcategory} setAccessType={setAccessType}/>
+      <div className='w-full flex flex-wrap gap-5 flex-1' style={{justifyContent: items !== undefined && items.length > 2 ? 'space-between' : 'normal'}}>
         {items &&
           items.map((item) => (
             <Card
@@ -42,7 +45,7 @@ export default function Tools() {
             />
           ))}
       </div>
-      <Pages totalItems={pages?.totalItems} totalPages={pages?.totalPages} />
+      <Pages totalItems={pages?.totalItems} totalPages={pages?.totalPages} setCurrentPage={setCurrentPage} />
     </div>
   );
 }

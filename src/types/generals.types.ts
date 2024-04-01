@@ -43,6 +43,7 @@ export interface Items {
 export interface Pages {
   totalPages:number|undefined;
   totalItems:number|undefined;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
 export interface ContextItemsValues{
@@ -73,6 +74,7 @@ export interface OptionsProps{
 export interface FilterProps{
   setSelectCategory: Dispatch<SetStateAction<string>>;
   setSelectSubcategory: Dispatch<SetStateAction<string>>;
+  setAccessType: Dispatch<SetStateAction<boolean|undefined>>
 }
 
 export interface CategoryProps{
@@ -80,9 +82,22 @@ export interface CategoryProps{
   handleCategory: (index:number) => void;
 }
 
+export interface ComplementFilters{
+  title:string;
+  list:string[];
+}
+
 export interface SubcategoryProps{
-  subcategory:string[];
-  handleSubcategory: (index:number) => void;
+  title:string;
+  list:string[];
+  onClick: (index:number) => void;
+}
+
+export interface SubfiltersProps{
+  title:string;
+  optionOne:string;
+  optionTwo:string;
+  onClick: (content:boolean) => void;
 }
 
 export interface CategoryResponse{
