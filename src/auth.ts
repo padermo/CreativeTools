@@ -10,14 +10,15 @@ const auth:AuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        email: {},
-        password: {}
+        email: {label:'Email', type:'email'},
+        password: {label:'Password', type:'password'}
       },
       async authorize(credentials){
         try {
           const res = await axiosConfig.post('/login', credentials)
+          
           if(res?.data){
-            console.log(res.data)
+            cookies().set('access', res.data, {sameSite: 'lax', httpOnly:true})
             return res.data;
           } else {
             return res

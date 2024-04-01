@@ -39,6 +39,7 @@ export default function Tools() {
               _id={item._id}
               category={item.category}
               subcategory={item.subcategory}
+              liked={item.liked}
               score={item.score}
               isFree={item.isFree}
               createDate={item.createDate}

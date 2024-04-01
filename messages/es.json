@@ -70,6 +70,10 @@
         }
       }
     },
+    "content": {
+      "title": "Inicia Sesión.",
+      "recovery": "¿Olvidaste tu contraseña?"
+    },
     "button": "Iniciar Sesión"
   },
   "Register": {

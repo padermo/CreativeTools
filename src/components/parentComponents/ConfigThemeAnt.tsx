@@ -48,6 +48,14 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorPrimary: '#DB4CFE',
             colorPrimaryActive: '#DA63FF',
             colorPrimaryHover: '#E681FF'
+          },
+          Input: {
+            boxShadow: 'none',
+            colorBgContainer: theme === 'dark' ? '#444' : '#fff',
+            colorBorder: theme === 'dark' ? '#555' : '#999',
+            hoverBorderColor: '#9337A5',
+            activeBorderColor: '#D000FA',
+            activeShadow: 'none'
           }
         },
       }}

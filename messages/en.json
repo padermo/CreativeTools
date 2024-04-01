@@ -70,6 +70,10 @@
         }
       }
     },
+    "content": {
+      "title": "Log in",
+      "recovery": "Forgot your password?"
+    },
     "button": "Log In"
   },
   "Register": {

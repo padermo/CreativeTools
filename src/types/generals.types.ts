@@ -1,5 +1,6 @@
-import type { ReactNode, Dispatch, SetStateAction } from 'react';
+import type { ReactNode, Dispatch, SetStateAction, ChangeEvent, ClipboardEvent } from 'react';
 import type { ButtonType } from 'antd/es/button';
+import type { FieldError } from 'react-hook-form';
 
 export interface Children {
   children: ReactNode;
@@ -22,6 +23,7 @@ export interface LinkProps {
 export interface ButtonProps extends Children {
   onClick: () => void;
   type: ButtonType;
+  loading: boolean;
 }
 
 export interface Theme {
@@ -35,6 +37,7 @@ export interface Items {
   url: string;
   category: string;
   subcategory: string;
+  liked: string[];
   score:number;
   isFree:boolean;
   createDate:Date;
@@ -57,6 +60,7 @@ export interface ContextItemsValues{
 
 export interface ScoreProps{
   score:number;
+  liked:string[];
 }
 
 export interface StatusFreeProps{
@@ -103,4 +107,19 @@ export interface SubfiltersProps{
 export interface CategoryResponse{
   category:string;
   subcategories: string[];
+}
+
+export interface InputReusableProps{
+  id: string;
+  error: FieldError | undefined;
+  value: string;
+  placeholder: string;
+  type: 'password' | 'normal';
+  onChange: (event:ChangeEvent<HTMLInputElement>) => void;
+  onPaste?: (event:ClipboardEvent<HTMLInputElement>) => void;
+}
+
+export interface InputProps{
+  email:string;
+  password:string;
 }
