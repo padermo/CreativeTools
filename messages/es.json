@@ -45,6 +45,8 @@
     "home": "Inicio",
     "tools": "Herramientas",
     "favorites": "Favoritos",
+    "logout": "Cerrar Sesión",
+    "config": "Configuraciones",
     "login": "Iniciar Sesión",
     "register": "Registrarse"
   },
@@ -107,6 +109,9 @@
           "pattern": "La contraseña no coincide."
         }
       }
+    },
+    "content": {
+      "title": "Regístrate"
     },
     "button": "Registrarse"
   },

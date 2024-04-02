@@ -45,6 +45,8 @@
     "home": "Home",
     "tools": "Tools",
     "favorites": "Favorites",
+    "logout": "Log Out",
+    "config": "Configurations",
     "login": "Log In",
     "register": "Sign Up"
   },
@@ -107,6 +109,9 @@
           "pattern": "Password does not match."
         }
       }
+    },
+    "content": {
+      "title": "Sign Up"
     },
     "button": "Sign Up"
   },

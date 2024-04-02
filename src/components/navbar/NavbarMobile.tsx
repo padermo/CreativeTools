@@ -2,16 +2,18 @@
 import { useState } from 'react';
 import LinkReusable from '../reusable/LinkReusable';
 import { Drawer } from 'antd';
-import { MenuOutlined, CloseOutlined } from '@ant-design/icons'
+import { MenuOutlined, CloseOutlined, LogoutOutlined } from '@ant-design/icons'
 import ButtonReusable from '../reusable/ButtonReusable';
 import SwitchLang from '../config/SwitchLang';
 import SwitchTheme from '../config/SwitchTheme';
+import { useSession } from 'next-auth/react';
 
 // types
 import type { NavbarProps } from '@/types/generals.types';
 
-export default function NavbarMobile({texts}:NavbarProps){
+export default function NavbarMobile({texts, locale, logout}:NavbarProps){
   const [isView, setIsView] = useState<boolean>(false);
+  const { status } = useSession();
 
   const handleViewDrawer = () => {
     setIsView(!isView)
@@ -19,7 +21,7 @@ export default function NavbarMobile({texts}:NavbarProps){
 
   return(
     <nav className='py-4 px-4 md:px-8 md:py-8 lg:hidden'>
-      <ButtonReusable type='primary' onClick={handleViewDrawer}>
+      <ButtonReusable type='primary' loading={false} onClick={handleViewDrawer}>
         <MenuOutlined/>
       </ButtonReusable>
 
@@ -39,14 +41,28 @@ export default function NavbarMobile({texts}:NavbarProps){
           <div className='flex justify-around items-center'>
             <SwitchTheme/>
             <SwitchLang/>
+            {
+              status === 'authenticated' &&
+              <button onClick={logout} className='text-[#222] dark:text-white'>
+                <LogoutOutlined/>
+              </button>
+            }
           </div>
         }
       >
-        <LinkReusable href='/' text={texts('home')}/>
-        <LinkReusable href='/tools' text={texts('tools')}/>
-        <LinkReusable href='/favorites' text={texts('favorites')}/>
-        <LinkReusable href='/auth/login' text={texts('login')}/>
-        <LinkReusable href='/auth/register' text={texts('register')}/>
+        <LinkReusable href={`/${locale}/`} text={texts('home')}/>
+        <LinkReusable href={`/${locale}/tools`} text={texts('tools')}/>
+        <LinkReusable href={`/${locale}/favorites`} text={texts('favorites')}/>
+        <LinkReusable href={`/${locale}/configuration`} text={texts('config')}/>
+        {
+          status === 'unauthenticated' &&
+          (
+            <>
+              <LinkReusable href={`/${locale}/auth/login`} text={texts('login')}/>
+              <LinkReusable href={`/${locale}/auth/register`} text={texts('register')}/>
+            </>
+          )
+        }
       </Drawer>
     </nav>
   )

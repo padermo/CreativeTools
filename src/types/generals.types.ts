@@ -10,9 +10,13 @@ export interface RootLayout extends Children {
   params: { locale: string };
 }
 
-export interface NavbarProps {
-  texts: (key: string) => string;
+export interface UserMenuProps{
   locale: string;
+  logout: () => void;
+}
+
+export interface NavbarProps extends UserMenuProps {
+  texts: (key: string) => string;
 }
 
 export interface LinkProps {
@@ -122,4 +126,8 @@ export interface InputReusableProps{
 export interface InputProps{
   email:string;
   password:string;
+}
+
+export interface InputWatchProps extends InputProps{
+  confirm_password:string;
 }
