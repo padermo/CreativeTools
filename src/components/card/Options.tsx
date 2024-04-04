@@ -1,38 +1,18 @@
 'use client'
-import { MoreOutlined } from '@ant-design/icons';
-import ConfigThemeAnt from '../parentComponents/ConfigThemeAnt';
-import { Tooltip, Dropdown } from 'antd';
+import { ExclamationOutlined } from '@ant-design/icons'
+import { Tooltip } from 'antd'
+import { useTranslations } from 'next-intl'
 
 // types
-import type { OptionsProps } from '@/types/generals.types';
-import type { MenuProps } from 'antd';
+import type { OptionsProps } from '@/types/generals.types'
 
-type MenuItem = Required<MenuProps>['items'][number];
-
-export default function Options({favorite,report,tooltip}:OptionsProps){
-
-  const items:MenuItem[] = [
-    {
-      key: '1',
-      label: (
-        <p className='font-light text-[#222] dark:text-white'>{favorite}</p>
-      )
-    },
-    {
-      key: '2',
-      label: (
-        <p className='font-light text-[#222] dark:text-white'>{report}</p>
-      )
-    }
-  ]
-
-  return (
-    <ConfigThemeAnt>
-      <Dropdown menu={{items}} placement='bottomCenter' arrow={{ pointAtCenter: true }}>
-        <Tooltip title={tooltip}>
-          <MoreOutlined className='text-[#222] cursor-pointer dark:text-white'/>
-        </Tooltip>
-      </Dropdown>
-    </ConfigThemeAnt>
+export default function Options({id, name, handleModal}:OptionsProps){
+  const t = useTranslations('Report')
+  return(
+    <Tooltip title={t('tooltip')}>
+      <button onClick={() => handleModal(id, name)}>
+        <ExclamationOutlined className='text-[#a1a1a1] dark:text-white hover:text-red-600'/>
+      </button>
+    </Tooltip>
   )
 }

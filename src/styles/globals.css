@@ -6,6 +6,14 @@
   display: none;
 }
 
+*{
+  transition: background 600ms ease-in-out;
+  -webkit-transition: background 600ms ease-in-out;
+  -moz-transition: background 600ms ease-in-out;
+  -ms-transition: background 600ms ease-in-out;
+  -o-transition: background 600ms ease-in-out;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -150,8 +150,22 @@
   },
   "Report": {
     "tooltip": "Reportar",
-    "description": "Agrega una breve descripción del motivo por el que creas el reporte.",
-    "button": "Enviar Reporte"
+    "button": "Enviar Reporte",
+    "form": {
+      "inputs": {
+        "description": {
+          "text": "Agrega una breve descripción del motivo por el que creas el reporte.",
+          "placeholder": "..."
+        }
+      },
+      "handlers": {
+        "errors": {
+          "description":{
+            "required": "Este campo es obligatorio."
+          }
+        }
+      }
+    }
   },
   "ScrollTop": {
     "tooltip": "Ir Arriba"

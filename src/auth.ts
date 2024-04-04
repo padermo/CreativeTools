@@ -18,7 +18,7 @@ const auth:AuthOptions = {
           const res = await axiosConfig.post('/login', credentials)
           
           if(res?.data){
-            cookies().set('access', res.data, {sameSite: 'lax', httpOnly:true})
+            cookies().set('access', res.data, {sameSite: 'lax', httpOnly:true, maxAge: 60 * 60 * 24 * 15})
             return res.data;
           } else {
             return res
@@ -31,6 +31,9 @@ const auth:AuthOptions = {
   ],
   pages: {
     signIn: '/auth/login'
+  },
+  session: {
+    maxAge: 60 * 60 * 24 * 15
   }
 }
 

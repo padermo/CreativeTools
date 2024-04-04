@@ -5,26 +5,68 @@ import { useItems } from '@/context/ItemsContext';
 import Pages from '../pagination/Pages';
 import Card from '../card/Card';
 import Filters from '../filters/Filters';
+import CardSkeleton from '../fallbacks/CardSkeleton';
+import ReportModal from '../modals/ReportModal';
+
+// types
+import type { DataReportItem } from '@/types/generals.types';
 
 export default function Tools() {
   const [selectCategory, setSelectCategory] = useState<string>('')
   const [selectSubcategory, setSelectSubcategory] = useState<string>('')
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [accessType, setAccessType] = useState<boolean|undefined>(undefined)
-  const { setItems, setPages, setCategory, pages, items } = useItems();
+  const [isViewModal, setIsViewModal] = useState<boolean>(false)
+  const [dataReportItem, setDataReportItem] = useState<DataReportItem>({id:'',name:''})
+  const { setItems, setPages, setCategory, getFavorites, pages, items, token, userId } = useItems();
+
+  const handleScore = async (itemId:string) => {
+    if(itemId && userId){
+      const response = await axiosConfig.put('/item', {itemId, userId}, {headers: {'Authorization': `Bearer ${token}`}})
+      if(response.status === 200){
+        getItems()
+      }
+    }
+  }
+
+  const handleFavorite = async (itemId:string) => {
+    if(itemId && userId){
+      const response = await axiosConfig.post('/favorite', {itemId, userId}, {headers: {'Authorization': `Bearer ${token}`}})
+      if(response.status === 200){
+        getFavorites()
+      }
+    }
+  }
+
+  const handleModal = (id:string, name:string) => {
+    setIsViewModal(!isViewModal)
+    if(id !== undefined && name !== undefined){
+      setDataReportItem({id:id,name:name})
+    }
+  }
+
+  const getItems = async () => {
+    const resItems = await axiosConfig.get(`/item?category=${selectCategory}&subcategory=${selectSubcategory}${accessType !== undefined ? `&type=${accessType}`:undefined}&page=${currentPage}`);
+    setItems(resItems.data.items);
+    setPages(resItems.data.config);
+  };
+
+  const getCategory = async () => {
+    const resCategory = await axiosConfig.get('/category')
+    setCategory(resCategory.data);
+  }
 
   useEffect(() => {
-    let newAccessType = accessType !== undefined && accessType;
-    const getData = async () => {
-      const resItems = await axiosConfig.get(`/item?category=${selectCategory}&subcategory=${selectSubcategory}&type=${newAccessType}&page=${currentPage}`);
-      const resCategory = await axiosConfig.get('/category')
-      setItems(resItems.data.items);
-      setPages(resItems.data.config);
-      setCategory(resCategory.data);
-    };
+    getCategory()
+  },[])
 
-    getData();
+  useEffect(() => {
+    getItems();
   }, [selectCategory, selectSubcategory, currentPage, accessType]);
+
+  if(!items){
+    return <CardSkeleton/>
+  }
 
   return (
     <div className='flex flex-col w-full min-h-dvh max-h-full gap-4 justify-center items-center py-8'>
@@ -43,10 +85,14 @@ export default function Tools() {
               score={item.score}
               isFree={item.isFree}
               createDate={item.createDate}
+              handleScore={handleScore}
+              handleFavorite={handleFavorite}
+              handleModal={handleModal}
             />
           ))}
       </div>
       <Pages totalItems={pages?.totalItems} totalPages={pages?.totalPages} setCurrentPage={setCurrentPage} />
+      <ReportModal isViewModal={isViewModal} handleModal={handleModal} id={dataReportItem.id} name={dataReportItem.name}/>
     </div>
   );
 }

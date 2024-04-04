@@ -25,7 +25,7 @@ export default function RootLayout({
   const messages = useMessages()
   return (
     <html lang={locale}>
-      <body className={`${poppins.className} max-w-screen-2xl m-auto bg-gray-200 dark:bg-[#222]`}>
+      <body className={`${poppins.className} max-w-screen-2xl m-auto relative bg-gray-200 dark:bg-[#222]`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SessionsProvider>
             <ThemeProvider>

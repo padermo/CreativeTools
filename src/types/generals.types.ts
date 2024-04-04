@@ -1,6 +1,7 @@
 import type { ReactNode, Dispatch, SetStateAction, ChangeEvent, ClipboardEvent } from 'react';
 import type { ButtonType } from 'antd/es/button';
 import type { FieldError } from 'react-hook-form';
+import type { KeyedMutator } from 'swr';
 
 export interface Children {
   children: ReactNode;
@@ -45,6 +46,9 @@ export interface Items {
   score:number;
   isFree:boolean;
   createDate:Date;
+  handleScore: (itemId:string) => void;
+  handleFavorite: (itemId:string) => void;
+  handleModal: (id:string, name:string) => void;
 }
 
 export interface Pages {
@@ -57,14 +61,28 @@ export interface ContextItemsValues{
   items: Items[] | undefined;
   pages: Pages | undefined;
   category: CategoryResponse[] | undefined;
+  token:string;
+  userId:string;
+  favoriteItems: Items[] | undefined;
   setItems: Dispatch<SetStateAction<Items[] | undefined>>;
   setPages: Dispatch<SetStateAction<Pages | undefined>>; 
   setCategory: Dispatch<SetStateAction<CategoryResponse[] | undefined>>
+  setFavoriteItems: Dispatch<SetStateAction<Items[] | undefined>>
+  getFavorites: ()=>void;
 }
 
-export interface ScoreProps{
+export interface ItemId{
+  itemId:string;
+}
+
+export interface ScoreProps extends ItemId{
   score:number;
   liked:string[];
+  handleScore: (itemId:string) => void;
+}
+
+export interface FavoriteProps extends ItemId{
+  handleFavorite: (itemId:string) => void;
 }
 
 export interface StatusFreeProps{
@@ -74,9 +92,9 @@ export interface StatusFreeProps{
 }
 
 export interface OptionsProps{
-  report:string;
-  favorite:string;
-  tooltip:string;
+  id:string;
+  name:string;
+  handleModal: (id:string, name:string) => void;
 }
 
 export interface FilterProps{
@@ -118,8 +136,8 @@ export interface InputReusableProps{
   error: FieldError | undefined;
   value: string;
   placeholder: string;
-  type: 'password' | 'normal';
-  onChange: (event:ChangeEvent<HTMLInputElement>) => void;
+  type: 'password' | 'normal' | 'area';
+  onChange: (event:ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => void;
   onPaste?: (event:ClipboardEvent<HTMLInputElement>) => void;
 }
 
@@ -130,4 +148,22 @@ export interface InputProps{
 
 export interface InputWatchProps extends InputProps{
   confirm_password:string;
+}
+
+export interface FormReportInputs{
+  description:string;
+}
+
+export interface DataReportItem{
+  id:string;
+  name:string;
+}
+
+export interface ReportModalProps extends DataReportItem{
+  isViewModal:boolean;
+  handleModal: (id:string, name:string) => void;
+}
+
+export interface FormReportProps extends DataReportItem{
+  handleModal: (id:string, name:string) => void;
 }

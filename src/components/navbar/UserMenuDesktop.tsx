@@ -30,7 +30,7 @@ export default function UserMenuDesktop({locale, logout}:UserMenuProps){
   return (
     <ConfigThemeAnt>
       <Dropdown menu={{items}} placement='bottomRight'>
-        <button className='rounded-full p-2 flex items-center border-none outline-none text-[#222] dark:text-white hover:bg-gray-100 dark:hover:bg-[#444]'>
+        <button className='rounded-full p-2 flex items-center border-none outline-none text-[#222] dark:text-white hover:bg-gray-100 dark:hover:bg-[#444] hover:shadow-lg'>
           <UserOutlined/>
         </button>
       </Dropdown>

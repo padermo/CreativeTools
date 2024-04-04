@@ -10,7 +10,7 @@ export default function Pages({totalItems, totalPages, setCurrentPage}:Pages){
   }
   return (
     <ConfigThemeAnt>
-      <Pagination defaultCurrent={totalPages} total={totalItems} onChange={(current)=>handleChangePage(current)}/>
+      <Pagination defaultCurrent={1} defaultPageSize={10} total={totalItems} onChange={(current)=>handleChangePage(current)}/>
     </ConfigThemeAnt>
   )
 }

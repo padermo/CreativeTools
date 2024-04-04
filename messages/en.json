@@ -150,8 +150,22 @@
   },
   "Report": {
     "tooltip": "Report",
-    "description": "Add a brief description of the reason you're creating the report.",
-    "button": "Send Report"
+    "button": "Send Report",
+    "form": {
+      "inputs": {
+        "description": {
+          "text": "Add a brief description of the reason you're creating the report.",
+          "placeholder": "..."
+        }
+      },
+      "handlers": {
+        "errors": {
+          "description": {
+            "required": "This field is required."
+          }
+        }
+      }
+    }
   },
   "ScrollTop": {
     "tooltip": "To Top"
