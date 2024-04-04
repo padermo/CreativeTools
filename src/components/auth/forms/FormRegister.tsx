@@ -54,6 +54,10 @@ export default function FormRegister(){
             required: {
               value: true,
               message: t('handlers.errors.email.required'),
+            },
+            pattern: {
+              value: /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/,
+              message: t('handlers.errors.email.pattern')
             }
           }}
           render={({ field, fieldState: { error } }) => (

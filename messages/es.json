@@ -38,7 +38,8 @@
         }
       }
     },
-    "button": "Enviar"
+    "button": "Enviar",
+    "tooltip": "Contacto"
   },
   "Navbar": {
     "title": "Menú",
