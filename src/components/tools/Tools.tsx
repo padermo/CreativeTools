@@ -7,6 +7,7 @@ import Card from '../card/Card';
 import Filters from '../filters/Filters';
 import CardSkeleton from '../fallbacks/CardSkeleton';
 import ReportModal from '../modals/ReportModal';
+import NotData from '../svg/NotData';
 
 // types
 import type { DataReportItem } from '@/types/generals.types';
@@ -89,7 +90,8 @@ export default function Tools() {
               handleFavorite={handleFavorite}
               handleModal={handleModal}
             />
-          ))}
+        ))}
+        {items.length <= 0 && <NotData/>}
       </div>
       <Pages totalItems={pages?.totalItems} totalPages={pages?.totalPages} setCurrentPage={setCurrentPage} />
       <ReportModal isViewModal={isViewModal} handleModal={handleModal} id={dataReportItem.id} name={dataReportItem.name}/>

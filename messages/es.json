@@ -147,6 +147,9 @@
         "favorite": "Agregar Favorito",
         "tooltip": "Más opciones"
       }
+    },
+    "notData": {
+      "text": "No hay datos."
     }
   },
   "Report": {

@@ -147,6 +147,9 @@
         "favorite": "Add Favorite",
         "tooltip": "More options"
       }
+    },
+    "notData": {
+      "text": "Data not found."
     }
   },
   "Report": {
