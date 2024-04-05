@@ -20,7 +20,7 @@ export default function NavbarMobile({texts, locale, logout}:NavbarProps){
   }
 
   return(
-    <nav className='py-4 px-4 md:px-8 md:py-8 lg:hidden'>
+    <nav className='py-4 px-4 md:px-8 lg:hidden'>
       <ButtonReusable type='primary' loading={false} onClick={handleViewDrawer}>
         <MenuOutlined/>
       </ButtonReusable>

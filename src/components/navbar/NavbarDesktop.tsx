@@ -11,7 +11,7 @@ import type { NavbarProps } from '@/types/generals.types';
 export default function NavbarDesktop({ texts, locale, logout }: NavbarProps) {
   const { status } = useSession();
   return (
-    <nav className='items-center justify-between px-8 py-4 hidden lg:flex'>
+    <nav className='w-full items-center justify-between absolute top-0 z-10 px-8 py-4 hidden lg:flex'>
       <picture></picture>
 
       <div className='flex items-center gap-4'>

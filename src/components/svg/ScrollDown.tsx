@@ -1,6 +1,6 @@
 export default function ScrollDown() {
   return (
-    <div className='text-[#222] dark:text-white absolute bottom-4'>
+    <div className='text-[#222] dark:text-white absolute bottom-4 hidden lg:block'>
       <svg
         width='24'
         height='24'
