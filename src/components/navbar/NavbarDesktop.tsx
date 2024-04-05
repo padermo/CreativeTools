@@ -15,6 +15,7 @@ export default function NavbarDesktop({ texts, locale, logout }: NavbarProps) {
       <picture></picture>
 
       <div className='flex items-center gap-4'>
+        <LinkReusable href={`/${locale}`} text={texts('home')} />
         <LinkReusable href={`/${locale}/tools`} text={texts('tools')} />
         {status === 'authenticated' ? 
           (
