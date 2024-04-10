@@ -1,38 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Tag } from 'antd';
+import { useItems } from '@/context/ItemsContext';
+import { subcategory } from '@/utils/dataSend';
+import { useTranslations } from 'next-intl';
 import ConfigThemeAnt from '@/components/parentComponents/ConfigThemeAnt';
 
 // type
-import type { SubcategoryProps } from '@/types/generals.types';
+import type { SelectOption } from '@/components/reusable/types';
+import type { SubcategoryKeys } from '@/types/generals.types';
 
-export default function Subcategory({
-  title,
-  list,
-  onClick,
-}: SubcategoryProps) {
+export default function Subcategory() {
   const [selectedTag, setSelectedTag] = useState<string>('');
-  const tagsData = list;
+  const [tagData, setTagData] = useState<[SelectOption]>([{value:'', label:''}]);
+  const { selectedCategory, setSelectedSubcategory } = useItems();
+  const t = useTranslations('Tools');
 
   const handleChangeTag = (tag:string, checked:boolean) => {
     setSelectedTag(checked ? tag : '');
   };
-  return (
-    <div className='flex items-center gap-1 flex-wrap'>
-      <span className='text-[#222] text-xs font-medium dark:text-white'>{title}:</span>
-      <ConfigThemeAnt>
-        {tagsData &&
-          tagsData.map((tag, index) => (
-            <Tag.CheckableTag
-              key={index}
-              checked={selectedTag.includes(tag)}
-              onChange={(checked) => handleChangeTag(tag, checked)}
-              onClick={() => onClick(index)}
-              className='cursor-pointer text-[#222] font-light dark:text-white'
-            >
-              {tag}
-            </Tag.CheckableTag>
-          ))}
-      </ConfigThemeAnt>
-    </div>
-  );
+
+  useEffect(() => {
+    if(selectedCategory){
+      setTagData(t(`subcategories.${selectedCategory}`).split(',').map((value, index) => {return {value:subcategory[selectedCategory as SubcategoryKeys][index], label:value}}) as [SelectOption])
+    }
+  },[selectedCategory, t])
+
+  if(selectedCategory){
+    return (
+      <div className='flex items-center gap-1 flex-wrap'>
+        <span className='text-[#222] text-xs font-medium dark:text-white'>{t('sections.subcategory')}:</span>
+        <ConfigThemeAnt>
+          {tagData &&
+            tagData.map((tag, index) => (
+              <Tag.CheckableTag
+                key={index}
+                checked={selectedTag.includes(tag.value)}
+                onChange={(checked) => handleChangeTag(tag.value, checked)}
+                onClick={() => setSelectedSubcategory(tag.value)}
+                className='cursor-pointer text-[#222] font-light dark:text-white'
+              >
+                {tag.label}
+              </Tag.CheckableTag>
+            ))}
+        </ConfigThemeAnt>
+      </div>
+    );
+  }
+
+  return null;
 }

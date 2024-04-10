@@ -119,25 +119,18 @@
   },
   "Tools": {
     "categories": "Documentación,Recursos,Módulos",
-    "categories_click": "documents,resources,modules",
     "subcategories": {
-      "documents": "lenguajes programación,frameworks,librerías,apis,bases de datos,sistemas operativos,protocolos de red,otros",
-      "resources": "iconos,colores,imágenes,animaciones,alertas,compresores,gradientes,emuladores,carruseles,componentes,patrones,editores,fuentes,generadores,videos,mockups,plantillas,vectores,sonidos,otros",
-      "modules": "npm,yarn,pnpm,pipy,otros"
+      "documents": "Lenguajes Programación,Frameworks,Librerías,Apis,Bases DeDatos,Sistemas Operativos,Protocolos De Red,Otros",
+      "resources": "Iconos,Colores,Imágenes,Animaciones,Alertas,Compresores,Gradientes,Emuladores,Carruseles,Componentes,Patrones,Editores,Fuentes,Generadores,Videos,Mockups,Plantillas,Vectores,Sonidos,Otros",
+      "modules": "Npm,Yarn,Pnpm,Pipy,Otros"
     },
     "sections": {
       "subcategory": "Subcategorías",
       "accessType": "Tipo de Acceso",
       "liked": "Popularidad"
     },
-    "accessType": {
-      "free": "Gratis",
-      "pay": "Pago"
-    },
-    "liked": {
-      "most": "Mas Gustadas",
-      "least": "Menos Gustadas"
-    },
+    "accessType": "Gratis,Pago",
+    "liked": "Mas Gustadas,Menos Gustadas",
     "cards": {
       "status": {
         "free": "Gratis",
@@ -152,6 +145,51 @@
     "notData": {
       "text": "No hay datos."
     }
+  },
+  "CreateItem": {
+    "inputs": {
+      "name": {
+        "text": "Nombre",
+        "placeholder": "Nombre..."
+      },
+      "url": {
+        "text": "Url",
+        "placeholder": "https://..."
+      },
+      "category": {
+        "text": "Categoría",
+        "placeholder": "Seleccione Categoría"
+      },
+      "subcategory": {
+        "text": "Subcategoría",
+        "placeholder": "Seleccione Subcategoría"
+      },
+      "isFree": {
+        "text": "Tipo de Acceso"
+      }
+    },
+    "handlers": {
+      "errors": {
+        "name": {
+          "required": "Este campo es obligatorio."
+        },
+        "url": {
+          "required": "Este campo es obligatorio.",
+          "pattern": "Ingresa una url valida."
+        },
+        "category": {
+          "required": "Este campo es obligatorio."
+        },
+        "subcategory": {
+          "required": "Este campo es obligatorio."
+        },
+        "isFree": {
+          "required": "Este campo es obligatorio."
+        }
+      }
+    },
+    "button": "Crear",
+    "title": "Crear Item"
   },
   "Report": {
     "tooltip": "Reportar",

@@ -9,7 +9,7 @@ export default function LoginPage() {
     <ValidateSession>
       <PageLayout>
         <div className='min-h-dvh max-h-full flex flex-col justify-center items-center gap-4'>
-          <h1 className='text-2xl'>{t('title')}</h1>
+          <h1 className='text-2xl text-[#222] dark:text-white'>{t('title')}</h1>
           <FormLogin/>
           <p className='text-sm font-light no-underline hover:underline'>{t('recovery')}</p>
         </div>

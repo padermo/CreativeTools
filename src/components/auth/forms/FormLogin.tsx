@@ -65,7 +65,6 @@ export default function FormLogin() {
               <InputReusable
                 type='normal'
                 id='email'
-                error={error}
                 value={field.value}
                 placeholder={t('form.email.placeholder')}
                 onChange={field.onChange}
@@ -97,7 +96,6 @@ export default function FormLogin() {
               <InputReusable
                 type='password'
                 id='password'
-                error={error}
                 value={field.value}
                 placeholder={t('form.password.placeholder')}
                 onChange={field.onChange}

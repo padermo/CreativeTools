@@ -8,6 +8,7 @@ import ItemsProvider from '@/context/ItemsContext';
 import ScrollTop from '@/components/config/ScrollTop';
 import SessionsProvider from '@/components/provider/SessionProvider';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
+import ModalProvider from '@/context/ModalContext';
 import '@/styles/globals.css';
 
 const poppins = Poppins({ weight: ['300', '400', '500', '600'] ,subsets: ['latin'] });
@@ -29,12 +30,14 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SessionsProvider>
             <ThemeProvider>
-              <ItemsProvider>
-                <Navbar/>
-                {children}
-                <ScrollTop/>
-                <Footer/>
-              </ItemsProvider>
+              <ModalProvider>
+                <ItemsProvider>
+                  <Navbar/>
+                  {children}
+                  <ScrollTop/>
+                  <Footer/>
+                </ItemsProvider>
+              </ModalProvider>
             </ThemeProvider>
           </SessionsProvider>
         </NextIntlClientProvider>

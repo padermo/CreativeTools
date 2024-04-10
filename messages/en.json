@@ -119,25 +119,18 @@
   },
   "Tools": {
     "categories": "Documentation,Resources,Modules",
-    "categories_click": "documents,resources,modules",
     "subcategories": {
-      "documents": "programming languages,frameworks,libraries,APIs,databases,operating systems,network protocols,others",
-      "resources": "icons,colors,images,animations,alerts,compressors,gradients,emulators,carousels,components,patterns,editors,fonts,generators,videos,mockups,templates,vectors,sounds,others",
-      "modules": "npm,yarn,pnpm,pipy,others"
+      "documents": "Programming Languages,Frameworks,Libraries,APIs,Databases,Operating Systems,Network Protocols,Others",
+      "resources": "Icons,Colors,Images,Animations,Alerts,Compressors,Gradients,Emulators,Carousels,Components,Patterns,Editors,Fonts,Generators,Videos,Mockups,Templates,Vectors,Sounds,Others",
+      "modules": "Npm,Yarn,Pnpm,Pipy,Others"
     },
     "sections": {
       "subcategory": "Subcategories",
       "accessType": "Access Type",
       "liked": "Popularity"
     },
-    "accessType": {
-      "free": "Free",
-      "pay": "Pay"
-    },
-    "liked": {
-      "most": "Most Liked",
-      "least": "Least Liked"
-    },
+    "accessType": "Free,Pay",
+    "liked": "Most Liked,Least Liked",
     "cards": {
       "status": {
         "free": "Free",
@@ -152,6 +145,51 @@
     "notData": {
       "text": "Data not found."
     }
+  },
+  "CreateItem": {
+    "inputs": {
+      "name": {
+        "text": "Name",
+        "placeholder": "Name..."
+      },
+      "url": {
+        "text": "Url",
+        "placeholder": "https://..."
+      },
+      "category": {
+        "text": "Category",
+        "placeholder": "Selected Category"
+      },
+      "subcategory": {
+        "text": "Subcategory",
+        "placeholder": "Selected Subcategory"
+      },
+      "isFree": {
+        "text": "Access Type"
+      }
+    },
+    "handlers": {
+      "errors": {
+        "name": {
+          "required": "This field is required."
+        },
+        "url": {
+          "required": "This field is required.",
+          "pattern": "Enter a valid URL."
+        },
+        "category": {
+          "required": "This field is required."
+        },
+        "subcategory": {
+          "required": "This field is required."
+        },
+        "isFree": {
+          "required": "This field is required."
+        }
+      }
+    },
+    "button": "Create",
+    "title": "Create Item"
   },
   "Report": {
     "tooltip": "Report",

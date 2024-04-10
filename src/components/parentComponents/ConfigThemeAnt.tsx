@@ -52,10 +52,23 @@ export default function ConfigThemeAnt({ children }: Children) {
           Input: {
             boxShadow: 'none',
             colorBgContainer: theme === 'dark' ? '#444' : '#fff',
-            colorBorder: theme === 'dark' ? '#555' : '#999',
+            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
             hoverBorderColor: '#9337A5',
             activeBorderColor: '#D000FA',
             activeShadow: 'none'
+          },
+          Select: {
+            colorPrimary: '#9337A5',
+            colorPrimaryHover: '#D000FA',
+            colorBgContainer: theme === 'dark' ? '#444' : '#fff',
+            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
+          },
+          Radio: {
+            colorPrimary: '#B323CF',
+            colorPrimaryActive: '#9337A5',
+            colorPrimaryHover: '#D000FA',
+            colorBgContainer: theme === 'dark' ? '#444' : '#fff',
+            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
           }
         },
       }}

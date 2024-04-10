@@ -2,12 +2,9 @@ import type {
   ReactNode,
   Dispatch,
   SetStateAction,
-  ChangeEvent,
-  ClipboardEvent,
 } from 'react';
 import type { ButtonType } from 'antd/es/button';
-import type { FieldError } from 'react-hook-form';
-import type { KeyedMutator } from 'swr';
+import type { SelectOption } from '@/components/reusable/types';
 
 export interface Children {
   children: ReactNode;
@@ -66,15 +63,17 @@ export interface Pages {
 export interface ContextItemsValues {
   items: Items[] | undefined;
   pages: Pages | undefined;
-  category: CategoryResponse[] | undefined;
   token: string;
   userId: string;
+  selectedCategory: string;
   favoriteItems: Items[] | undefined;
   setItems: Dispatch<SetStateAction<Items[] | undefined>>;
   setPages: Dispatch<SetStateAction<Pages | undefined>>;
-  setCategory: Dispatch<SetStateAction<CategoryResponse[] | undefined>>;
   setFavoriteItems: Dispatch<SetStateAction<Items[] | undefined>>;
-  getFavorites: () => void;
+  setSelectedCategory: Dispatch<SetStateAction<string>>;
+  setSelectedSubcategory: Dispatch<SetStateAction<string>>;
+  setSelectedAccessType: Dispatch<SetStateAction<string>>;
+  setSelectedLiked: Dispatch<SetStateAction<string>>;
 }
 
 export interface ItemId {
@@ -107,6 +106,7 @@ export interface FilterProps {
   setSelectCategory: Dispatch<SetStateAction<string>>;
   setSelectSubcategory: Dispatch<SetStateAction<string>>;
   setAccessType: Dispatch<SetStateAction<boolean | undefined>>;
+  handleCreateModal: () => void;
 }
 
 export interface CategoryProps {
@@ -125,28 +125,15 @@ export interface SubcategoryProps {
   onClick: (index: number) => void;
 }
 
-export interface SubfiltersProps {
+export interface SubFiltersProps {
   title: string;
-  optionOne: string;
-  optionTwo: string;
-  onClick: (content: boolean) => void;
+  tagsData: SelectOption[]
+  onClick: Dispatch<SetStateAction<string>>;
 }
 
 export interface CategoryResponse {
   category: string;
   subcategories: string[];
-}
-
-export interface InputReusableProps {
-  id: string;
-  error: FieldError | undefined;
-  value: string;
-  placeholder: string;
-  type: 'password' | 'normal' | 'area';
-  onChange: (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onPaste?: (event: ClipboardEvent<HTMLInputElement>) => void;
 }
 
 export interface InputProps {
@@ -185,6 +172,12 @@ export interface FormContactProps{
   handleModal: () => void;
 }
 
-export interface ContactModalProps extends FormContactProps{
-  isViewModal: boolean;
+export interface FormCardInputs{
+  name:string;
+  url:string;
+  category:string;
+  subcategory:string;
+  isFree:boolean;
 }
+
+export type SubcategoryKeys = 'documents'|'resources'|'modules';

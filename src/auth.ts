@@ -1,5 +1,5 @@
 import CredentialsProvider from 'next-auth/providers/credentials';
-import axiosConfig from './axios/axiosconfig';
+import axiosConfig from './axios/axiosConfig';
 import { cookies } from 'next/headers';
 
 // type

@@ -7,6 +7,7 @@ import ButtonReusable from '../reusable/ButtonReusable';
 import SwitchLang from '../config/SwitchLang';
 import SwitchTheme from '../config/SwitchTheme';
 import { useSession } from 'next-auth/react';
+import { useTheme } from '@/context/ThemeContext';
 
 // types
 import type { NavbarProps } from '@/types/generals.types';
@@ -14,6 +15,7 @@ import type { NavbarProps } from '@/types/generals.types';
 export default function NavbarMobile({texts, locale, logout}:NavbarProps){
   const [isView, setIsView] = useState<boolean>(false);
   const { status } = useSession();
+  const { theme } = useTheme();
 
   const handleViewDrawer = () => {
     setIsView(!isView)
@@ -26,7 +28,7 @@ export default function NavbarMobile({texts, locale, logout}:NavbarProps){
       </ButtonReusable>
 
       <Drawer
-        style={{background: '#e8e8e8'}}
+        style={{background: theme === 'dark' ? '#333' : '#e8e8e8'}}
         width={200}
         className='text-[#222] text-xl dark:text-white'
         open={isView}

@@ -1,14 +1,22 @@
+import { useTranslations } from 'next-intl'
+import { category } from '@/utils/dataSend'
+import { useItems } from '@/context/ItemsContext';
 import ButtonReusable from '@/components/reusable/ButtonReusable'
-// type
-import type { CategoryProps } from '@/types/generals.types'
 
-export default function Category({category, handleCategory}:CategoryProps){
+// type
+import type { SelectOption } from '@/components/reusable/types';
+
+export default function Category(){
+  const { setSelectedCategory } = useItems();
+  const t = useTranslations('Tools');
+  const categoryData:[SelectOption] = t('categories').split(',').map((value, index) => {return {value:category[index], label:value}}) as [SelectOption];
+
   return (
-    <div className='w-full flex items-center justify-start gap-4'>
+    <div className='flex items-center justify-start gap-3'>
       {
-        category && category.map((element, index) => (
-          <ButtonReusable key={index} type='primary' loading={false} onClick={()=>handleCategory(index)}>
-            {element.charAt(0).toUpperCase() + element.slice(1)}
+        categoryData && categoryData.map(item => (
+          <ButtonReusable key={item.value} loading={false} type='primary' onClick={() => setSelectedCategory(item.value)}>
+            {item.label}
           </ButtonReusable>
         ))
       }
