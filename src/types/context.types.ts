@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { KeyedMutator } from 'swr';
+import type { KeyedMutator } from 'swr';
 
 export type TypeModal = 'create'|'report'|'contact';
 
@@ -50,4 +50,5 @@ export interface ContextItemsValues {
   setSelectedAccessType: Dispatch<SetStateAction<string>>;
   setSelectedLiked: Dispatch<SetStateAction<string>>;
   mutateFavorite: KeyedMutator<any>;
+  mutateItems: KeyedMutator<any>;
 }

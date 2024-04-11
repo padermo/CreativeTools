@@ -25,12 +25,11 @@ export default function Card({_id, name, url, category, subcategory, score, like
       <div className='w-full flex justify-between items-center'>
         <div className='flex items-center gap-2'>
           <Favorite _id={_id} />
-          {/* <Score
+          <Score
             score={score}
             liked={liked}
-            itemId={_id}
-            handleScore={handleScore}
-          /> */}
+            _id={_id}
+          />
         </div>
         <StatusFree
           isFree={isFree}

@@ -71,7 +71,7 @@ export default function ItemsProvider({ children }: Children) {
   },[dataFavorite])
 
   return (
-    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, mutateFavorite }}>
+    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, mutateFavorite, mutateItems }}>
       {children}
     </ItemsContext.Provider>
   );

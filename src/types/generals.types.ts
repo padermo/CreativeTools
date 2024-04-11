@@ -47,7 +47,6 @@ export interface ItemId {
 export interface ScoreProps extends ItemId {
   score: number;
   liked: string[];
-  handleScore: (itemId: string) => void;
 }
 
 export interface FavoriteProps extends ItemId {}
