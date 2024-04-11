@@ -50,6 +50,7 @@ export interface ContextItemsValues {
   setSelectedAccessType: Dispatch<SetStateAction<string>>;
   setSelectedLiked: Dispatch<SetStateAction<string>>;
   setSelectedPage: Dispatch<SetStateAction<number>>;
+  getAllItems: () => void;
   mutateFavorite: KeyedMutator<any>;
   mutateItems: KeyedMutator<any>;
 }

@@ -52,6 +52,14 @@ export default function ItemsProvider({ children }: Children) {
     if(cookie) setToken(cookie.value)
   }
 
+  const getAllItems = () => {
+    setSelectedCategory('')
+    setSelectedSubcategory('')
+    setSelectedAccessType('')
+    setSelectedLiked('')
+    mutateItems()
+  }
+
   useEffect(() => {
     getToken()
   },[])
@@ -72,7 +80,7 @@ export default function ItemsProvider({ children }: Children) {
   },[dataFavorite])
 
   return (
-    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, setSelectedPage, mutateFavorite, mutateItems }}>
+    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, setSelectedPage, getAllItems, mutateFavorite, mutateItems }}>
       {children}
     </ItemsContext.Provider>
   );

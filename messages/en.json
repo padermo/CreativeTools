@@ -129,6 +129,7 @@
       "accessType": "Access Type",
       "liked": "Popularity"
     },
+    "all": "All",
     "accessType": "Free,Pay",
     "liked": "Most Liked,Least Liked",
     "cards": {
