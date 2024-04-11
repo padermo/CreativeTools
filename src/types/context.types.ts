@@ -49,6 +49,7 @@ export interface ContextItemsValues {
   setSelectedSubcategory: Dispatch<SetStateAction<string>>;
   setSelectedAccessType: Dispatch<SetStateAction<string>>;
   setSelectedLiked: Dispatch<SetStateAction<string>>;
+  setSelectedPage: Dispatch<SetStateAction<number>>;
   mutateFavorite: KeyedMutator<any>;
   mutateItems: KeyedMutator<any>;
 }

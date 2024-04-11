@@ -1,16 +1,16 @@
+'use client'
 import { Pagination } from 'antd';
+import { useItems } from '@/context/ItemsContext';
 import ConfigThemeAnt from '../parentComponents/ConfigThemeAnt';
 
-// types
-import type { Pages } from '@/types/generals.types';
-
-export default function Pages({totalItems, totalPages, setCurrentPage}:Pages){
+export default function Pages(){
+  const { pages, setSelectedPage } = useItems();
   const handleChangePage = (current:number) => {
-    setCurrentPage(current)
+    setSelectedPage(current)
   }
   return (
     <ConfigThemeAnt>
-      <Pagination defaultCurrent={1} defaultPageSize={10} total={totalItems} onChange={(current)=>handleChangePage(current)}/>
+      <Pagination defaultCurrent={1} defaultPageSize={10} total={pages.totalItems} onChange={(current)=>handleChangePage(current)}/>
     </ConfigThemeAnt>
   )
 }
