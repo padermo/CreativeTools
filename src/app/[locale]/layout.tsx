@@ -4,7 +4,6 @@ import { Poppins } from 'next/font/google';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
 import ThemeProvider from '@/context/ThemeContext';
-import ItemsProvider from '@/context/ItemsContext';
 import ScrollTop from '@/components/config/ScrollTop';
 import SessionsProvider from '@/components/provider/SessionProvider';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
@@ -31,12 +30,10 @@ export default function RootLayout({
           <SessionsProvider>
             <ThemeProvider>
               <ModalProvider>
-                <ItemsProvider>
-                  <Navbar/>
-                  {children}
-                  <ScrollTop/>
-                  <Footer/>
-                </ItemsProvider>
+                <Navbar/>
+                {children}
+                <ScrollTop/>
+                <Footer/>
               </ModalProvider>
             </ThemeProvider>
           </SessionsProvider>

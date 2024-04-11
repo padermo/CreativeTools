@@ -5,6 +5,7 @@ import type {
 } from 'react';
 import type { ButtonType } from 'antd/es/button';
 import type { SelectOption } from '@/components/reusable/types';
+import type { HandlerModalFunction, SetDataReportModal } from './context.types';
 
 export interface Children {
   children: ReactNode;
@@ -39,43 +40,6 @@ export interface Theme {
   handleTheme: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface Items {
-  _id: string;
-  name: string;
-  url: string;
-  category: string;
-  subcategory: string;
-  liked: string[];
-  score: number;
-  isFree: boolean;
-  createDate: Date;
-  handleScore: (itemId: string) => void;
-  handleFavorite: (itemId: string) => void;
-  handleModal: (id: string, name: string) => void;
-}
-
-export interface Pages {
-  totalPages: number | undefined;
-  totalItems: number | undefined;
-  setCurrentPage: Dispatch<SetStateAction<number>>;
-}
-
-export interface ContextItemsValues {
-  items: Items[] | undefined;
-  pages: Pages | undefined;
-  token: string;
-  userId: string;
-  selectedCategory: string;
-  favoriteItems: Items[] | undefined;
-  setItems: Dispatch<SetStateAction<Items[] | undefined>>;
-  setPages: Dispatch<SetStateAction<Pages | undefined>>;
-  setFavoriteItems: Dispatch<SetStateAction<Items[] | undefined>>;
-  setSelectedCategory: Dispatch<SetStateAction<string>>;
-  setSelectedSubcategory: Dispatch<SetStateAction<string>>;
-  setSelectedAccessType: Dispatch<SetStateAction<string>>;
-  setSelectedLiked: Dispatch<SetStateAction<string>>;
-}
-
 export interface ItemId {
   itemId: string;
 }
@@ -97,9 +61,8 @@ export interface StatusFreeProps {
 }
 
 export interface OptionsProps {
-  id: string;
+  _id: string;
   name: string;
-  handleModal: (id: string, name: string) => void;
 }
 
 export interface FilterProps {
@@ -159,9 +122,7 @@ export interface ReportModalProps extends DataReportItem {
   handleModal: (id: string, name: string) => void;
 }
 
-export interface FormReportProps extends DataReportItem {
-  handleModal: (id: string, name: string) => void;
-}
+export interface FormReportProps extends SetDataReportModal, HandlerModalFunction{};
 
 export interface FormContactInputs {
   to: string;

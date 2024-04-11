@@ -5,12 +5,12 @@ import { useForm, Controller } from 'react-hook-form';
 import ButtonReusable from '@/components/reusable/ButtonReusable';
 import InputReusable from '@/components/reusable/InputReusable';
 import axios from 'axios';
-import axiosConfig from '@/axios/axiosconfig';
+import axiosConfig from '@/axios/axiosConfig';
 
 // types
 import type { FormReportInputs, FormReportProps } from '@/types/generals.types';
 
-export default function FormReport({id, name, handleModal}:FormReportProps){
+export default function FormReport({_id, name, handleModal}:FormReportProps){
   const [loading, setLoading] = useState<boolean>(false);
   const t = useTranslations('Report');
 
@@ -19,14 +19,14 @@ export default function FormReport({id, name, handleModal}:FormReportProps){
   const onSubmit = handleSubmit(async (data) => {
     const { description } = data;
     try {
-      const response = await axiosConfig.post('/support/report', {id:id, text:description})
+      const response = await axiosConfig.post('/support/report', {id:_id, text:description})
       setLoading(true)
       console.log(response.data)
     } catch (error) {
       console.log(error)
     } finally {
       reset()
-      handleModal(id='', name='')
+      handleModal('report', {_id:'', name:''})
       setLoading(false)
     }
   })
@@ -34,7 +34,7 @@ export default function FormReport({id, name, handleModal}:FormReportProps){
   return(
     <form onSubmit={onSubmit} className='flex flex-col gap-4'>
       <div className='w-full text-[#222] font-light dark:text-white'>
-        <label htmlFor='description' className='mb-2 inline-block text-wrap break-words'>{t('form.inputs.description.text')}</label>
+        <label htmlFor='description' className='mb-2 inline-block text-sm text-wrap break-words'>{t('form.inputs.description.text')}</label>
         <Controller
           name='description'
           control={control}
@@ -50,7 +50,6 @@ export default function FormReport({id, name, handleModal}:FormReportProps){
               <InputReusable
                 type='area'
                 id='description'
-                error={error}
                 value={field.value}
                 placeholder={t('form.inputs.description.placeholder')}
                 onChange={field.onChange}

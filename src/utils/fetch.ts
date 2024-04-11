@@ -1,4 +1,4 @@
-import axiosConfig from '@/axios/axiosconfig';
+import axiosConfig from '@/axios/axiosConfig';
 
 export const getData = async (url:string) => {
   const res = await axiosConfig.get(url)

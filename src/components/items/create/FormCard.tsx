@@ -10,7 +10,7 @@ import ButtonReusable from '@/components/reusable/ButtonReusable';
 import InputReusable from '@/components/reusable/InputReusable';
 import SelectReusable from '@/components/reusable/SelectReusable';
 import RadioReusable from '@/components/reusable/RadioReusable';
-import axiosConfig from '@/axios/axiosconfig';
+import axiosConfig from '@/axios/axiosConfig';
 
 // types
 import type { FormCardInputs } from '@/types/generals.types';
@@ -198,8 +198,8 @@ export default function FormCard({handleModal}:HandlerModalFunction){
           render={({ field, fieldState: { error } }) => (
             <div className='flex items-center'>
               <RadioReusable onChange={field.onChange}>
-                <Radio value={accessType.free}>{t('accessType.free')}</Radio>
-                <Radio value={accessType.pay}>{t('accessType.pay')}</Radio>
+                <Radio value={accessType[0]}>{t('accessType').split(',')[0]}</Radio>
+                <Radio value={accessType[1]}>{t('accessType').split(',')[1]}</Radio>
               </RadioReusable>
               {error && (
                 <span className='text-red-600 text-xs block'>
