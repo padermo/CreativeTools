@@ -32,11 +32,11 @@ export default function Card({_id, name, url, category, subcategory, score, like
             handleScore={handleScore}
           /> */}
         </div>
-        {/* <StatusFree
+        <StatusFree
           isFree={isFree}
-          free={t('cards.status.free')}
-          pay={t('cards.status.pay')}
-        /> */}
+          free={t('accessType').split(',')[0]}
+          pay={t('accessType').split(',')[1]}
+        />
       </div>
     </div>
   );

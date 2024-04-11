@@ -132,10 +132,6 @@
     "accessType": "Gratis,Pago",
     "liked": "Mas Gustadas,Menos Gustadas",
     "cards": {
-      "status": {
-        "free": "Gratis",
-        "pay": "Pago"
-      },
       "options": {
         "report": "Reportar",
         "favorite": "Agregar Favorito",

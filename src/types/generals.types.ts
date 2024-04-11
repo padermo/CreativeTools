@@ -55,7 +55,7 @@ export interface FavoriteProps extends ItemId {
 }
 
 export interface StatusFreeProps {
-  isFree: boolean;
+  isFree: string;
   free: string;
   pay: string;
 }
