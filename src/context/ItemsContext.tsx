@@ -44,7 +44,7 @@ export default function ItemsProvider({ children }: Children) {
   const [token, setToken] = useState<string>('');
 
   const {data:dataItems, mutate:mutateItems} = useSWR(`/item?category=${selectedCategory}&subcategory=${selectedSubcategory}&type=${selectedAccessType}`, getData);
-  const {data:dataFavorite, mutate:mutateFavorite} = useSWR(userId && token ? `/favorite?userId=${userId}` : null, getData);
+  const {data:dataFavorite, mutate:mutateFavorite} = useSWR(userId && token ? `/favorite?userId=${userId}` : null, (url) => getData(url, token));
 
   const getToken = async () => {
     const cookie = await getCookie();
@@ -66,8 +66,12 @@ export default function ItemsProvider({ children }: Children) {
     if(dataItems) setItems(dataItems.items);
   },[dataItems])
 
+  useEffect(() => {
+    if(dataFavorite) setFavoriteItems(dataFavorite);
+  },[dataFavorite])
+
   return (
-    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked }}>
+    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, mutateFavorite }}>
       {children}
     </ItemsContext.Provider>
   );

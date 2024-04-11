@@ -24,7 +24,7 @@ export default function Card({_id, name, url, category, subcategory, score, like
       </div>
       <div className='w-full flex justify-between items-center'>
         <div className='flex items-center gap-2'>
-          {/* <Favorite handleFavorite={handleFavorite} itemId={_id} /> */}
+          <Favorite _id={_id} />
           {/* <Score
             score={score}
             liked={liked}

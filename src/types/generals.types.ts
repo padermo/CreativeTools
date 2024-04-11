@@ -41,7 +41,7 @@ export interface Theme {
 }
 
 export interface ItemId {
-  itemId: string;
+  _id: string;
 }
 
 export interface ScoreProps extends ItemId {
@@ -50,9 +50,7 @@ export interface ScoreProps extends ItemId {
   handleScore: (itemId: string) => void;
 }
 
-export interface FavoriteProps extends ItemId {
-  handleFavorite: (itemId: string) => void;
-}
+export interface FavoriteProps extends ItemId {}
 
 export interface StatusFreeProps {
   isFree: string;
