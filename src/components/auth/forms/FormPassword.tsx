@@ -1,88 +1,55 @@
-'use client';
-import { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { useForm, Controller } from 'react-hook-form';
-import { useRouter } from '@/navigation';
-import { useAlert } from '@/context/AlertContext';
-import ButtonReusable from '@/components/reusable/ButtonReusable';
-import InputReusable from '@/components/reusable/InputReusable';
-import axiosConfig from '@/axios/axiosConfig';
-import axios from 'axios';
+'use client'
+import { useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { Controller, useForm } from 'react-hook-form'
+import { useAlert } from '@/context/AlertContext'
+import { useRouter } from '@/navigation'
+import axiosConfig from '@/axios/axiosConfig'
+import axios from 'axios'
+import InputReusable from '@/components/reusable/InputReusable'
+import ButtonReusable from '@/components/reusable/ButtonReusable'
 
 // types
-import type { ClipboardEventHandler } from 'react';
-import type { InputWatchProps } from '@/types/generals.types';
+import type { InputsFormPassword } from './types'
 
-export default function FormRegister(){
+export default function FormPassword(){
   const [loading, setLoading] = useState<boolean>(false);
-  const t = useTranslations('Register');
-  const router = useRouter();
-  const { contextHolder, handleAlert } = useAlert();
-  const { handleSubmit, reset, watch, control } = useForm<InputWatchProps>();
 
-  const onSubmit = handleSubmit(async (data) => {
-    const { email, password } = data;
+  const router = useRouter();
+  const email = localStorage.getItem('email');
+
+  const t = useTranslations('Recovery');
+
+  const { handleAlert } = useAlert();
+  const { handleSubmit, watch, control, reset } = useForm<InputsFormPassword>();
+
+  const onSubmit = handleSubmit(async(data) => {
+    const { password } = data;
     try {
-      const res = await axiosConfig.post('/register', {email, password})
+      const res = await axiosConfig.post('/recovery/modify-password', {email, password})
       setLoading(true)
 
-      if(res?.status === 201){
-        router.push('/login')
-        router.refresh();
+      if(res?.status === 200){
+        handleAlert({type:'success', content: t('alerts.success')})
+        localStorage.removeItem('email')
+        router.push('/auth/login')
       }
+      
     } catch (error) {
       if(axios.isAxiosError(error)){
-        if(error.response?.status === 401){
-          handleAlert({type:'info', content: t('alerts.registered')})
+        if(error.response?.status === 400){
+          handleAlert({type:'info', content: error.response.data.message})
         }
       }
     } finally {
-      reset();
-      setLoading(false)
+      setLoading(false);
+      reset()
     }
-  });
+  })
 
-  const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
-    event.preventDefault();
-  };
-
-  return (
+  return(
     <form onSubmit={onSubmit} className='w-full flex flex-col gap-4 lg:w-2/5'>
-      <div className='w-full text-[#222] font-light dark:text-white'>
-        <label htmlFor='email'>{t('form.email.text')}</label>
-        <Controller
-          name='email'
-          control={control}
-          defaultValue=''
-          rules={{
-            required: {
-              value: true,
-              message: t('handlers.errors.email.required'),
-            },
-            pattern: {
-              value: /^[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/,
-              message: t('handlers.errors.email.pattern')
-            }
-          }}
-          render={({ field, fieldState: { error } }) => (
-            <>
-              <InputReusable
-                type='normal'
-                id='email'
-                value={field.value}
-                placeholder={t('form.email.placeholder')}
-                onChange={field.onChange}
-              />
-              {error && (
-                <span className='text-red-600 text-xs block'>
-                  {error.message}
-                </span>
-              )}
-            </>
-          )}
-        />
-      </div>
-
+      <h1 className='text-center text-xl font-semibold text-[#222] dark:text-white'>{t('content.title')}</h1>
       <div className='w-full text-[#222] font-light dark:text-white'>
         <label htmlFor='password'>{t('form.password.text')}</label>
         <Controller
@@ -107,7 +74,6 @@ export default function FormRegister(){
                 value={field.value}
                 placeholder={t('form.password.placeholder')}
                 onChange={field.onChange}
-                onPaste={handlePaste}
               />
               {error && (
                 <span className='text-red-600 text-xs block'>
@@ -141,7 +107,6 @@ export default function FormRegister(){
                 value={field.value}
                 placeholder={t('form.confirm_password.placeholder')}
                 onChange={field.onChange}
-                onPaste={handlePaste}
               />
               {error && (
                 <span className='text-red-600 text-xs block'>
@@ -154,9 +119,8 @@ export default function FormRegister(){
       </div>
 
       <ButtonReusable type='primary' loading={loading} onClick={onSubmit}>
-        {t('button')}
+        {t('buttons.modify')}
       </ButtonReusable>
-      {contextHolder}
     </form>
   )
 }

@@ -5,7 +5,7 @@ import { useForm, Controller } from 'react-hook-form';
 import ButtonReusable from '@/components/reusable/ButtonReusable';
 import InputReusable from '@/components/reusable/InputReusable';
 import axios from 'axios';
-import axiosConfig from '@/axios/axiosconfig';
+import axiosConfig from '@/axios/axiosConfig';
 
 // types
 import type { FormContactInputs, FormContactProps } from '@/types/generals.types';
@@ -21,12 +21,11 @@ export default function FormContact({handleModal}:FormContactProps){
     try {
       const response = await axiosConfig.post('/support', {to, text:content})
       setLoading(true)
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     } finally {
       reset()
-      handleModal()
+      handleModal('contact')
       setLoading(false)
     }
   })
@@ -54,7 +53,6 @@ export default function FormContact({handleModal}:FormContactProps){
               <InputReusable
                 type='normal'
                 id='to'
-                error={error}
                 value={field.value}
                 placeholder={t('form.email.placeholder')}
                 onChange={field.onChange}
@@ -86,7 +84,6 @@ export default function FormContact({handleModal}:FormContactProps){
               <InputReusable
                 type='area'
                 id='content'
-                error={error}
                 value={field.value}
                 placeholder={t('form.subject.placeholder')}
                 onChange={field.onChange}

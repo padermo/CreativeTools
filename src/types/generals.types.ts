@@ -16,17 +16,11 @@ export interface RootLayout extends Children {
 }
 
 export interface UserMenuProps {
-  locale: string;
   logout: () => void;
 }
 
 export interface NavbarProps extends UserMenuProps {
   texts: (key: string) => string;
-}
-
-export interface LinkProps {
-  href: string;
-  text: string;
 }
 
 export interface ButtonProps extends Children {
@@ -126,9 +120,7 @@ export interface FormContactInputs {
   content: string;
 }
 
-export interface FormContactProps{
-  handleModal: () => void;
-}
+export interface FormContactProps extends HandlerModalFunction{}
 
 export interface FormCardInputs{
   name:string;

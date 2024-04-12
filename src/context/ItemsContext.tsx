@@ -60,6 +60,16 @@ export default function ItemsProvider({ children }: Children) {
     mutateItems()
   }
 
+  const handleCategory = (value:string) => {
+    setSelectedCategory(value);
+    if(selectedSubcategory || selectedLiked || selectedAccessType){
+      setSelectedSubcategory('')
+      setSelectedLiked('')
+      setSelectedAccessType('')
+      mutateItems()
+    }
+  }
+
   useEffect(() => {
     getToken()
   },[])
@@ -80,7 +90,7 @@ export default function ItemsProvider({ children }: Children) {
   },[dataFavorite])
 
   return (
-    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, setSelectedPage, getAllItems, mutateFavorite, mutateItems }}>
+    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, setSelectedPage, handleCategory, getAllItems, mutateFavorite, mutateItems }}>
       {children}
     </ItemsContext.Provider>
   );

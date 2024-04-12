@@ -6,7 +6,7 @@ export default function Cards(){
   const { items } = useItems();
 
   return (
-    <div className='w-full flex flex-wrap gap-5 flex-1'>
+    <div className='w-full flex flex-wrap justify-center gap-5 flex-1 md:justify-between lg:items-start lg:justify-between 2xl:items-center'>
       {
         items && items.map(item => (
           <Card 

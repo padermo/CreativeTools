@@ -14,10 +14,11 @@ export default function SubFilters({
 
   const handleChangeTag = (tag: string, checked: boolean) => {
     setSelectedTag(checked ? tag : '');
+    onClick(checked ? tag : '')
   };
   return (
-    <div className='flex items-center gap-1 flex-wrap'>
-      <span className='text-[#222] text-xs font-medium dark:text-white'>
+    <div className='flex gap-1 flex-wrap'>
+      <span className='text-[#222] text-sm font-medium dark:text-white'>
         {title}:
       </span>
       <ConfigThemeAnt>
@@ -27,8 +28,7 @@ export default function SubFilters({
               key={tag.value}
               checked={selectedTag.includes(tag.value)}
               onChange={(checked) => handleChangeTag(tag.value, checked)}
-              onClick={() => onClick(tag.value)}
-              className='cursor-pointer text-[#222] font-light dark:text-white'
+              className='cursor-pointer text-[#222] font-medium text-sm dark:text-white'
             >
               {tag.label}
             </Tag.CheckableTag>

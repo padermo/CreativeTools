@@ -8,25 +8,25 @@ import { useSession } from 'next-auth/react';
 // types
 import type { NavbarProps } from '@/types/generals.types';
 
-export default function NavbarDesktop({ texts, locale, logout }: NavbarProps) {
+export default function NavbarDesktop({ texts, logout }: NavbarProps) {
   const { status } = useSession();
   return (
     <nav className='w-full items-center justify-between absolute top-0 z-10 px-8 py-4 hidden lg:flex'>
       <picture></picture>
 
       <div className='flex items-center gap-4'>
-        <LinkReusable href={`/${locale}`} text={texts('home')} />
-        <LinkReusable href={`/${locale}/tools`} text={texts('tools')} />
+        <LinkReusable href='/' text={texts('home')} />
+        <LinkReusable href='/tools' text={texts('tools')} />
         {status === 'authenticated' ? 
           (
-            <UserMenuDesktop locale={locale} logout={logout}/>
+            <UserMenuDesktop logout={logout}/>
           ) 
           : 
           (
             <>
-              <LinkReusable href={`/${locale}/auth/login`} text={texts('login')} />
+              <LinkReusable href='/auth/login' text={texts('login')} />
               <LinkReusable
-                href={`/${locale}/auth/register`}
+                href='/auth/register'
                 text={texts('register')}
               />
             </>

@@ -29,12 +29,12 @@ export default function ConfigThemeAnt({ children }: Children) {
             handleBg: theme === 'dark' ? '#fff' : '#222'
           },
           Menu: {
-            itemBg: 'transparent',
             itemHeight: 20,
             itemBorderRadius: 0,
             colorSplit: 'transparent',
             padding: 0,
-            dropdownWidth: 100
+            dropdownWidth: 100,
+            popupBg: '#555'
           },
           Pagination: {
             itemActiveBg: 'transparent',
@@ -45,30 +45,44 @@ export default function ConfigThemeAnt({ children }: Children) {
             borderRadius: 50
           },
           Tag: {
-            colorPrimary: '#DB4CFE',
-            colorPrimaryActive: '#DA63FF',
-            colorPrimaryHover: '#E681FF'
+            colorPrimary: '#D000FA',
+            colorPrimaryActive: '#B323CF',
+            colorPrimaryHover: '#D04AFA',
+            colorFillSecondary: theme === 'dark' ? '#bdbdbd' : '#f2f2f2'
           },
           Input: {
             boxShadow: 'none',
             colorBgContainer: theme === 'dark' ? '#444' : '#fff',
             colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
+            colorTextPlaceholder: theme === 'dark' ? '#fff' : '#a1a1a1',
             hoverBorderColor: '#9337A5',
             activeBorderColor: '#D000FA',
             activeShadow: 'none'
           },
           Select: {
             colorPrimary: '#9337A5',
-            colorPrimaryHover: '#D000FA',
+            colorPrimaryHover: '#9337A5',
             colorBgContainer: theme === 'dark' ? '#444' : '#fff',
             colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
+            optionActiveBg: theme === 'dark' ? '#666' : '#f2f2f2',
+            optionSelectedBg: theme === 'dark' ? '#666' : '#c5c5c5',
+            optionSelectedColor: theme === 'dark' ? '#fff' : '#222',
+            colorTextPlaceholder: theme === 'dark' ? '#fff' : '#a1a1a1',
+            colorText: theme === 'dark' ? '#fff' : '#222',
+            controlOutline: 'none',
           },
           Radio: {
             colorPrimary: '#B323CF',
             colorPrimaryActive: '#9337A5',
             colorPrimaryHover: '#D000FA',
             colorBgContainer: theme === 'dark' ? '#444' : '#fff',
-            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
+            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5'
+          },
+          Dropdown: {
+            colorBgElevated: theme === 'dark' ? '#444' : '#fff',
+            colorText: theme === 'dark' ? '#fff' : '#222',
+            controlItemBgHover: theme === 'dark' ? '#666' : '#f2f2f2',
+            controlItemBgActive: theme === 'dark' ? '#666' : '#f2f2f2'
           }
         },
       }}

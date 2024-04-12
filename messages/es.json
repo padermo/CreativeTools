@@ -78,6 +78,9 @@
       "title": "Inicia Sesión.",
       "recovery": "¿Olvidaste tu contraseña?"
     },
+    "alerts": {
+      "notFound": "Correo y/o contraseña incorrecta"
+    },
     "button": "Iniciar Sesión"
   },
   "Register": {
@@ -115,7 +118,52 @@
     "content": {
       "title": "Regístrate"
     },
+    "alerts": {
+      "registered": "Correo electrónico ya registrado."
+    },
     "button": "Registrarse"
+  },
+  "Recovery": {
+    "form": {
+      "email": {
+        "text": "Ingresa tu correo electrónico con el cual te registraste.",
+        "placeholder": "correo@correo.com"
+      },
+      "password": {
+        "text": "Contraseña",
+        "placeholder": "********"
+      },
+      "confirm_password": {
+        "text": "Confirmar Contraseña",
+        "placeholder": "********"
+      }
+    },
+    "handlers": {
+      "errors": {
+        "email": {
+          "required": "Este campo es obligatorio."
+        },
+        "password": {
+          "required": "Este campo es obligatorio.",
+          "pattern": "La contraseña debe tener: \nUna letra mayúscula. \nUna letra minúscula. \nUn carácter especial (@,!,#,$...). \nUN número."
+        },
+        "confirm_password": {
+          "required": "Este campo es obligatorio.",
+          "pattern": "La contraseña no coincide."
+        }
+      }
+    },
+    "alerts": {
+      "email": "No se pudo encontrar una cuenta vinculada a este email.",
+      "success": "Contraseña modificada."
+    },
+    "content": {
+      "title": "Crear Nueva Contraseña"
+    },
+    "buttons": {
+      "sent": "Enviar",
+      "modify": "Modificar"
+    }
   },
   "Tools": {
     "categories": "Documentación,Recursos,Módulos",
@@ -141,6 +189,10 @@
     },
     "notData": {
       "text": "No hay datos."
+    },
+    "alerts": {
+      "favorites": "Inicia sesión para agregar favoritos",
+      "liked": "Inicia sesión para dar me gusta"
     }
   },
   "CreateItem": {
@@ -184,6 +236,10 @@
           "required": "Este campo es obligatorio."
         }
       }
+    },
+    "alerts": {
+      "created": "Item Creado.",
+      "exists": "Ese item ya existe."
     },
     "button": "Crear",
     "title": "Crear Item"

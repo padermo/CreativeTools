@@ -8,6 +8,7 @@ import ScrollTop from '@/components/config/ScrollTop';
 import SessionsProvider from '@/components/provider/SessionProvider';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import ModalProvider from '@/context/ModalContext';
+import Favicon from '/public/favicon.ico'
 import '@/styles/globals.css';
 
 const poppins = Poppins({ weight: ['300', '400', '500', '600'] ,subsets: ['latin'] });
@@ -15,7 +16,8 @@ const poppins = Poppins({ weight: ['300', '400', '500', '600'] ,subsets: ['latin
 export const metadata: Metadata = {
   title: 'Creative Tools',
   description:
-    'Herramientas de diseño, documentación y módulos para desarrolladores.',
+    'Herramientas de diseño, documentación y módulos para desarrolladores o diseñadores UX/UI.',
+  icons: [{rel: 'icon', url:Favicon.src}]
 };
 
 export default function RootLayout({

@@ -31,3 +31,8 @@ export interface InputReusableProps {
   ) => void;
   onPaste?: (event: ClipboardEvent<HTMLInputElement>) => void;
 }
+
+export interface LinkProps {
+  href: string;
+  text: string;
+}

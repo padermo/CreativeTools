@@ -21,7 +21,6 @@ export default function FormReport({_id, name, handleModal}:FormReportProps){
     try {
       const response = await axiosConfig.post('/support/report', {id:_id, text:description})
       setLoading(true)
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     } finally {

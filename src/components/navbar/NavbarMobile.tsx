@@ -1,18 +1,18 @@
 'use client';
 import { useState } from 'react';
-import LinkReusable from '../reusable/LinkReusable';
 import { Drawer } from 'antd';
 import { MenuOutlined, CloseOutlined, LogoutOutlined } from '@ant-design/icons'
 import ButtonReusable from '../reusable/ButtonReusable';
 import SwitchLang from '../config/SwitchLang';
 import SwitchTheme from '../config/SwitchTheme';
+import { Link } from '@/navigation';
 import { useSession } from 'next-auth/react';
 import { useTheme } from '@/context/ThemeContext';
 
 // types
 import type { NavbarProps } from '@/types/generals.types';
 
-export default function NavbarMobile({texts, locale, logout}:NavbarProps){
+export default function NavbarMobile({texts, logout}:NavbarProps){
   const [isView, setIsView] = useState<boolean>(false);
   const { status } = useSession();
   const { theme } = useTheme();
@@ -52,16 +52,15 @@ export default function NavbarMobile({texts, locale, logout}:NavbarProps){
           </div>
         }
       >
-        <LinkReusable href={`/${locale}/`} text={texts('home')}/>
-        <LinkReusable href={`/${locale}/tools`} text={texts('tools')}/>
-        <LinkReusable href={`/${locale}/favorites`} text={texts('favorites')}/>
-        <LinkReusable href={`/${locale}/configuration`} text={texts('config')}/>
+        <Link href='/' onClick={handleViewDrawer} className='text-[#222] block dark:text-white hover:text-[#9337A5] dark:hover:text-[#9337A5]'>{texts('home')}</Link>
+        <Link href='/tools' onClick={handleViewDrawer} className='text-[#222] block dark:text-white hover:text-[#9337A5] dark:hover:text-[#9337A5]'>{texts('tools')}</Link>
+        <Link href='/favorites' onClick={handleViewDrawer} className='text-[#222] block dark:text-white hover:text-[#9337A5] dark:hover:text-[#9337A5]'>{texts('favorites')}</Link>
         {
           status === 'unauthenticated' &&
           (
             <>
-              <LinkReusable href={`/${locale}/auth/login`} text={texts('login')}/>
-              <LinkReusable href={`/${locale}/auth/register`} text={texts('register')}/>
+              <Link href='/auth/login' onClick={handleViewDrawer} className='text-[#222] block dark:text-white hover:text-[#9337A5] dark:hover:text-[#9337A5]'>{texts('login')}</Link>
+              <Link href='/auth/register' onClick={handleViewDrawer} className='text-[#222] block dark:text-white hover:text-[#9337A5] dark:hover:text-[#9337A5]'>{texts('register')}</Link>
             </>
           )
         }

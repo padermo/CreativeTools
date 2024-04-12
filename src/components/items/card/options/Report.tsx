@@ -13,7 +13,7 @@ export default function Report({ _id, name }:OptionsProps){
   return(
     <Tooltip title={t('tooltip')}>
       <button onClick={() => handleModal('report', {_id, name})}>
-        <ExclamationOutlined className='text-[#a1a1a1] dark:text-white hover:text-red-600'/>
+        <ExclamationOutlined className='text-[#a1a1a1] transition-colors duration-300 ease-in-out dark:text-white hover:text-red-600 dark:hover:text-red-600'/>
       </button>
     </Tooltip>
   )

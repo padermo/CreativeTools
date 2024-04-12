@@ -1,9 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/navigation';
 import { signIn } from 'next-auth/react';
+import { useAlert } from '@/context/AlertContext';
 import ButtonReusable from '@/components/reusable/ButtonReusable';
 import InputReusable from '@/components/reusable/InputReusable';
 
@@ -14,7 +15,7 @@ import type { InputProps } from '@/types/generals.types';
 export default function FormLogin() {
   const [loading, setLoading] = useState<boolean>(false);
   const t = useTranslations('Login');
-  const locale = useLocale();
+  const { contextHolder, handleAlert } = useAlert();
   const router = useRouter();
   const { handleSubmit, reset, control } = useForm<InputProps>();
 
@@ -25,17 +26,16 @@ export default function FormLogin() {
         password:data.password,
         redirect:false
       })
-      console.log('res', res)
       setLoading(true)
 
       if(res?.error){
-        console.log(res)
-      } else {
-        router.push(`/${locale}/`)
+        throw new Error(res.error)
+      } else {  
+        router.push('/')
         router.refresh();
       }
     } catch (error) {
-      console.log(error)
+      handleAlert({type:'info', content:t('alerts.notFound')})
     } finally {
       reset();
       setLoading(false)
@@ -47,7 +47,7 @@ export default function FormLogin() {
   };
 
   return (
-    <form onSubmit={onSubmit} className='flex flex-col gap-4'>
+    <form onSubmit={onSubmit} className='w-full flex flex-col gap-4 lg:w-2/5'>
       <div className='w-full text-[#222] font-light dark:text-white'>
         <label htmlFor='email'>{t('form.email.text')}</label>
         <Controller
@@ -114,6 +114,7 @@ export default function FormLogin() {
       <ButtonReusable type='primary' loading={loading} onClick={onSubmit}>
         {t('button')}
       </ButtonReusable>
+      {contextHolder}
     </form>
   );
 }

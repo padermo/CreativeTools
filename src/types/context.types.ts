@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, JSXElementConstructor, ReactElement, SetStateAction } from 'react';
 import type { KeyedMutator } from 'swr';
 
 export type TypeModal = 'create'|'report'|'contact';
@@ -50,7 +50,18 @@ export interface ContextItemsValues {
   setSelectedAccessType: Dispatch<SetStateAction<string>>;
   setSelectedLiked: Dispatch<SetStateAction<string>>;
   setSelectedPage: Dispatch<SetStateAction<number>>;
+  handleCategory: (value:string) => void;
   getAllItems: () => void;
   mutateFavorite: KeyedMutator<any>;
   mutateItems: KeyedMutator<any>;
+}
+
+export interface MessageAlert{
+  type: 'success' | 'info' | 'warning' | 'error';
+  content:string;
+}
+
+export interface AlertContextValues{
+  contextHolder: ReactElement<any, string | JSXElementConstructor<any>>;
+  handleAlert:({type,content}:MessageAlert)=>void;
 }

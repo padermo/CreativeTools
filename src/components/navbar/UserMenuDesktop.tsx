@@ -1,15 +1,16 @@
 import { UserOutlined } from '@ant-design/icons'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Dropdown } from 'antd'
-import ConfigThemeAnt from '../parentComponents/ConfigThemeAnt'
 import { useRouter } from 'next/navigation'
+import ConfigThemeAnt from '../parentComponents/ConfigThemeAnt'
 
 // types
 import type { MenuProps } from 'antd'
 import type { UserMenuProps } from '@/types/generals.types'
 
-export default function UserMenuDesktop({locale, logout}:UserMenuProps){
+export default function UserMenuDesktop({logout}:UserMenuProps){
   const t = useTranslations('Navbar');
+  const locale = useLocale();
   const router = useRouter();
 
   const items:MenuProps['items'] = [
@@ -19,10 +20,6 @@ export default function UserMenuDesktop({locale, logout}:UserMenuProps){
     },
     {
       key: '2',
-      label: (<button name='config' onClick={() => router.push(`/${locale}/configuration`)}>{t('config')}</button>)
-    },
-    {
-      key: '3',
       label: (<button name='logout' onClick={logout}>{t('logout')}</button>)
     }
   ]

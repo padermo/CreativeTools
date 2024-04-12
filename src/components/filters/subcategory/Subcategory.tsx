@@ -17,6 +17,7 @@ export default function Subcategory() {
 
   const handleChangeTag = (tag:string, checked:boolean) => {
     setSelectedTag(checked ? tag : '');
+    setSelectedSubcategory(checked ? tag : '');
   };
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function Subcategory() {
   if(selectedCategory){
     return (
       <div className='flex items-center gap-1 flex-wrap'>
-        <span className='text-[#222] text-xs font-medium dark:text-white'>{t('sections.subcategory')}:</span>
+        <span className='text-[#222] text-sm font-medium dark:text-white'>{t('sections.subcategory')}:</span>
         <ConfigThemeAnt>
           {tagData &&
             tagData.map((tag, index) => (
@@ -36,8 +37,7 @@ export default function Subcategory() {
                 key={index}
                 checked={selectedTag.includes(tag.value)}
                 onChange={(checked) => handleChangeTag(tag.value, checked)}
-                onClick={() => setSelectedSubcategory(tag.value)}
-                className='cursor-pointer text-[#222] font-light dark:text-white'
+                className='cursor-pointer text-[#222] font-medium text-sm dark:text-white'
               >
                 {tag.label}
               </Tag.CheckableTag>

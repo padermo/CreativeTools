@@ -19,7 +19,7 @@ export default function SubFilter(){
   }, [t])
 
   return(
-    <div className='w-full flex items-center gap-4'>
+    <div className='w-full flex justify-start gap-2'>
       <SubFilters title={t('sections.accessType')} tagsData={accessTypeData} onClick={setSelectedAccessType}/>
       <SubFilters title={t('sections.liked')} tagsData={likedData} onClick={setSelectedLiked}/>
     </div>

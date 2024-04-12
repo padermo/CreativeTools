@@ -78,6 +78,9 @@
       "title": "Log in",
       "recovery": "Forgot your password?"
     },
+    "alerts": {
+      "notFound": "Incorrect email and/or password"
+    },
     "button": "Log In"
   },
   "Register": {
@@ -115,7 +118,52 @@
     "content": {
       "title": "Sign Up"
     },
+    "alerts": {
+      "registered": "Email already registered."
+    },
     "button": "Sign Up"
+  },
+  "Recovery": {
+    "form": {
+      "email": {
+        "text": "Enter your email with which you registered.",
+        "placeholder": "email@email.com"
+      },
+      "password": {
+        "text": "Password",
+        "placeholder": "********"
+      },
+      "confirm_password": {
+        "text": "Confirm Password",
+        "placeholder": "********"
+      }
+    },
+    "handlers": {
+      "errors": {
+        "email": {
+          "required": "This field is required."
+        },
+        "password": {
+          "required": "This field is required.",
+          "pattern": "The password must have: \nAn uppercase letter. \nA lowercase letter. \nA special character (@,!,#,$...). \nA number."
+        },
+        "confirm_password": {
+          "required": "This field is required.",
+          "pattern": "The password does not match."
+        }
+      }
+    },
+    "alerts": {
+      "email": "Could not find an account linked to this email.",
+      "success": "Password modified."
+    },
+    "content": {
+      "title": "Create New Password"
+    },
+    "buttons": {
+      "sent": "Send",
+      "modify": "Modify"
+    }
   },
   "Tools": {
     "categories": "Documentation,Resources,Modules",
@@ -145,6 +193,10 @@
     },
     "notData": {
       "text": "Data not found."
+    },
+    "alerts": {
+      "favorites": "Sign in to add favorites",
+      "liked": "Sign in to like"
     }
   },
   "CreateItem": {
@@ -188,6 +240,10 @@
           "required": "This field is required."
         }
       }
+    },
+    "alerts": {
+      "created": "Item Created.",
+      "exists": "That item already exists."
     },
     "button": "Create",
     "title": "Create Item"

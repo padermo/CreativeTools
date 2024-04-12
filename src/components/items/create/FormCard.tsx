@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
 import { useItems } from '@/context/ItemsContext';
+import { useAlert } from '@/context/AlertContext';
 import { category, subcategory, accessType } from '@/utils/dataSend';
 import { isURL } from 'validator';
 import { Radio } from 'antd';
@@ -11,6 +12,7 @@ import InputReusable from '@/components/reusable/InputReusable';
 import SelectReusable from '@/components/reusable/SelectReusable';
 import RadioReusable from '@/components/reusable/RadioReusable';
 import axiosConfig from '@/axios/axiosConfig';
+import axios from 'axios';
 
 // types
 import type { FormCardInputs } from '@/types/generals.types';
@@ -22,7 +24,8 @@ export default function FormCard({handleModal}:HandlerModalFunction){
   const [loading, setLoading] = useState<boolean>(false);
   const [subcategoryData, setSubcategoryData] = useState<[SelectOption]>([{value:'', label:''}]);
   
-  const { token } = useItems();
+  const { token, mutateItems } = useItems();
+  const { handleAlert } = useAlert();
 
   const c = useTranslations('CreateItem');
   const t = useTranslations('Tools');
@@ -36,15 +39,19 @@ export default function FormCard({handleModal}:HandlerModalFunction){
     const { name, category, subcategory, url, isFree } = data;
     try {
       const res = await axiosConfig.post('/item', { name, category, subcategory, url, isFree }, {headers: {'Authorization': `Bearer ${token}`}})
-      console.log('res', res)
       setLoading(true)
 
       if(res?.status === 200){
-        console.log(res)
+        handleAlert({type:'success', content:c('alerts.created')})
         handleModal('create')
+        mutateItems()
       }
     } catch (error) {
-      console.log(error)
+      if(axios.isAxiosError(error)){
+        if(error.response?.status === 401){
+          handleAlert({type:'info', content:c('alerts.exists')})
+        }
+      }
     } finally {
       reset();
       setLoading(false)
@@ -198,8 +205,8 @@ export default function FormCard({handleModal}:HandlerModalFunction){
           render={({ field, fieldState: { error } }) => (
             <div className='flex items-center'>
               <RadioReusable onChange={field.onChange}>
-                <Radio value={accessType[0]}>{t('accessType').split(',')[0]}</Radio>
-                <Radio value={accessType[1]}>{t('accessType').split(',')[1]}</Radio>
+                <Radio value={accessType[0]} className='text-[#222] dark:text-white'>{t('accessType').split(',')[0]}</Radio>
+                <Radio value={accessType[1]} className='text-[#222] dark:text-white'>{t('accessType').split(',')[1]}</Radio>
               </RadioReusable>
               {error && (
                 <span className='text-red-600 text-xs block'>

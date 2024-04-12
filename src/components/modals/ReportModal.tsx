@@ -13,7 +13,7 @@ export default function ReportModal(){
           <div className='flex justify-end'>
             <CloseOutlined onClick={() => handleModal('report', {_id:'', name:''})} className='text-[#a1a1a1] dark:text-white hover:text-red-600'/>
           </div>
-          <p className='text-lg font-semibold text-center'>{dataReportModal.name.toUpperCase()}</p>
+          <p className='text-lg font-semibold text-center text-[#222] dark:text-white'>{dataReportModal.name.toUpperCase()}</p>
           <FormReport _id={dataReportModal._id} name={dataReportModal.name} handleModal={handleModal}/>
         </div>
       </div>

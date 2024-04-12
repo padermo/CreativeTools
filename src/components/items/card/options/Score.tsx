@@ -2,18 +2,28 @@
 import { useState, useEffect } from 'react'
 import { LikeOutlined, LikeFilled } from '@ant-design/icons'
 import { useItems } from '@/context/ItemsContext'
+import { useSession } from 'next-auth/react'
+import { useAlert } from '@/context/AlertContext'
+import { useTranslations } from 'next-intl'
 import axiosConfig from '@/axios/axiosConfig'
 
 // types
 import type { ScoreProps } from '@/types/generals.types'
 
 export default function Liked({score, liked, _id}:ScoreProps){
-  const { userId, token, mutateItems } = useItems()
+  const t = useTranslations('Tools')
   const [existsUser, setExistsUser] = useState<boolean>(false)
+  const { userId, token, mutateItems } = useItems()
+  const { status } = useSession()
+  const { handleAlert } = useAlert()
 
   const handleScore = async () => {
-    await axiosConfig.put('/item', {itemId:_id, userId}, {headers: {'Authorization': `Bearer ${token}`}});
-    mutateItems()
+    if(status === 'authenticated'){
+      await axiosConfig.put('/item', {itemId:_id, userId}, {headers: {'Authorization': `Bearer ${token}`}});
+      mutateItems()
+    } else {
+      handleAlert({type:'info', content: t('alerts.liked')})
+    }
   }
 
   useEffect(() => {
@@ -39,7 +49,7 @@ export default function Liked({score, liked, _id}:ScoreProps){
         :
         (
           <button onClick={handleScore}>
-            <LikeOutlined className='text-[#a1a1a1] dark:text-white hover:text-cyan-600'/>
+            <LikeOutlined className='text-[#a1a1a1] transition-colors duration-300 ease-in-out dark:text-white hover:text-cyan-600 dark:hover:text-cyan-600'/>
           </button>
         )
       }
