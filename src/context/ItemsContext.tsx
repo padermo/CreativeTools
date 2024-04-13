@@ -44,7 +44,7 @@ export default function ItemsProvider({ children }: Children) {
   const [userId, setUserId] = useState<string>('');
   const [token, setToken] = useState<string>('');
 
-  const {data:dataItems, mutate:mutateItems} = useSWR(`/item?category=${selectedCategory}&subcategory=${selectedSubcategory}&type=${selectedAccessType}&page=${selectedPage}`, getData);
+  const {data:dataItems, mutate:mutateItems} = useSWR(`/item?category=${selectedCategory}&subcategory=${selectedSubcategory}&type=${selectedAccessType}&liked=${selectedLiked}&page=${selectedPage}`, getData);
   const {data:dataFavorite, mutate:mutateFavorite} = useSWR(userId && token ? `/favorite?userId=${userId}` : null, (url) => getData(url, token));
 
   const getToken = async () => {

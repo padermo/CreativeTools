@@ -16,6 +16,7 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorPrimaryActive: '#9337A5',
             colorPrimaryHover: '#D000FA',
             primaryShadow: 'none',
+            defaultHoverBg: 'transparent'
           },
           FloatButton: {
             colorPrimary: theme === 'dark' ? '#444' : '#c5c5c5',

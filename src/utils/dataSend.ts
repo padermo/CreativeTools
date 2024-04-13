@@ -8,4 +8,4 @@ export const subcategory = {
 
 export const accessType = ['free','pay']
 
-export const liked = ['most','least']
+export const liked = ['most']

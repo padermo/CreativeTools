@@ -3,7 +3,7 @@ import { withAuth } from 'next-auth/middleware';
 import createMiddleware from 'next-intl/middleware';
 import { locales } from './navigation';
  
-const publicPages = ['/', '/auth/login', '/auth/register', '/tools', '/auth/recovery'];
+const publicPages = ['/', '/auth/login', '/auth/register', '/tools', '/auth/recovery', '/policy-cookies'];
 
 const intMiddleware = createMiddleware({
   locales,

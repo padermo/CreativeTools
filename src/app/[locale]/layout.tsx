@@ -9,6 +9,7 @@ import SessionsProvider from '@/components/provider/SessionProvider';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import ModalProvider from '@/context/ModalContext';
 import Favicon from '/public/favicon.ico'
+import Consent from '@/components/cookies/Consent';
 import '@/styles/globals.css';
 
 const poppins = Poppins({ weight: ['300', '400', '500', '600'] ,subsets: ['latin'] });
@@ -34,6 +35,7 @@ export default function RootLayout({
               <ModalProvider>
                 <Navbar/>
                 {children}
+                <Consent/>
                 <ScrollTop/>
                 <Footer/>
               </ModalProvider>

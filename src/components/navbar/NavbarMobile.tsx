@@ -2,12 +2,13 @@
 import { useState } from 'react';
 import { Drawer } from 'antd';
 import { MenuOutlined, CloseOutlined, LogoutOutlined } from '@ant-design/icons'
-import ButtonReusable from '../reusable/ButtonReusable';
-import SwitchLang from '../config/SwitchLang';
-import SwitchTheme from '../config/SwitchTheme';
 import { Link } from '@/navigation';
 import { useSession } from 'next-auth/react';
 import { useTheme } from '@/context/ThemeContext';
+import { useSearchParams } from 'next/navigation';
+import ButtonReusable from '../reusable/ButtonReusable';
+import SwitchLang from '../config/SwitchLang';
+import SwitchTheme from '../config/SwitchTheme';
 
 // types
 import type { NavbarProps } from '@/types/generals.types';
@@ -16,13 +17,15 @@ export default function NavbarMobile({texts, logout}:NavbarProps){
   const [isView, setIsView] = useState<boolean>(false);
   const { status } = useSession();
   const { theme } = useTheme();
+  const searchParams = useSearchParams();
+  const viewPolicyCookies = searchParams.get('view');
 
   const handleViewDrawer = () => {
     setIsView(!isView)
   }
 
   return(
-    <nav className='py-4 px-4 md:px-8 lg:hidden'>
+    <nav className={`py-4 px-4 md:px-8 lg:hidden ${viewPolicyCookies === 'cookies' && 'hidden'}`}>
       <ButtonReusable type='primary' loading={false} onClick={handleViewDrawer}>
         <MenuOutlined/>
       </ButtonReusable>

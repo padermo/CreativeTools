@@ -179,7 +179,7 @@
     },
     "all": "All",
     "accessType": "Free,Pay",
-    "liked": "Most Liked,Least Liked",
+    "liked": "Most Liked",
     "cards": {
       "status": {
         "free": "Free",
@@ -269,5 +269,52 @@
   },
   "ScrollTop": {
     "tooltip": "To Top"
+  },
+  "Cookies": {
+    "title":"Cookies",
+    "text": "We use cookies to enhance your experience while browsing our site.",
+    "success": "Agreed",
+    "notice": "Cookie Notice",
+    "policy": {
+      "title": "Cookie Policy",
+      "intro": "In compliance with the provisions of article 22.2 of Law 34/2002, of July 11, on Information Society Services and Electronic Commerce, this website informs you, in this section, about the policy for the collection and processing of cookies.",
+      "whatCookies": {
+        "title": "What are cookies?",
+        "content": "A cookie is a file that is downloaded to your computer when you access certain web pages. Cookies allow a website, among other things, to store and retrieve information about a user's browsing habits or their computer, and depending on the information they contain and how you use your computer, they can be used to recognize the user."
+      },
+      "typesCookies": {
+        "title": "What types of cookies does this website use?",
+        "content": "This website uses the following types of cookies:",
+        "types": {
+          "technical": {
+            "title": "Technical cookies: ",
+            "content": "These are cookies that allow the user to navigate through the restricted area and use its different functions, such as, for example, carrying out the process of purchasing an item."
+          },
+          "personalization": {
+            "title": "Personalization cookies: ",
+            "content": "These are cookies that allow the user to access the service with some pre-defined general characteristics based on a series of criteria in the user's terminal, such as the language or the type of browser through which they connect to the service."
+          }
+        }
+      },
+      "disabledCookies": {
+        "title": "Disable cookies.",
+        "content": {
+          "paragraphOne": "You can allow, block, or delete cookies installed on your computer by configuring the options of the browser installed on your computer.",
+          "paragraphTwo": "Most web browsers offer the possibility to allow, block, or delete cookies installed on your computer.",
+          "paragraphThree": "Below you can access the settings of the most frequent web browsers to accept, install, or disable cookies:"
+        },
+        "options": {
+          "chrome": "Configure cookies in Google Chrome",
+          "explorer": "Configure cookies in Microsoft Internet Explorer",
+          "mozilla": "Configure cookies in Mozilla Firefox",
+          "safari": "Configure cookies in Safari (Apple)"
+        }
+      },
+      "cookieWarning": {
+        "title": "Warning about deleting cookies.",
+        "content": "You can delete and block all cookies from this site, but part of the site will not work or the quality of the web page may be affected. If you have any questions about our cookie policy, you can contact this website through our Contact channels."
+      },
+      "back": "Back."
+    }
   }
 }

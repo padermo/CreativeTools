@@ -48,9 +48,12 @@ export default function Liked({score, liked, _id}:ScoreProps){
         )
         :
         (
-          <button onClick={handleScore}>
-            <LikeOutlined className='text-[#a1a1a1] transition-colors duration-300 ease-in-out dark:text-white hover:text-cyan-600 dark:hover:text-cyan-600'/>
-          </button>
+          <div className='flex items-center gap-1'>
+            <button onClick={handleScore}>
+              <LikeOutlined className='text-[#a1a1a1] transition-colors duration-300 ease-in-out dark:text-white hover:text-cyan-600 dark:hover:text-cyan-600'/>
+            </button>
+            <span className='text-[#222] font-light dark:text-white'>{score > 0 && score}</span>
+          </div>
         )
       }
     </>
