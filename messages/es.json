@@ -169,7 +169,7 @@
     "categories": "Documentación,Recursos,Módulos",
     "subcategories": {
       "documents": "Lenguajes Programación,Frameworks,Librerías,Apis,Bases DeDatos,Sistemas Operativos,Protocolos De Red,Otros",
-      "resources": "Iconos,Colores,Imágenes,Animaciones,Alertas,Compresores,Gradientes,Emuladores,Carruseles,Componentes,Patrones,Editores,Fuentes,Generadores,Videos,Mockups,Plantillas,Vectores,Sonidos,Otros",
+      "resources": "Iconos,Colores,Imágenes,Animaciones,Alertas,Compresores,Gradientes,Emuladores,Carruseles,Componentes,Patrones,Editores,Fuentes,Generadores,Videos,Mockups,Plantillas,Vectores,Sonidos,IA,Otros",
       "modules": "Npm,Yarn,Pnpm,Pipy,Otros"
     },
     "sections": {

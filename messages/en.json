@@ -169,7 +169,7 @@
     "categories": "Documentation,Resources,Modules",
     "subcategories": {
       "documents": "Programming Languages,Frameworks,Libraries,APIs,Databases,Operating Systems,Network Protocols,Others",
-      "resources": "Icons,Colors,Images,Animations,Alerts,Compressors,Gradients,Emulators,Carousels,Components,Patterns,Editors,Fonts,Generators,Videos,Mockups,Templates,Vectors,Sounds,Others",
+      "resources": "Icons,Colors,Images,Animations,Alerts,Compressors,Gradients,Emulators,Carousels,Components,Patterns,Editors,Fonts,Generators,Videos,Mockups,Templates,Vectors,Sounds,IA,Others",
       "modules": "Npm,Yarn,Pnpm,Pipy,Others"
     },
     "sections": {
