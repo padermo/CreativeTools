@@ -82,7 +82,10 @@ export default function ItemsProvider({ children }: Children) {
   },[token])
 
   useEffect(() => {
-    if(dataItems) setItems(dataItems.items);
+    if(dataItems) {
+      setItems(dataItems.items);
+      setPages(dataItems.config);
+    }
   },[dataItems])
 
   useEffect(() => {
