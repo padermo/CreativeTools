@@ -17,7 +17,7 @@ export default function Card({_id, name, url, category, subcategory, score, like
       <div className='w-full h-4/5 flex flex-col gap-4 items-center justify-center'>
         <h3
           onClick={() => window.open(url)}
-          className='font-semibold text-lg cursor-pointer hover:underline'
+          className='font-semibold text-lg cursor-pointer text-center hover:underline'
         >
           {name.toUpperCase()}
         </h3>
