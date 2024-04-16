@@ -23,10 +23,11 @@ export default function FormRegister(){
   const onSubmit = handleSubmit(async (data) => {
     const { email, password } = data;
     try {
-      const res = await axiosConfig.post('/register', {email, password})
       setLoading(true)
+      const res = await axiosConfig.post('/register', {email, password})
 
       if(res?.status === 201){
+        setLoading(false)
         router.push('/login')
         router.refresh();
       }
@@ -38,14 +39,12 @@ export default function FormRegister(){
       }
     } finally {
       reset();
-      setLoading(false)
     }
   });
 
   const handlePaste: ClipboardEventHandler<HTMLInputElement> = (event) => {
     event.preventDefault();
   };
-
   return (
     <form onSubmit={onSubmit} className='w-full flex flex-col gap-4 lg:w-2/5'>
       <div className='w-full text-[#222] font-light dark:text-white'>

@@ -21,16 +21,17 @@ export default function FormLogin() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
+      setLoading(true)
       const res = await signIn('credentials', {
         email:data.email,
         password:data.password,
         redirect:false
       })
-      setLoading(true)
 
       if(res?.error){
         throw new Error(res.error)
       } else {  
+        setLoading(false)
         router.push('/')
         router.refresh();
       }
@@ -38,7 +39,6 @@ export default function FormLogin() {
       handleAlert({type:'info', content:t('alerts.notFound')})
     } finally {
       reset();
-      setLoading(false)
     }
   });
 

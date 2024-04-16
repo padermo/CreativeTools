@@ -19,8 +19,8 @@ export default function FormContact({handleModal}:FormContactProps){
   const onSubmit = handleSubmit(async (data) => {
     const { content, to } = data;
     try {
-      const response = await axiosConfig.post('/support', {to, text:content})
       setLoading(true)
+      const response = await axiosConfig.post('/support', {to, text:content})
     } catch (error) {
       console.log(error)
     } finally {
