@@ -38,13 +38,14 @@ export default function FormCard({handleModal}:HandlerModalFunction){
   const onSubmit = handleSubmit(async (data) => {
     const { name, category, subcategory, url, isFree } = data;
     try {
-      const res = await axiosConfig.post('/item', { name, category, subcategory, url, isFree }, {headers: {'Authorization': `Bearer ${token}`}})
       setLoading(true)
+      const res = await axiosConfig.post('/item', { name, category, subcategory, url, isFree }, {headers: {'Authorization': `Bearer ${token}`}})
 
       if(res?.status === 200){
         handleAlert({type:'success', content:c('alerts.created')})
         handleModal('create')
         mutateItems()
+        setLoading(false)
       }
     } catch (error) {
       if(axios.isAxiosError(error)){
@@ -54,7 +55,6 @@ export default function FormCard({handleModal}:HandlerModalFunction){
       }
     } finally {
       reset();
-      setLoading(false)
     }
   });
 

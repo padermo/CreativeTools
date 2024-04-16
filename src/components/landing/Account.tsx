@@ -16,7 +16,9 @@ export default function Account(){
       </picture>
       <div className='w-full h-dvh flex flex-col justify-center items-center text-center gap-6 text-wrap text-[#222] text-lg font-light tracking-wide dark:text-white'>
         <h3 className='w-full lg:w-1/2'>{t('title')}</h3>
-        <ButtonReusable type='primary' loading={false} onClick={()=>router.push(`/${locale}/auth/register`)} >{t('cta')}</ButtonReusable>
+        <div>
+          <ButtonReusable type='primary' loading={false} onClick={()=>router.push(`/${locale}/auth/register`)} >{t('cta')}</ButtonReusable>
+        </div>
       </div>
     </article>
   )

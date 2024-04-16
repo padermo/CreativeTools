@@ -22,12 +22,13 @@ export default function FormEmail({ setViewFormPassword }:FormEmailProps){
   const onSubmit = handleSubmit(async(data) => {
     const { email } = data;
     try {
-      const res = await axiosConfig.post('/recovery', {email})
       setLoading(true)
+      const res = await axiosConfig.post('/recovery', {email})
 
       if([200,201].includes(res?.status)){
         localStorage.setItem('email', res.data.email);
         setViewFormPassword(res.data.validate)
+        setLoading(false);
       }
       
     } catch (error) {
@@ -37,7 +38,6 @@ export default function FormEmail({ setViewFormPassword }:FormEmailProps){
         }
       }
     } finally {
-      setLoading(false);
       reset()
     }
   })

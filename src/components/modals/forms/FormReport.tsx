@@ -19,8 +19,8 @@ export default function FormReport({_id, name, handleModal}:FormReportProps){
   const onSubmit = handleSubmit(async (data) => {
     const { description } = data;
     try {
-      const response = await axiosConfig.post('/support/report', {id:_id, text:description})
       setLoading(true)
+      const response = await axiosConfig.post('/support/report', {id:_id, text:description})
     } catch (error) {
       console.log(error)
     } finally {

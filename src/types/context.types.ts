@@ -42,9 +42,8 @@ export interface ContextItemsValues {
   userId: string;
   selectedCategory: string;
   favoriteItems: StateItems[];
-  setItems: Dispatch<SetStateAction<StateItems[]>>;
-  setPages: Dispatch<SetStateAction<StatePages>>;
-  setFavoriteItems: Dispatch<SetStateAction<StateItems[]>>;
+  loadingItems: boolean;
+  loadingFavorites: boolean;
   setSelectedCategory: Dispatch<SetStateAction<string>>;
   setSelectedSubcategory: Dispatch<SetStateAction<string>>;
   setSelectedAccessType: Dispatch<SetStateAction<string>>;

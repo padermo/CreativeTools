@@ -26,13 +26,14 @@ export default function FormPassword(){
   const onSubmit = handleSubmit(async(data) => {
     const { password } = data;
     try {
-      const res = await axiosConfig.post('/recovery/modify-password', {email, password})
       setLoading(true)
+      const res = await axiosConfig.post('/recovery/modify-password', {email, password})
 
       if(res?.status === 200){
         handleAlert({type:'success', content: t('alerts.success')})
         localStorage.removeItem('email')
         router.push('/auth/login')
+        setLoading(false);
       }
       
     } catch (error) {
@@ -42,7 +43,6 @@ export default function FormPassword(){
         }
       }
     } finally {
-      setLoading(false);
       reset()
     }
   })

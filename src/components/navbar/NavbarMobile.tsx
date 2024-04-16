@@ -25,7 +25,7 @@ export default function NavbarMobile({texts, logout}:NavbarProps){
   }
 
   return(
-    <nav className={`py-4 px-4 md:px-8 lg:hidden ${viewPolicyCookies === 'cookies' && 'hidden'}`}>
+    <nav className={`absolute top-0 left-0 z-10 py-4 px-4 md:px-6 lg:hidden ${viewPolicyCookies === 'cookies' && 'hidden'}`}>
       <ButtonReusable type='primary' loading={false} onClick={handleViewDrawer}>
         <MenuOutlined/>
       </ButtonReusable>

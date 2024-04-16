@@ -2,9 +2,12 @@
 import { useItems } from '@/context/ItemsContext'
 import Card from './Card';
 import NotData from '@/components/svg/NotData';
+import CardSkeleton from '@/components/fallbacks/CardSkeleton';
 
 export default function Cards(){
-  const { items } = useItems();
+  const { items, loadingItems } = useItems();
+
+  if (loadingItems) return <CardSkeleton/>
   return (
     <div className='w-full flex flex-wrap justify-center gap-5 flex-1 md:justify-between lg:items-start lg:justify-between 2xl:items-center'>
       {!items.length && <NotData/>}
