@@ -2,8 +2,8 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { getCookie } from '@/app/actions';
 import { decodeJwt } from 'jose';
-import useSWR from 'swr';
 import { getData } from '@/utils/fetch';
+import useSWR from 'swr';
 
 // types
 import type { Children } from '@/types/generals.types';
@@ -44,8 +44,8 @@ export default function ItemsProvider({ children }: Children) {
   const [userId, setUserId] = useState<string>('');
   const [token, setToken] = useState<string>('');
 
-  const {data:dataItems, mutate:mutateItems} = useSWR(`/item?category=${selectedCategory}&subcategory=${selectedSubcategory}&type=${selectedAccessType}&liked=${selectedLiked}&page=${selectedPage}`, getData);
-  const {data:dataFavorite, mutate:mutateFavorite} = useSWR(userId && token ? `/favorite?userId=${userId}` : null, (url) => getData(url, token));
+  const {data:dataItems, mutate:mutateItems, isLoading:loadingItems} = useSWR(`/item?category=${selectedCategory}&subcategory=${selectedSubcategory}&type=${selectedAccessType}&liked=${selectedLiked}&page=${selectedPage}`, getData);
+  const {data:dataFavorite, mutate:mutateFavorite, isLoading:loadingFavorites} = useSWR(userId && token ? `/favorite?userId=${userId}` : null, (url) => getData(url, token));
 
   const getToken = async () => {
     const cookie = await getCookie();
@@ -93,7 +93,7 @@ export default function ItemsProvider({ children }: Children) {
   },[dataFavorite])
 
   return (
-    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, setFavoriteItems, setItems, setPages, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, setSelectedPage, handleCategory, getAllItems, mutateFavorite, mutateItems }}>
+    <ItemsContext.Provider value={{ items, pages, token, userId, favoriteItems, selectedCategory, loadingItems, loadingFavorites, setSelectedCategory, setSelectedSubcategory, setSelectedAccessType, setSelectedLiked, setSelectedPage, handleCategory, getAllItems, mutateFavorite, mutateItems }}>
       {children}
     </ItemsContext.Provider>
   );

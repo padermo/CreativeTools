@@ -2,9 +2,12 @@
 import { useItems } from '@/context/ItemsContext';
 import Card from '../items/card/Card';
 import NotData from '../svg/NotData';
+import CardSkeleton from '../fallbacks/CardSkeleton';
 
 export default function Favorites() {
-  const { favoriteItems } = useItems();
+  const { favoriteItems, loadingFavorites } = useItems();
+
+  if (loadingFavorites) return <CardSkeleton/>
   return (
     <div className='flex flex-col w-full min-h-dvh max-h-full gap-4 justify-center items-center py-8'>
       <div className='w-full flex flex-wrap gap-5 flex-1'>
