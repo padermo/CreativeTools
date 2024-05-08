@@ -107,7 +107,7 @@
         },
         "password": {
           "required": "Este campo es obligatorio.",
-          "pattern": "La contraseña debe tener: \nUna letra mayúscula. \nUna letra minúscula. \nUn carácter especial (@,!,#,$...). \nUN número."
+          "pattern": "La contraseña debe tener: \nUna letra mayúscula. \nUna letra minúscula. \nUn carácter especial (@,$,!,%,#,*,?,&). \nUN número."
         },
         "confirm_password": {
           "required": "Este campo es obligatorio.",
@@ -145,7 +145,7 @@
         },
         "password": {
           "required": "Este campo es obligatorio.",
-          "pattern": "La contraseña debe tener: \nUna letra mayúscula. \nUna letra minúscula. \nUn carácter especial (@,!,#,$...). \nUN número."
+          "pattern": "La contraseña debe tener: \nUna letra mayúscula. \nUna letra minúscula. \nUn carácter especial (@,$,!,%,#,*,?,&). \nUN número."
         },
         "confirm_password": {
           "required": "Este campo es obligatorio.",

@@ -107,7 +107,7 @@
         },
         "password": {
           "required": "This field is required.",
-          "pattern": "Password must contain: \n- One uppercase letter. \n- One lowercase letter. \n- One special character (@,!,#,$...). \n- One number."
+          "pattern": "Password must contain: \n- One uppercase letter. \n- One lowercase letter. \n- One special character (@,$,!,%,#,*,?,&). \n- One number."
         },
         "confirm_password": {
           "required": "This field is required.",
@@ -145,7 +145,7 @@
         },
         "password": {
           "required": "This field is required.",
-          "pattern": "The password must have: \nAn uppercase letter. \nA lowercase letter. \nA special character (@,!,#,$...). \nA number."
+          "pattern": "The password must have: \nAn uppercase letter. \nA lowercase letter. \nA special character (@,$,!,%,#,*,?,&). \nA number."
         },
         "confirm_password": {
           "required": "This field is required.",

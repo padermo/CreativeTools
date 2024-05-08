@@ -62,7 +62,7 @@ export default function FormPassword(){
               message: t('handlers.errors.password.required'),
             },
             pattern: {
-              value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+              value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%#*?&]{8,}$/,
               message: t('handlers.errors.password.pattern')
             }
           }}
