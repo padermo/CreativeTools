@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
 
-*{
+* {
   transition: background 600ms ease-in-out;
   -webkit-transition: background 600ms ease-in-out;
   -moz-transition: background 600ms ease-in-out;
@@ -18,7 +18,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body{
+body {
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -39,8 +39,8 @@ body{
   }
 }
 
-.search{
-  background-image: linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(https://res.cloudinary.com/dultasdzm/image/upload/v1711406281/creativetools/tools_iusjmi.jpg);
+.search {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../assets/tools_image.webp');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;

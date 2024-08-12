@@ -1,40 +1,43 @@
-import CredentialsProvider from 'next-auth/providers/credentials';
-import axiosConfig from './axios/axiosConfig';
-import { cookies } from 'next/headers';
+import CredentialsProvider from "next-auth/providers/credentials";
+import axiosConfig from "./axios/axiosConfig";
+import { cookies } from "next/headers";
 
 // type
-import type { AuthOptions } from 'next-auth';
+import type { AuthOptions } from "next-auth";
 
-const auth:AuthOptions = {
+const auth: AuthOptions = {
   providers: [
     CredentialsProvider({
-      name: 'Credentials',
+      name: "Credentials",
       credentials: {
-        email: {label:'Email', type:'email'},
-        password: {label:'Password', type:'password'}
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
       },
-      async authorize(credentials){
+      async authorize(credentials) {
         try {
-          const res = await axiosConfig.post('/login', credentials)
-          
-          if(res?.data){
-            cookies().set('access', res.data, {sameSite: 'lax', httpOnly:true, maxAge: 60 * 60 * 24 * 15})
+          const res = await axiosConfig.post("/login", credentials);
+          if (res?.data) {
+            cookies().set("access", res.data, {
+              sameSite: "lax",
+              httpOnly: true,
+              maxAge: 60 * 60 * 24 * 15,
+            });
             return res.data;
           } else {
-            return res
+            return res;
           }
         } catch (error) {
           return null;
         }
-      }
-    })
+      },
+    }),
   ],
   pages: {
-    signIn: '/auth/login'
+    signIn: "/auth/login",
   },
   session: {
-    maxAge: 60 * 60 * 24 * 15
-  }
-}
+    maxAge: 60 * 60 * 24 * 15,
+  },
+};
 
 export default auth;
