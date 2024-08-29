@@ -43,6 +43,12 @@
     "title": "Contacto"
   },
   "Navbar": {
+    "menu": [
+      "Home",
+      "Tools",
+      "Log In",
+      "Sign Up"
+    ],
     "title": "Menú",
     "home": "Inicio",
     "tools": "Herramientas",
@@ -256,7 +262,7 @@
       },
       "handlers": {
         "errors": {
-          "description":{
+          "description": {
             "required": "Este campo es obligatorio."
           }
         }
@@ -267,9 +273,9 @@
     "tooltip": "Ir Arriba"
   },
   "Cookies": {
-    "title":"Cookies",
-    "text":"Utilizamos cookies para mejorar tu experiencia mientras navegas por nuestro sitio.",
-    "success" : "De acuerdo",
+    "title": "Cookies",
+    "text": "Utilizamos cookies para mejorar tu experiencia mientras navegas por nuestro sitio.",
+    "success": "De acuerdo",
     "notice": "Aviso de Cookies",
     "policy": {
       "title": "Política de Cookies",

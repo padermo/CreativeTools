@@ -43,6 +43,12 @@
     "title": "Contact"
   },
   "Navbar": {
+    "menu": [
+      "Home",
+      "Tools",
+      "Log In",
+      "Sign Up"
+    ],
     "title": "Menu",
     "home": "Home",
     "tools": "Tools",
@@ -271,7 +277,7 @@
     "tooltip": "To Top"
   },
   "Cookies": {
-    "title":"Cookies",
+    "title": "Cookies",
     "text": "We use cookies to enhance your experience while browsing our site.",
     "success": "Agreed",
     "notice": "Cookie Notice",
