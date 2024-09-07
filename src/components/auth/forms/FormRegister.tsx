@@ -13,7 +13,7 @@ import axios from 'axios';
 import type { ClipboardEventHandler } from 'react';
 import type { InputWatchProps } from '@/types/generals.types';
 
-export default function FormRegister(){
+export default function FormRegister() {
   const [loading, setLoading] = useState<boolean>(false);
   const t = useTranslations('Register');
   const router = useRouter();
@@ -24,20 +24,20 @@ export default function FormRegister(){
     const { email, password } = data;
     try {
       setLoading(true)
-      const res = await axiosConfig.post('/register', {email, password})
+      const res = await axiosConfig.post('/register', { email, password })
 
-      if(res?.status === 201){
-        setLoading(false)
+      if (res?.status === 201) {
         router.push('/login')
         router.refresh();
       }
     } catch (error) {
-      if(axios.isAxiosError(error)){
-        if(error.response?.status === 401){
-          handleAlert({type:'info', content: t('alerts.registered')})
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 401) {
+          handleAlert({ type: 'info', content: t('alerts.registered') })
         }
       }
     } finally {
+      setLoading(false)
       reset();
     }
   });
@@ -47,7 +47,7 @@ export default function FormRegister(){
   };
   return (
     <form onSubmit={onSubmit} className='w-full flex flex-col gap-4 lg:w-2/5'>
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='email'>{t('form.email.text')}</label>
         <Controller
           name='email'
@@ -82,7 +82,7 @@ export default function FormRegister(){
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='password'>{t('form.password.text')}</label>
         <Controller
           name='password'
@@ -118,7 +118,7 @@ export default function FormRegister(){
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='confirm_password'>{t('form.confirm_password.text')}</label>
         <Controller
           name='confirm_password'
@@ -129,7 +129,7 @@ export default function FormRegister(){
               value: true,
               message: t('handlers.errors.confirm_password.required'),
             },
-            validate: (value) => 
+            validate: (value) =>
               value === watch('password') || t('handlers.errors.confirm_password.pattern')
           }}
           render={({ field, fieldState: { error } }) => (
@@ -152,7 +152,7 @@ export default function FormRegister(){
         />
       </div>
 
-      <ButtonReusable type='primary' loading={loading} onClick={onSubmit}>
+      <ButtonReusable htmlType='submit' type='primary' loading={loading} onClick={onSubmit}>
         {t('button')}
       </ButtonReusable>
       {contextHolder}

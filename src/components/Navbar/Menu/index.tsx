@@ -5,5 +5,5 @@ import { Menu } from "antd";
 import type { MenuNavbarProps } from "../navbar.types";
 
 export default function MenuNavbar({ items, mode }: MenuNavbarProps) {
-  return <Menu items={items} mode={mode} />;
+  return <Menu items={items} mode={mode} className="w-full flex justify-end" />;
 }

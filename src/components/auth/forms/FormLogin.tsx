@@ -30,13 +30,13 @@ export default function FormLogin() {
       if (res?.error) {
         throw new Error(res.error);
       } else {
-        setLoading(false);
         router.push("/");
         router.refresh();
       }
     } catch (error) {
       handleAlert({ type: "info", content: t("alerts.notFound") });
     } finally {
+      setLoading(false);
       reset();
     }
   });
@@ -47,7 +47,7 @@ export default function FormLogin() {
 
   return (
     <form onSubmit={onSubmit} className="w-full flex flex-col gap-4 lg:w-2/5">
-      <div className="w-full text-[#222] font-light dark:text-white">
+      <div className="w-full font-light">
         <label htmlFor="email">{t("form.email.text")}</label>
         <Controller
           name="email"
@@ -78,7 +78,7 @@ export default function FormLogin() {
         />
       </div>
 
-      <div className="w-full text-[#222] font-light dark:text-white">
+      <div className="w-full font-light">
         <label htmlFor="password">{t("form.password.text")}</label>
         <Controller
           name="password"
@@ -110,7 +110,7 @@ export default function FormLogin() {
         />
       </div>
 
-      <ButtonReusable type="primary" loading={loading} onClick={onSubmit}>
+      <ButtonReusable htmlType="submit" type="primary" loading={loading} onClick={onSubmit}>
         {t("button")}
       </ButtonReusable>
       {contextHolder}

@@ -13,7 +13,7 @@ export default function PageLayout({ children }: Children) {
         <header className="w-full fixed top-0 z-10 bg-black/50 backdrop-blur-sm border-b border-b-neutral-800">
           <Navbar/>
         </header>
-        <main className="max-w-screen-xl m-auto">{children}</main>
+        <main className="max-w-screen-xl m-auto text-white">{children}</main>
         <Footer/>
       </ConfigThemeAnt>
     </AntdRegistry>

@@ -6,13 +6,13 @@ import { Link } from '@/navigation'
 import type { MenuProps } from 'antd'
 import type { UserMenuProps } from '@/types/generals.types'
 
-export default function UserMenuDesktop({ logout }: UserMenuProps) {
+export default function UserMenu({ logout }: UserMenuProps) {
   const t = useTranslations('Navbar');
 
   const items: MenuProps['items'] = [
     {
       key: '1',
-      label: (<Link href={'/favorites'}>{t('favorites')}</Link>)
+      label: (<Link href={'/favorites'} >{t('favorites')}</Link>)
     },
     {
       key: '2',
@@ -22,7 +22,7 @@ export default function UserMenuDesktop({ logout }: UserMenuProps) {
 
   return (
     <Dropdown menu={{ items }} placement='bottomRight'>
-      <button className='rounded-full p-2 flex items-center border-none outline-none text-[#222] dark:text-white hover:bg-gray-100 dark:hover:bg-[#444] hover:shadow-lg'>
+      <button className='rounded-full p-2 flex items-center border-none outline-none text-[#888] hover:text-white hover:bg-[#1b1b1b]'>
         <UserOutlined />
       </button>
     </Dropdown>

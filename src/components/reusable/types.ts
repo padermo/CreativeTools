@@ -1,5 +1,7 @@
 import type { ChangeEvent, ClipboardEvent, ReactNode } from 'react';
 import type { RadioChangeEvent } from 'antd';
+import type { ButtonType, ButtonHTMLType } from 'antd/es/button';
+import type { Children } from '@/types/generals.types';
 
 export interface SelectOption{
   value:string;
@@ -35,4 +37,11 @@ export interface InputReusableProps {
 export interface LinkProps {
   href: string;
   text: string;
+}
+
+export interface ButtonProps extends Children {
+  onClick: () => void;
+  type: ButtonType;
+  loading: boolean;
+  htmlType: ButtonHTMLType;
 }

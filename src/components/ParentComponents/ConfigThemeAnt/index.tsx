@@ -16,7 +16,8 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorPrimaryActive: '#9337A5',
             colorPrimaryHover: '#D000FA',
             primaryShadow: 'none',
-            defaultHoverBg: 'transparent'
+            defaultHoverBg: 'transparent',
+            controlHeight: 40,
           },
           FloatButton: {
             colorPrimary: theme === 'dark' ? '#444' : '#c5c5c5',
@@ -57,12 +58,16 @@ export default function ConfigThemeAnt({ children }: Children) {
           },
           Input: {
             boxShadow: 'none',
-            colorBgContainer: theme === 'dark' ? '#444' : '#fff',
-            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
-            colorTextPlaceholder: theme === 'dark' ? '#fff' : '#a1a1a1',
+            colorBgContainer: "#1b1b1b",
+            colorBorder: "#222",
+            colorIcon: "#666",
+            colorIconHover: "#bdbdbd",
+            colorText: "#fff",
+            colorTextPlaceholder: "#666",
             hoverBorderColor: '#9337A5',
             activeBorderColor: '#D000FA',
-            activeShadow: 'none'
+            activeShadow: 'none',
+            controlHeight: 40,
           },
           Select: {
             colorPrimary: '#9337A5',
@@ -84,10 +89,10 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorBorder: theme === 'dark' ? '#555' : '#c5c5c5'
           },
           Dropdown: {
-            colorBgElevated: theme === 'dark' ? '#444' : '#fff',
-            colorText: theme === 'dark' ? '#fff' : '#222',
-            controlItemBgHover: theme === 'dark' ? '#666' : '#f2f2f2',
-            controlItemBgActive: theme === 'dark' ? '#666' : '#f2f2f2'
+            colorBgElevated: '#1b1b1b',
+            colorText: '#fff',
+            controlItemBgHover: '#2b2b2b',
+            controlItemBgActive: '#2b2b2b'
           }
         },
       }}
