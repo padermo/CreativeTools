@@ -30,19 +30,23 @@ export default function ConfigThemeAnt({ children }: Children) {
             handleBg: theme === 'dark' ? '#fff' : '#222'
           },
           Menu: {
-            itemHeight: 20,
-            itemBorderRadius: 0,
-            colorSplit: 'transparent',
-            padding: 0,
-            dropdownWidth: 100,
-            popupBg: '#555'
+            itemBg: "transparent",
+            lineWidth: 0,
+            itemColor: "#888",
+            horizontalItemSelectedColor: "#transparent",
+            itemHoverColor: "#fff",
+            itemSelectedColor: "#fff",
+            itemSelectedBg: "transparent",
+            itemActiveBg: "transparent",
+            motionDurationMid: "0.1s",
+            motionDurationSlow: "0.2s"
           },
           Pagination: {
             itemActiveBg: 'transparent',
             colorPrimaryBorder: '#9337A5',
             colorPrimary: '#9337A5',
             colorPrimaryHover: '#D000FA',
-            colorText: theme === 'dark' ? '#fff' : '#222',
+            colorText: '#f2f2f2',
             borderRadius: 50
           },
           Tag: {

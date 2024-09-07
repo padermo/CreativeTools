@@ -6,8 +6,6 @@ import SessionsProvider from "@/components/provider/SessionProvider";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import ModalProvider from "@/context/ModalContext";
 import Favicon from "/public/favicon.ico";
-import Navbar from "@/components/Navbar";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "@/styles/globals.css";
 
 const poppins = Poppins({
@@ -30,13 +28,12 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${poppins.className} max-w-screen-2xl m-auto relative bg-gray-200 dark:bg-[#222]`}
+        className={`${poppins.className} relative bg-black`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SessionsProvider>
             <ThemeProvider>
               <ModalProvider>
-                <Navbar />
                 {children}
               </ModalProvider>
             </ThemeProvider>
