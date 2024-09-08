@@ -64,7 +64,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
 
   return (
     <form onSubmit={onSubmit} className='flex flex-col gap-4'>
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='name'>{c('inputs.name.text')}</label>
         <Controller
           name='name'
@@ -95,7 +95,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='url'>{c('inputs.url.text')}</label>
         <Controller
           name='url'
@@ -127,7 +127,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='category'>{c('inputs.category.text')}</label>
         <Controller
           name='category'
@@ -158,7 +158,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='subcategory'>{c('inputs.subcategory.text')}</label>
         <Controller
           name='subcategory'
@@ -189,7 +189,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='isFree'>{c('inputs.isFree.text')}:</label>
         <Controller
           name='isFree'
@@ -203,8 +203,8 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
           render={({ field, fieldState: { error } }) => (
             <div className='flex items-center'>
               <RadioReusable onChange={field.onChange}>
-                <Radio value={accessType[0]} className='text-[#222] dark:text-white'>{t('accessType').split(',')[0]}</Radio>
-                <Radio value={accessType[1]} className='text-[#222] dark:text-white'>{t('accessType').split(',')[1]}</Radio>
+                <Radio value={accessType[0]} >{t('accessType').split(',')[0]}</Radio>
+                <Radio value={accessType[1]} >{t('accessType').split(',')[1]}</Radio>
               </RadioReusable>
               {error && (
                 <span className='text-red-600 text-xs block'>
