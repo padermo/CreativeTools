@@ -318,5 +318,9 @@
       },
       "back": "Volver."
     }
+  },
+  "Language": {
+    "spanish": "Español",
+    "english": "Ingles"
   }
 }

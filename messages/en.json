@@ -322,5 +322,9 @@
       },
       "back": "Back."
     }
+  },
+  "Language": {
+    "spanish": "Spanish",
+    "english": "English"
   }
 }

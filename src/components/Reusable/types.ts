@@ -1,16 +1,16 @@
 import type { ChangeEvent, ClipboardEvent, ReactNode } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import type { ButtonType, ButtonHTMLType } from 'antd/es/button';
-import type { Children } from '@/types/generals.types';
+import { Children } from '@/types/generals.types';
 
-export interface SelectOption{
-  value:string;
-  label:string;
+export interface SelectOption {
+  value: string;
+  label: string;
 }
 
-export interface SelectReusableProps{
-  id:string;
-  value:string;
+export interface SelectReusableProps {
+  id: string;
+  value: string;
   options: [SelectOption];
   placeholder: string;
   onChange: (
@@ -18,7 +18,7 @@ export interface SelectReusableProps{
   ) => void;
 }
 
-export interface RadioReusableProps{
+export interface RadioReusableProps {
   children: ReactNode;
   onChange: (e: RadioChangeEvent) => void;
 }
@@ -39,9 +39,11 @@ export interface LinkProps {
   text: string;
 }
 
-export interface ButtonProps extends Children {
+export interface ButtonProps {
   onClick: () => void;
   type: ButtonType;
-  loading: boolean;
+  loading?: boolean;
   htmlType: ButtonHTMLType;
+  icon?: ReactNode;
+  text?: string;
 }

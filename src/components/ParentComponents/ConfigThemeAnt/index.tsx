@@ -24,11 +24,11 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorPrimaryHover: theme === 'dark' ? '#555' : '#d5d5d5',
           },
           Switch: {
-            colorPrimary: '#B323CF',
-            colorPrimaryBorder: '#9337A5',
-            colorPrimaryHover: '#D000FA',
-            colorTextLightSolid: theme === 'dark' ? '#fff' : '#222',
-            handleBg: theme === 'dark' ? '#fff' : '#222'
+            colorPrimary: '#1b1b1b',
+            colorPrimaryHover: '#1b1b1b',
+            colorTextLightSolid: '#fff',
+colorTextQuaternary: '#f3e',
+            handleBg: '#fff'
           },
           Menu: {
             itemBg: "transparent",

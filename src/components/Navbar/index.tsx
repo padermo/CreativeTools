@@ -7,6 +7,7 @@ import { Link } from "@/navigation";
 import MenuNavbar from "./Menu";
 import UserMenu from "./UserMenu";
 import Logo from "../svg/Logo";
+import Lang from "../Config/Lang";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
@@ -20,7 +21,7 @@ export default function Navbar() {
   };
 
   const authItems = useCallback(() => {
-    return t.raw("menu").filter((item:string) => {
+    return t.raw("menu").filter((item: string) => {
       if (item === "Log In" || item === "Sign Up") {
         return status !== "authenticated";
       }
@@ -28,7 +29,7 @@ export default function Navbar() {
     });
   }, [status, t])
 
-  const items = authItems().map((item:string, index:number) => {
+  const items = authItems().map((item: string, index: number) => {
     let menu = {
       label: <Link href={routing[index]}>{item}</Link>,
       key: item,
@@ -41,7 +42,8 @@ export default function Navbar() {
       <Logo />
       <div className="w-full justify-end items-center gap-x-1 hidden lg:flex">
         <MenuNavbar items={items} mode="horizontal" />
-        {status === "authenticated" && <UserMenu logout={logout}/>}
+        {status === "authenticated" && <UserMenu logout={logout} />}
+        <Lang />
       </div>
     </nav>
   );
