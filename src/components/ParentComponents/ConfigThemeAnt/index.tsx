@@ -35,10 +35,13 @@ export default function ConfigThemeAnt({ children }: Children) {
           },
           Pagination: {
             itemActiveBg: 'transparent',
-            colorPrimaryBorder: '#9337A5',
-            colorPrimary: '#9337A5',
-            colorPrimaryHover: '#D000FA',
+            colorPrimaryBorder: '#00D084',
+            colorPrimary: '#00D084',
+            colorPrimaryHover: '#33DB9B',
             colorText: '#f2f2f2',
+            colorTextDisabled: '#555',
+            colorBgContainer: '#555',
+            colorBgTextHover: '#666',
             borderRadius: 50
           },
           Tag: {
