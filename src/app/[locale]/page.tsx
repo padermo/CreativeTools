@@ -1,7 +1,7 @@
 import Header from '@/components/Landing/Header'
 import Search from '@/components/Landing/Search'
 import Account from '@/components/Landing/Account'
-import FloatContact from '@/components/contact/FloatContact'
+import FloatContact from '@/components/Config/FloatContact'
 import PageLayout from '@/components/ParentComponents/PageLayout'
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <Header />
       <Search />
       <Account/>
-      {/*<FloatContact/>*/}
+      <FloatContact/>
     </PageLayout>
   )
 }

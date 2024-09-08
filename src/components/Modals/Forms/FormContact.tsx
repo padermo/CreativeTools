@@ -1,16 +1,14 @@
-'use client'
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
-import ButtonReusable from '@/components/reusable/ButtonReusable';
-import InputReusable from '@/components/reusable/InputReusable';
-import axios from 'axios';
+import ButtonReusable from '@/components/Reusable/Button';
+import InputReusable from '@/components/Reusable/Input';
 import axiosConfig from '@/axios/axiosConfig';
 
 // types
 import type { FormContactInputs, FormContactProps } from '@/types/generals.types';
 
-export default function FormContact({handleModal}:FormContactProps){
+export default function FormContact({ handleModal }: FormContactProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const t = useTranslations('Contact');
 
@@ -20,7 +18,7 @@ export default function FormContact({handleModal}:FormContactProps){
     const { content, to } = data;
     try {
       setLoading(true)
-      const response = await axiosConfig.post('/support', {to, text:content})
+      const response = await axiosConfig.post('/support', { to, text: content })
     } catch (error) {
       console.log(error)
     } finally {
@@ -30,9 +28,9 @@ export default function FormContact({handleModal}:FormContactProps){
     }
   })
 
-  return(
+  return (
     <form onSubmit={onSubmit} className='flex flex-col gap-4'>
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='to' className='mb-2 inline-block text-wrap break-words'>{t('form.email.text')}</label>
         <Controller
           name='to'
@@ -67,7 +65,7 @@ export default function FormContact({handleModal}:FormContactProps){
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='content' className='mb-2 inline-block text-wrap break-words'>{t('form.subject.text')}</label>
         <Controller
           name='content'
@@ -98,9 +96,7 @@ export default function FormContact({handleModal}:FormContactProps){
         />
       </div>
 
-      <ButtonReusable type='primary' loading={loading} onClick={onSubmit}>
-        {t('button')}
-      </ButtonReusable>
+      <ButtonReusable text={t('button')} htmlType='submit' type='primary' loading={loading} onClick={onSubmit} />
     </form>
   )
 }
