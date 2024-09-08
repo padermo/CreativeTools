@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
-import FormLogin from '@/components/auth/forms/FormLogin';
+import FormLogin from '@/components/Auth/Forms/FormLogin';
 import PageLayout from '@/components/ParentComponents/PageLayout';
 import ValidateSession from '@/components/ParentComponents/ValidateSession';
 import AlertProvider from '@/context/AlertContext';

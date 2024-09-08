@@ -4,8 +4,8 @@ import { useTranslations } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
 import { useRouter } from '@/navigation';
 import { useAlert } from '@/context/AlertContext';
-import ButtonReusable from '@/components/reusable/ButtonReusable';
-import InputReusable from '@/components/reusable/InputReusable';
+import ButtonReusable from '@/components/Reusable/Button';
+import InputReusable from '@/components/Reusable/Input';
 import axiosConfig from '@/axios/axiosConfig';
 import axios from 'axios';
 
@@ -152,9 +152,7 @@ export default function FormRegister() {
         />
       </div>
 
-      <ButtonReusable htmlType='submit' type='primary' loading={loading} onClick={onSubmit}>
-        {t('button')}
-      </ButtonReusable>
+      <ButtonReusable text={t('button')} htmlType='submit' type='primary' loading={loading} onClick={onSubmit} />
       {contextHolder}
     </form>
   )

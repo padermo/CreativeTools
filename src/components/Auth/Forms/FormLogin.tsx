@@ -5,8 +5,8 @@ import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "@/navigation";
 import { signIn } from "next-auth/react";
 import { useAlert } from "@/context/AlertContext";
-import ButtonReusable from "@/components/reusable/ButtonReusable";
-import InputReusable from "@/components/reusable/InputReusable";
+import ButtonReusable from "@/components/Reusable/Button";
+import InputReusable from "@/components/Reusable/Input";
 
 // types
 import type { ClipboardEventHandler } from "react";
@@ -110,9 +110,7 @@ export default function FormLogin() {
         />
       </div>
 
-      <ButtonReusable htmlType="submit" type="primary" loading={loading} onClick={onSubmit}>
-        {t("button")}
-      </ButtonReusable>
+      <ButtonReusable text={t("button")} htmlType="submit" type="primary" loading={loading} onClick={onSubmit} />
       {contextHolder}
     </form>
   );

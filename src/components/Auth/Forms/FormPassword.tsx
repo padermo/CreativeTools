@@ -6,13 +6,13 @@ import { useAlert } from '@/context/AlertContext'
 import { useRouter } from '@/navigation'
 import axiosConfig from '@/axios/axiosConfig'
 import axios from 'axios'
-import InputReusable from '@/components/reusable/InputReusable'
-import ButtonReusable from '@/components/reusable/ButtonReusable'
+import InputReusable from '@/components/Reusable/Input'
+import ButtonReusable from '@/components/Reusable/Button'
 
 // types
 import type { InputsFormPassword } from './types'
 
-export default function FormPassword(){
+export default function FormPassword() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const router = useRouter();
@@ -23,23 +23,23 @@ export default function FormPassword(){
   const { handleAlert } = useAlert();
   const { handleSubmit, watch, control, reset } = useForm<InputsFormPassword>();
 
-  const onSubmit = handleSubmit(async(data) => {
+  const onSubmit = handleSubmit(async (data) => {
     const { password } = data;
     try {
       setLoading(true)
-      const res = await axiosConfig.post('/recovery/modify-password', {email, password})
+      const res = await axiosConfig.post('/recovery/modify-password', { email, password })
 
-      if(res?.status === 200){
-        handleAlert({type:'success', content: t('alerts.success')})
+      if (res?.status === 200) {
+        handleAlert({ type: 'success', content: t('alerts.success') })
         localStorage.removeItem('email')
         router.push('/auth/login')
         setLoading(false);
       }
-      
+
     } catch (error) {
-      if(axios.isAxiosError(error)){
-        if(error.response?.status === 400){
-          handleAlert({type:'info', content: error.response.data.message})
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 400) {
+          handleAlert({ type: 'info', content: error.response.data.message })
         }
       }
     } finally {
@@ -47,7 +47,7 @@ export default function FormPassword(){
     }
   })
 
-  return(
+  return (
     <form onSubmit={onSubmit} className='w-full flex flex-col gap-4 lg:w-2/5'>
       <h1 className='text-center text-xl font-semibold text-[#222] dark:text-white'>{t('content.title')}</h1>
       <div className='w-full text-[#222] font-light dark:text-white'>
@@ -96,7 +96,7 @@ export default function FormPassword(){
               value: true,
               message: t('handlers.errors.confirm_password.required'),
             },
-            validate: (value) => 
+            validate: (value) =>
               value === watch('password') || t('handlers.errors.confirm_password.pattern')
           }}
           render={({ field, fieldState: { error } }) => (
@@ -118,9 +118,7 @@ export default function FormPassword(){
         />
       </div>
 
-      <ButtonReusable type='primary' loading={loading} onClick={onSubmit}>
-        {t('buttons.modify')}
-      </ButtonReusable>
+      <ButtonReusable text={t('buttons.modify')} type='primary' htmlType='submit' loading={loading} onClick={onSubmit} />
     </form>
   )
 }

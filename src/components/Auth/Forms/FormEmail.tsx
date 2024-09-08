@@ -5,8 +5,8 @@ import { Controller, useForm } from "react-hook-form";
 import { useAlert } from "@/context/AlertContext";
 import axiosConfig from "@/axios/axiosConfig";
 import axios from "axios";
-import InputReusable from "@/components/reusable/InputReusable";
-import ButtonReusable from "@/components/reusable/ButtonReusable";
+import InputReusable from "@/components/Reusable/Input";
+import ButtonReusable from "@/components/Reusable/Button";
 
 // types
 import type { InputsFormEmail, FormEmailProps } from "./types";
@@ -73,9 +73,7 @@ export default function FormEmail({ setViewFormPassword }: FormEmailProps) {
         />
       </div>
 
-      <ButtonReusable type="primary" loading={loading} onClick={onSubmit}>
-        {t("buttons.sent")}
-      </ButtonReusable>
+      <ButtonReusable text={t("buttons.sent")} htmlType="submit" type="primary" loading={loading} onClick={onSubmit} />
     </form>
   );
 }

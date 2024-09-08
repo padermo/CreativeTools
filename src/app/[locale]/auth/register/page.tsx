@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import FormRegister from '@/components/auth/forms/FormRegister';
+import FormRegister from '@/components/Auth/Forms/FormRegister';
 import PageLayout from '@/components/ParentComponents/PageLayout';
 import ValidateSession from '@/components/ParentComponents/ValidateSession';
 import AlertProvider from '@/context/AlertContext';
