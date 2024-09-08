@@ -10,7 +10,7 @@ import type { StateItems } from '@/types/context.types';
 export default function Card({_id, name, url, category, subcategory, score, liked, isFree}:StateItems) {
   const t = useTranslations('Tools');
   return (
-    <div className='w-60 h-60 rounded-md shadow-md flex flex-col items-center justify-between text-[#222] bg-gray-100 p-4 dark:text-white dark:bg-[#444]'>
+    <div className='w-60 h-60 rounded-sm shadow-md flex flex-col items-center justify-between bg-[#1b1b1b] p-4 hover:outline hover:outline-neutral-800'>
       <div className='w-full flex justify-end items-center'>
         <Report _id={_id} name={name}/>
       </div>

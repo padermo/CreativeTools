@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import ScrollDown from '../svg/ScrollDown';
+import ScrollDown from '../SVG/ScrollDown';
 
 export default function Header() {
   const t = useTranslations('Header');

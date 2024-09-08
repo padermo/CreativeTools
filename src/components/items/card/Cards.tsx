@@ -1,7 +1,7 @@
 'use client'
 import { useItems } from '@/context/ItemsContext'
 import Card from './Card';
-import NotData from '@/components/svg/NotData';
+import NotData from '@/components/SVG/NotData';
 import CardSkeleton from '@/components/fallbacks/CardSkeleton';
 
 export default function Cards(){

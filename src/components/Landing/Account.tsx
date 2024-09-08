@@ -2,7 +2,7 @@
 import { useTranslations } from 'next-intl'
 import { useRouter } from '@/navigation';
 import ButtonReusable from '../Reusable/Button';
-import Join from '../svg/Join';
+import Join from '../SVG/Join';
 
 export default function Account() {
   const t = useTranslations('Content.Account');

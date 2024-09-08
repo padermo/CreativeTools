@@ -6,7 +6,7 @@ import { removeCookie } from "@/app/actions";
 import { Link } from "@/navigation";
 import MenuNavbar from "./Menu";
 import UserMenu from "./UserMenu";
-import Logo from "../svg/Logo";
+import Logo from "../SVG/Logo";
 import Lang from "../Config/Lang";
 
 export default function Navbar() {
