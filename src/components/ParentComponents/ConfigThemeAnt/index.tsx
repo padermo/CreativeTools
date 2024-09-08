@@ -18,15 +18,8 @@ export default function ConfigThemeAnt({ children }: Children) {
             controlHeight: 40,
           },
           FloatButton: {
-            colorPrimary: '#444',
-            colorPrimaryHover: '#555',
-          },
-          Switch: {
             colorPrimary: '#1b1b1b',
-            colorPrimaryHover: '#1b1b1b',
-            colorTextLightSolid: '#fff',
-            colorTextQuaternary: '#f3e',
-            handleBg: '#fff'
+            colorPrimaryHover: '#2b2b2b',
           },
           Menu: {
             itemBg: "transparent",
