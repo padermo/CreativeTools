@@ -42,10 +42,11 @@ export default function ConfigThemeAnt({ children }: Children) {
             borderRadius: 50
           },
           Tag: {
-            colorPrimary: '#D000FA',
-            colorPrimaryActive: '#B323CF',
-            colorPrimaryHover: '#D04AFA',
+            colorPrimary: '#1b1b1b',
+            colorPrimaryActive: '#fff',
+            colorPrimaryHover: '#1b1b1b',
             colorFillSecondary: '#bdbdbd',
+            colorText: '#888',
           },
           Input: {
             boxShadow: 'none',

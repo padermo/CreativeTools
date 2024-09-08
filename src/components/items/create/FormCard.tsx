@@ -1,4 +1,3 @@
-'use client'
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
@@ -7,50 +6,49 @@ import { useAlert } from '@/context/AlertContext';
 import { category, subcategory, accessType } from '@/utils/dataSend';
 import { isURL } from 'validator';
 import { Radio } from 'antd';
-import ButtonReusable from '@/components/reusable/ButtonReusable';
-import InputReusable from '@/components/reusable/InputReusable';
-import SelectReusable from '@/components/reusable/SelectReusable';
-import RadioReusable from '@/components/reusable/RadioReusable';
+import ButtonReusable from '@/components/Reusable/Button';
+import InputReusable from '@/components/Reusable/Input';
+import SelectReusable from '@/components/Reusable/SelectReusable';
+import RadioReusable from '@/components/Reusable/RadioReusable';
 import axiosConfig from '@/axios/axiosConfig';
 import axios from 'axios';
 
 // types
 import type { FormCardInputs } from '@/types/generals.types';
-import type { SelectOption } from '@/components/reusable/types';
+import type { SelectOption } from '@/components/Reusable/types';
 import type { HandlerModalFunction } from '@/types/context.types';
 import type { SubcategoryKeys } from '@/types/generals.types';
 
-export default function FormCard({handleModal}:HandlerModalFunction){
+export default function FormCard({ handleModal }: HandlerModalFunction) {
   const [loading, setLoading] = useState<boolean>(false);
-  const [subcategoryData, setSubcategoryData] = useState<[SelectOption]>([{value:'', label:''}]);
-  
+  const [subcategoryData, setSubcategoryData] = useState<[SelectOption]>([{ value: '', label: '' }]);
+
   const { token, mutateItems } = useItems();
   const { handleAlert } = useAlert();
 
   const c = useTranslations('CreateItem');
   const t = useTranslations('Tools');
-  
-  const { handleSubmit, reset, watch, control } = useForm<FormCardInputs>();
 
-  const categoryValues = t('categories').split(',').map((value, index) => {return {value:category[index], label:value}}) as [SelectOption];
-  const categorySelect:SubcategoryKeys = watch('category') as SubcategoryKeys;
-  
+  const { handleSubmit, reset, watch, control } = useForm<FormCardInputs>();
+  const categoryValues = t('categories').split(',').map((value, index) => { return { value: category[index], label: value } }) as [SelectOption];
+  const categorySelect: SubcategoryKeys = watch('category') as SubcategoryKeys;
+
   const onSubmit = handleSubmit(async (data) => {
     const { name, category, subcategory, url, isFree } = data;
     try {
       setLoading(true)
-      const res = await axiosConfig.post('/item', { name, category, subcategory, url, isFree }, {headers: {'Authorization': `Bearer ${token}`}})
+      const res = await axiosConfig.post('/item', { name, category, subcategory, url, isFree }, { headers: { 'Authorization': `Bearer ${token}` } })
 
-      if(res?.status === 200){
-        handleAlert({type:'success', content:c('alerts.created')})
+      if (res?.status === 200) {
+        handleAlert({ type: 'success', content: c('alerts.created') })
         handleModal('create')
         mutateItems()
         setLoading(false)
       }
     } catch (error) {
-      if(axios.isAxiosError(error)){
-        if(error.response?.status === 401){
-          handleAlert({type:'info', content:c('alerts.exists')})
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 401) {
+          handleAlert({ type: 'info', content: c('alerts.exists') })
         }
       }
     } finally {
@@ -59,12 +57,12 @@ export default function FormCard({handleModal}:HandlerModalFunction){
   });
 
   useEffect(() => {
-    if(categorySelect){
-      setSubcategoryData(t(`subcategories.${categorySelect}`).split(',').map((value, index) => {return {value:subcategory[categorySelect][index], label:value}}) as [SelectOption])
+    if (categorySelect) {
+      setSubcategoryData(t(`subcategories.${categorySelect}`).split(',').map((value, index) => { return { value: subcategory[categorySelect][index], label: value } }) as [SelectOption])
     }
-  },[categorySelect, t])
+  }, [categorySelect, t])
 
-  return(
+  return (
     <form onSubmit={onSubmit} className='flex flex-col gap-4'>
       <div className='w-full text-[#222] font-light dark:text-white'>
         <label htmlFor='name'>{c('inputs.name.text')}</label>
@@ -218,9 +216,7 @@ export default function FormCard({handleModal}:HandlerModalFunction){
         />
       </div>
 
-      <ButtonReusable type='primary' loading={loading} onClick={onSubmit}>
-        {c('button')}
-      </ButtonReusable>
+      <ButtonReusable text={c('button')} htmlType='submit' type='primary' loading={loading} onClick={onSubmit} />
     </form>
   )
 }

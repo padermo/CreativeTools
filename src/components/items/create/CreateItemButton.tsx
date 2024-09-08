@@ -2,17 +2,15 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { useModal } from '@/context/ModalContext';
 import { useSession } from 'next-auth/react'
-import ButtonReusable from '@/components/reusable/ButtonReusable';
+import ButtonReusable from '@/components/Reusable/Button';
 
-export default function CreateItemButton(){
+export default function CreateItemButton() {
   const { handleModal } = useModal();
   const { status } = useSession();
 
-  if(status === 'authenticated'){
+  if (status === 'authenticated') {
     return (
-      <ButtonReusable loading={false} onClick={() => handleModal('create')} type='primary'>
-        <PlusOutlined className='text-white'/>
-      </ButtonReusable>
+      <ButtonReusable icon={<PlusOutlined />} htmlType='button' onClick={() => handleModal('create')} type='primary' />
     )
   }
 
