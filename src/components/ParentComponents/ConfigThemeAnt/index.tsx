@@ -1,12 +1,10 @@
 'use client';
 import { ConfigProvider } from 'antd';
-import { useTheme } from '@/context/ThemeContext';
 
 // types
 import type { Children } from '@/types/generals.types';
 
 export default function ConfigThemeAnt({ children }: Children) {
-  const { theme } = useTheme();
   return (
     <ConfigProvider
       theme={{
@@ -20,14 +18,14 @@ export default function ConfigThemeAnt({ children }: Children) {
             controlHeight: 40,
           },
           FloatButton: {
-            colorPrimary: theme === 'dark' ? '#444' : '#c5c5c5',
-            colorPrimaryHover: theme === 'dark' ? '#555' : '#d5d5d5',
+            colorPrimary: '#444',
+            colorPrimaryHover: '#555',
           },
           Switch: {
             colorPrimary: '#1b1b1b',
             colorPrimaryHover: '#1b1b1b',
             colorTextLightSolid: '#fff',
-colorTextQuaternary: '#f3e',
+            colorTextQuaternary: '#f3e',
             handleBg: '#fff'
           },
           Menu: {
@@ -54,7 +52,7 @@ colorTextQuaternary: '#f3e',
             colorPrimary: '#D000FA',
             colorPrimaryActive: '#B323CF',
             colorPrimaryHover: '#D04AFA',
-            colorFillSecondary: theme === 'dark' ? '#bdbdbd' : '#f2f2f2'
+            colorFillSecondary: '#bdbdbd',
           },
           Input: {
             boxShadow: 'none',
@@ -72,21 +70,21 @@ colorTextQuaternary: '#f3e',
           Select: {
             colorPrimary: '#9337A5',
             colorPrimaryHover: '#9337A5',
-            colorBgContainer: theme === 'dark' ? '#444' : '#fff',
-            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5',
-            optionActiveBg: theme === 'dark' ? '#666' : '#f2f2f2',
-            optionSelectedBg: theme === 'dark' ? '#666' : '#c5c5c5',
-            optionSelectedColor: theme === 'dark' ? '#fff' : '#222',
-            colorTextPlaceholder: theme === 'dark' ? '#fff' : '#a1a1a1',
-            colorText: theme === 'dark' ? '#fff' : '#222',
+            colorBgContainer: '#444',
+            colorBorder: '#555',
+            optionActiveBg: '#666',
+            optionSelectedBg: '#666',
+            optionSelectedColor: '#fff',
+            colorTextPlaceholder: '#fff',
+            colorText: '#fff',
             controlOutline: 'none',
           },
           Radio: {
             colorPrimary: '#B323CF',
             colorPrimaryActive: '#9337A5',
             colorPrimaryHover: '#D000FA',
-            colorBgContainer: theme === 'dark' ? '#444' : '#fff',
-            colorBorder: theme === 'dark' ? '#555' : '#c5c5c5'
+            colorBgContainer: '#444',
+            colorBorder: '#555',
           },
           Dropdown: {
             colorBgElevated: '#1b1b1b',
