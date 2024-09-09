@@ -2,7 +2,7 @@
 import { useItems } from '@/context/ItemsContext';
 import Card from '../Items/Card/Card';
 import NotData from '../SVG/NotData';
-import CardSkeleton from '../Fallbacks/CardSkeleton';
+import CardSkeleton from '../Skeleton';
 export default function Favorites() {
   const { favoriteItems, loadingFavorites } = useItems();
 

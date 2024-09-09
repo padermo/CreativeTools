@@ -1,12 +1,12 @@
-import PageLayout from '@/components/parentComponents/PageLayout';
+import PageLayout from '@/components/ParentComponents/PageLayout';
 import ItemsProvider from '@/context/ItemsContext';
-import Favorites from '@/components/favorites/Favorites';
+import Favorites from '@/components/Favorites';
 
-export default function FavoritePage(){
-  return(
+export default function FavoritePage() {
+  return (
     <PageLayout>
       <ItemsProvider>
-        <Favorites/>
+        <Favorites />
       </ItemsProvider>
     </PageLayout>
   )

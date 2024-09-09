@@ -2,7 +2,7 @@
 import { useItems } from '@/context/ItemsContext'
 import Card from './Card';
 import NotData from '@/components/SVG/NotData';
-import CardSkeleton from '@/components/Fallbacks/CardSkeleton';
+import CardSkeleton from '@/components/Skeleton';
 
 export default function Cards(){
   const { items, loadingItems } = useItems();
