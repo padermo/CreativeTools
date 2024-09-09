@@ -18,8 +18,6 @@ export default function Cards(){
             _id={item._id}
             name={item.name}
             url={item.url}
-            category={item.category}
-            subcategory={item.subcategory}
             liked={item.liked}
             score={item.score}
             isFree={item.isFree}

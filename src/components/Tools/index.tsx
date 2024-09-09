@@ -1,7 +1,7 @@
 'use client';
 import { useAlert } from '@/context/AlertContext';
 import Filters from '../Filters';
-import Cards from '../items/card/Cards';
+import Cards from '../Items/Card/Cards';
 import Pages from '../Pagination';
 
 export default function Tools() {

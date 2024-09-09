@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl'
 import axiosConfig from '@/axios/axiosConfig'
 
 // types
-import type { ScoreProps } from '@/types/generals.types'
+import type { ScoreProps } from '../../items.types'
 
 export default function Liked({score, liked, _id}:ScoreProps){
   const t = useTranslations('Tools')
@@ -40,17 +40,17 @@ export default function Liked({score, liked, _id}:ScoreProps){
         existsUser ? 
         (
           <div className='flex items-center gap-1'>
-            <button onClick={handleScore}>
-              <LikeFilled className='text-cyan-600'/>
+            <button onClick={handleScore} className='text-cyan-500'>
+              <LikeFilled />
             </button>
-            <span className='text-[#222] font-light dark:text-white'>{score}</span>
+            <span className='font-light text-white'>{score}</span>
           </div>
         )
         :
         (
           <div className='flex items-center gap-1'>
-            <button onClick={handleScore}>
-              <LikeOutlined className='text-[#a1a1a1] transition-colors duration-300 ease-in-out dark:text-white hover:text-cyan-600 dark:hover:text-cyan-600'/>
+            <button onClick={handleScore} className='text-[#888] transition-colors duration-300 ease-in-out hover:text-white'>
+              <LikeOutlined/>
             </button>
             <span className='text-[#222] font-light dark:text-white'>{score > 0 && score}</span>
           </div>

@@ -1,13 +1,15 @@
-import Score from './options/Score';
-import StatusFree from './options/StatusFree';
-import Report from './options/Report';
-import Favorite from './options/Favorite';
+import Score from './Options/Score';
+import StatusFree from './Options/StatusFree';
+import Report from './Options/Report';
+import Favorite from './Options/Favorite';
+import Share from './Options/Share';
 import { useTranslations } from 'next-intl';
 
 // type
 import type { StateItems } from '@/types/context.types';
+import type { CardProps } from '../items.types';
 
-export default function Card({_id, name, url, category, subcategory, score, liked, isFree}:StateItems) {
+export default function Card({_id, name, url, score, liked, isFree}:CardProps) {
   const t = useTranslations('Tools');
   return (
     <div className='w-60 h-60 rounded-sm shadow-md flex flex-col items-center justify-between bg-[#1b1b1b] p-4 hover:outline hover:outline-neutral-800'>
@@ -24,6 +26,7 @@ export default function Card({_id, name, url, category, subcategory, score, like
       </div>
       <div className='w-full flex justify-between items-center'>
         <div className='flex items-center gap-2'>
+          <Share title={name} url={url} />
           <Favorite _id={_id} />
           <Score
             score={score}

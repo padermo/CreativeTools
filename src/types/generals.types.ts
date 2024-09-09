@@ -4,7 +4,7 @@ import type {
   SetStateAction,
 } from 'react';
 import type { ButtonType } from 'antd/es/button';
-import type { SelectOption } from '@/components/reusable/types';
+import type { SelectOption } from '@/components/Reusable/types';
 import type { HandlerModalFunction, SetDataReportModal } from './context.types';
 
 export interface Children {
@@ -36,24 +36,6 @@ export interface Theme {
 
 export interface ItemId {
   _id: string;
-}
-
-export interface ScoreProps extends ItemId {
-  score: number;
-  liked: string[];
-}
-
-export interface FavoriteProps extends ItemId {}
-
-export interface StatusFreeProps {
-  isFree: string;
-  free: string;
-  pay: string;
-}
-
-export interface OptionsProps {
-  _id: string;
-  name: string;
 }
 
 export interface FilterProps {
@@ -113,21 +95,21 @@ export interface ReportModalProps extends DataReportItem {
   handleModal: (id: string, name: string) => void;
 }
 
-export interface FormReportProps extends SetDataReportModal, HandlerModalFunction{};
+export interface FormReportProps extends SetDataReportModal, HandlerModalFunction { };
 
 export interface FormContactInputs {
   to: string;
   content: string;
 }
 
-export interface FormContactProps extends HandlerModalFunction{}
+export interface FormContactProps extends HandlerModalFunction { }
 
-export interface FormCardInputs{
-  name:string;
-  url:string;
-  category:string;
-  subcategory:string;
-  isFree:boolean;
+export interface FormCardInputs {
+  name: string;
+  url: string;
+  category: string;
+  subcategory: string;
+  isFree: boolean;
 }
 
-export type SubcategoryKeys = 'documents'|'resources'|'modules';
+export type SubcategoryKeys = 'documents' | 'resources' | 'modules';

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import type { StatusFreeProps } from '@/types/generals.types';
+import type { StatusFreeProps } from '../../items.types';
 
 export default function StatusFree({ isFree, free, pay }: StatusFreeProps) {
   const styleStatus: CSSProperties = {

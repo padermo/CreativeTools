@@ -14,7 +14,7 @@ import axiosConfig from '@/axios/axiosConfig';
 import axios from 'axios';
 
 // types
-import type { FormCardInputs } from '@/types/generals.types';
+import type { FormCardInputs } from '../items.types';
 import type { SelectOption } from '@/components/Reusable/types';
 import type { HandlerModalFunction } from '@/types/context.types';
 import type { SubcategoryKeys } from '@/types/generals.types';
