@@ -202,7 +202,14 @@
     },
     "alerts": {
       "favorites": "Sign in to add favorites",
-      "liked": "Sign in to like"
+      "liked": "Sign in to like",
+      "share": {
+        "copy": "Copied",
+        "errors": {
+          "copy": "An error occurred while copying the URL",
+          "share": "An error occurred while sharing the URL"
+        }
+      }
     }
   },
   "CreateItem": {

@@ -2,6 +2,7 @@ import ConfigThemeAnt from "../ConfigThemeAnt";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/Config/ScrollToTop";
+import Consent from "@/components/Cookies/Consent";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 
 // types
@@ -17,6 +18,7 @@ export default function PageLayout({ children }: Children) {
         <main className="max-w-screen-xl m-auto text-white">
           {children}
           <ScrollToTop />
+          <Consent />
         </main>
         <Footer />
       </ConfigThemeAnt>

@@ -198,7 +198,14 @@
     },
     "alerts": {
       "favorites": "Inicia sesión para agregar favoritos",
-      "liked": "Inicia sesión para dar me gusta"
+      "liked": "Inicia sesión para dar me gusta",
+      "share": {
+        "copy": "Copiado",
+        "errors": {
+          "copy": "Se produjo un error al copiar la url",
+          "share": "Se ha producido un error al compartir la url"
+        }
+      }
     }
   },
   "CreateItem": {

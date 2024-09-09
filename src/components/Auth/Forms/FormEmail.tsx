@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Controller, useForm } from "react-hook-form";
@@ -42,7 +41,7 @@ export default function FormEmail({ setViewFormPassword }: FormEmailProps) {
 
   return (
     <form onSubmit={onSubmit} className="w-full flex flex-col gap-4 lg:w-2/5">
-      <div className="w-full text-[#222] font-light dark:text-white">
+      <div className="w-full font-light">
         <label htmlFor="email">{t("form.email.text")}</label>
         <Controller
           name="email"

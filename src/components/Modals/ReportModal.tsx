@@ -10,8 +10,8 @@ export default function ReportModal() {
     return (
       <div className='w-full h-dvh flex flex-col justify-center items-center fixed top-0 left-0 z-20'>
         <div className='rounded-md shadow-xl border border-neutral-800 w-[90%] bg-[#111] p-3 flex flex-col gap-2 justify-center md:w-1/2 lg:w-2/6'>
-          <div className='flex justify-end'>
-            <CloseOutlined onClick={() => handleModal('report', { _id: '', name: '' })} className='hover:text-red-500' />
+          <div className='flex justify-end text-[#888] transition-colors duration-300 ease-in-out hover:text-white'>
+            <CloseOutlined onClick={() => handleModal('report', { _id: '', name: '' })} />
           </div>
           <p className='text-lg font-semibold text-center'>{dataReportModal.name.toUpperCase()}</p>
           <FormReport _id={dataReportModal._id} name={dataReportModal.name} handleModal={handleModal} />

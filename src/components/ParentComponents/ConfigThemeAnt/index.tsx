@@ -14,6 +14,9 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorPrimaryActive: '#00A868',
             colorPrimaryHover: '#33DB9B',
             primaryShadow: 'none',
+            defaultBg: 'transparent',
+            defaultColor: '#fff',
+            defaultBorderColor: '#fff',
             defaultHoverBg: 'transparent',
             controlHeight: 40,
           },
@@ -90,6 +93,10 @@ export default function ConfigThemeAnt({ children }: Children) {
             colorText: '#fff',
             controlItemBgHover: '#2b2b2b',
             controlItemBgActive: '#2b2b2b'
+          },
+          Message: {
+            contentBg: '#1b1b1b',
+            colorText: '#fff'
           }
         },
       }}

@@ -14,7 +14,7 @@ export default function LoginPage() {
           <div className='min-h-dvh max-h-full flex flex-col justify-center items-center gap-4'>
             <h1 className='text-2xl'>{t('title')}</h1>
             <FormLogin />
-            <Link href={'/auth/recovery'} className='text-sm font-light hover:underline'>{t('recovery')}</Link>
+            <Link href={'/auth/recovery'} className='text-sm font-light text-[#888] hover:text-white hover:underline'>{t('recovery')}</Link>
           </div>
         </AlertProvider>
       </PageLayout>

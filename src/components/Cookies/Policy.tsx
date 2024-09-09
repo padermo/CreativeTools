@@ -2,17 +2,12 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/navigation'
 import { chrome, explorer, mozilla, safari } from '@/utils/urls';
-import { useSearchParams, notFound } from 'next/navigation';
 
-export default function Policy(){
+export default function Policy() {
   const t = useTranslations('Cookies');
-  const searchParams = useSearchParams();
-  const viewPolicyCookies = searchParams.get('view');
 
-  if(viewPolicyCookies === 'cookies'){
-    return (
-      <article className='px-4 py-8 md:px-8 lg:px-12 w-full min-h-screen max-h-full flex flex-col gap-10 justify-center bg-white text-[#222] dark:text-white dark:bg-[#222]'>
-        <Link href='/' className='underline font-medium'>{t('policy.back')}</Link>
+  return (
+      <article className='px-4 py-8 md:px-8 lg:px-12 w-full min-h-screen max-h-full flex flex-col gap-10 justify-center lg:mt-14'>
         <div className='flex flex-col gap-3'>
           <h4 className='font-bold text-xl'>{t('policy.title')}</h4>
           <p>{t('policy.intro')}</p>
@@ -49,7 +44,4 @@ export default function Policy(){
         </div>
       </article>
     )
-  }
-
-  return notFound()
 }

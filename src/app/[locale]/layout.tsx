@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { RootLayout } from "@/types/generals.types";
 import { Poppins } from "next/font/google";
-import SessionsProvider from "@/components/provider/SessionProvider";
+import SessionsProvider from "@/components/Provider/SessionProvider";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import ModalProvider from "@/context/ModalContext";
 import Favicon from "/public/favicon.ico";

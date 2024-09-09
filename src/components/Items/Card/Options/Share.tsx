@@ -1,23 +1,25 @@
 import { ShareAltOutlined, CopyOutlined } from "@ant-design/icons";
+import { useAlert } from "@/context/AlertContext";
+import { useTranslations } from "next-intl";
 import type { ShareProps } from "../../items.types";
 
 export default function Share({ title, url }:ShareProps) {
+  const t = useTranslations('Tools');
+  const { handleAlert } = useAlert();
 
   const handleShare = async() => {
     if(navigator.share){
       try {
         await navigator.share({title, url});
       } catch (err) {
-        // add alert with message info
-        console.log(err);
+        handleAlert({type: 'error', content: t('alerts.share.errors.share')});
       }
     } else {
       try {
-        // add alert with message copied ok
         await navigator.clipboard.writeText(url);
+        handleAlert({type:'success', content: t('alerts.share.copy')});
       } catch (err) {
-        // add alert
-        console.log(err)
+        handleAlert({type:'error', content: t('alerts.share.errors.copy')});
       }
     }
   }

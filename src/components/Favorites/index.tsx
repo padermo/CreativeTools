@@ -8,7 +8,7 @@ export default function Favorites() {
 
   if (loadingFavorites) return <CardSkeleton />
   return (
-    <div className='flex flex-col w-full min-h-dvh max-h-full gap-4 justify-center items-center py-20 lg:py-8'>
+    <div className='flex flex-col w-full min-h-dvh max-h-full gap-4 justify-center items-center py-20 lg:py-8 lg:mt-14'>
       <div className='w-full flex flex-wrap gap-5 flex-1 justify-center md:justify-start lg:justify-start'>
         {!favoriteItems.length && <NotData />}
         {favoriteItems &&

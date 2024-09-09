@@ -49,8 +49,8 @@ export default function FormPassword() {
 
   return (
     <form onSubmit={onSubmit} className='w-full flex flex-col gap-4 lg:w-2/5'>
-      <h1 className='text-center text-xl font-semibold text-[#222] dark:text-white'>{t('content.title')}</h1>
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <h1 className='text-center text-xl font-semibold'>{t('content.title')}</h1>
+      <div className='w-full font-light'>
         <label htmlFor='password'>{t('form.password.text')}</label>
         <Controller
           name='password'
@@ -85,7 +85,7 @@ export default function FormPassword() {
         />
       </div>
 
-      <div className='w-full text-[#222] font-light dark:text-white'>
+      <div className='w-full font-light'>
         <label htmlFor='confirm_password'>{t('form.confirm_password.text')}</label>
         <Controller
           name='confirm_password'
