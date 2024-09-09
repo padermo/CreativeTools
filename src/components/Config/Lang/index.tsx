@@ -11,14 +11,18 @@ export default function Lang() {
   const pathname = usePathname();
   const router = useRouter();
 
+  const handleChangeLang = (lang: 'es' | 'en') => {
+    router.replace(pathname, { locale: lang, scroll: false });
+  }
+
   const items: MenuProps['items'] = [
     {
       key: '1',
-      label: (<button onClick={() => router.replace(pathname, { locale: 'es' })}>{t('spanish')}</button>)
+      label: (<button onClick={() => handleChangeLang('es')}>{t('spanish')}</button>)
     },
     {
       key: '2',
-      label: (<button onClick={() => router.replace(pathname, { locale: 'en' })}>{t('english')}</button>)
+      label: (<button onClick={() => handleChangeLang('en')}>{t('english')}</button>)
     }
   ]
 
