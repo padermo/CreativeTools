@@ -46,23 +46,25 @@ body {
 }
 
 #circle {
-  fill: rgba(44, 44, 44, 0.14);
-  stroke: rgb(63, 63, 63);
+  fill: #2C2C2C;
+  stroke: #3F3F3F;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
 }
 
 .light-bulb:hover #circle {
-  fill: rgba(255, 215, 0);
-  stroke: rgb(255, 236, 139);
-  filter: drop-shadow(0 0 10px rgba(255, 250, 205));
+  fill: #FFD700;
+  stroke: #FFEC8B;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
 }
 
 #draw {
-  stroke: rgb(76, 76, 76);
+  stroke: #4C4C4C;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 }
 
 .light-bulb:hover #draw {
-  stroke: rgb(255, 69, 0);
-  filter: drop-shadow(0 0 6px rgb(255, 99, 71));
+  stroke: #FF4500;
+  filter: drop-shadow(0 0 6px rgb(255, 69, 0, 0.6));
 }
 
 #light-lines {
@@ -70,6 +72,20 @@ body {
 }
 
 .light-bulb:hover #light-lines {
-  stroke: rgb(255, 250, 205);
-  filter: drop-shadow(0 0 10px rgba(255, 250, 205));
+  stroke: #FFEC8B;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}
+
+.navigation {
+  grid-template-areas:
+    "button none"
+    "menu menu";
+}
+
+.button-area {
+  grid-area: button;
+}
+
+.menu-area {
+  grid-area: menu;
 }

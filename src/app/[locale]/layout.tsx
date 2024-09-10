@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { RootLayout } from "@/types/generals.types";
 import { Poppins } from "next/font/google";
-import SessionsProvider from "@/components/Provider/SessionProvider";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import ModalProvider from "@/context/ModalContext";
 import Favicon from "/public/favicon.ico";
@@ -26,15 +25,9 @@ export default function RootLayout({
   const messages = useMessages();
   return (
     <html lang={locale}>
-      <body
-        className={`${poppins.className} relative bg-black`}
-      >
+      <body className={`${poppins.className} relative bg-black`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <SessionsProvider>
-            <ModalProvider>
-              {children}
-            </ModalProvider>
-          </SessionsProvider>
+          <ModalProvider>{children}</ModalProvider>
         </NextIntlClientProvider>
       </body>
     </html>

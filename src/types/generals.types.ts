@@ -1,11 +1,7 @@
-import type {
-  ReactNode,
-  Dispatch,
-  SetStateAction,
-} from 'react';
-import type { ButtonType } from 'antd/es/button';
-import type { SelectOption } from '@/components/Reusable/types';
-import type { HandlerModalFunction, SetDataReportModal } from './context.types';
+import type { ReactNode, Dispatch, SetStateAction } from "react";
+import type { ButtonType } from "antd/es/button";
+import type { SelectOption } from "@/components/Reusable/types";
+import type { HandlerModalFunction, SetDataReportModal } from "./context.types";
 
 export interface Children {
   children: ReactNode;
@@ -15,23 +11,10 @@ export interface RootLayout extends Children {
   params: { locale: string };
 }
 
-export interface UserMenuProps {
-  logout: () => void;
-}
-
-export interface NavbarProps extends UserMenuProps {
-  texts: (key: string) => string;
-}
-
 export interface ButtonProps extends Children {
   onClick: () => void;
   type: ButtonType;
   loading: boolean;
-}
-
-export interface Theme {
-  theme: string;
-  handleTheme: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ItemId {
@@ -63,7 +46,7 @@ export interface SubcategoryProps {
 
 export interface SubFiltersProps {
   title: string;
-  tagsData: SelectOption[]
+  tagsData: SelectOption[];
   onClick: Dispatch<SetStateAction<string>>;
 }
 
@@ -95,15 +78,15 @@ export interface ReportModalProps extends DataReportItem {
   handleModal: (id: string, name: string) => void;
 }
 
-export interface FormReportProps extends SetDataReportModal, HandlerModalFunction { };
+export interface FormReportProps
+  extends SetDataReportModal,
+    HandlerModalFunction {}
 
 export interface FormContactInputs {
   to: string;
   content: string;
 }
 
-export interface FormContactProps extends HandlerModalFunction { }
+export interface FormContactProps extends HandlerModalFunction {}
 
-
-
-export type SubcategoryKeys = 'documents' | 'resources' | 'modules';
+export type SubcategoryKeys = "documents" | "resources" | "modules";
