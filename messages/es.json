@@ -5,7 +5,7 @@
   },
   "Content": {
     "Search": {
-      "title": "Encuentra todo tipo de utilidades que podrás emplear para tus proyectos"
+      "title": "Encuentra todo tipo de utilidades para tus proyectos y dale rienda suelta a tu creatividad"
     },
     "Account": {
       "title": "Al crear una cuenta podrás crear nuevas utilidades y/o agregar a tu lista de favoritos.",
@@ -43,12 +43,7 @@
     "title": "Contacto"
   },
   "Navbar": {
-    "menu": [
-      "Home",
-      "Tools",
-      "Log In",
-      "Sign Up"
-    ],
+    "menu": ["Home", "Tools", "Log In", "Sign Up"],
     "title": "Menú",
     "home": "Inicio",
     "tools": "Herramientas",

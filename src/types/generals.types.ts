@@ -104,12 +104,6 @@ export interface FormContactInputs {
 
 export interface FormContactProps extends HandlerModalFunction { }
 
-export interface FormCardInputs {
-  name: string;
-  url: string;
-  category: string;
-  subcategory: string;
-  isFree: boolean;
-}
+
 
 export type SubcategoryKeys = 'documents' | 'resources' | 'modules';

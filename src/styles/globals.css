@@ -39,9 +39,37 @@ body {
   }
 }
 
-.search {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../assets/tools_image.webp');
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+#circle,
+#draw,
+#light-lines {
+  transition: fill .5s ease-in-out, stroke .5s ease-in-out, filter .5s ease-in-out;
+}
+
+#circle {
+  fill: rgba(44, 44, 44, 0.14);
+  stroke: rgb(63, 63, 63);
+}
+
+.light-bulb:hover #circle {
+  fill: rgba(255, 215, 0);
+  stroke: rgb(255, 236, 139);
+  filter: drop-shadow(0 0 10px rgba(255, 250, 205));
+}
+
+#draw {
+  stroke: rgb(76, 76, 76);
+}
+
+.light-bulb:hover #draw {
+  stroke: rgb(255, 69, 0);
+  filter: drop-shadow(0 0 6px rgb(255, 99, 71));
+}
+
+#light-lines {
+  stroke: transparent;
+}
+
+.light-bulb:hover #light-lines {
+  stroke: rgb(255, 250, 205);
+  filter: drop-shadow(0 0 10px rgba(255, 250, 205));
 }
