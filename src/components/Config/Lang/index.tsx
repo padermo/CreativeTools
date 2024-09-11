@@ -1,36 +1,40 @@
-'use client'
-import { useTranslations } from 'next-intl'
-import { usePathname, useRouter } from '@/navigation'
-import { Dropdown } from 'antd'
-import { GlobalOutlined } from '@ant-design/icons'
+"use client";
+import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "@/navigation";
+import { Dropdown } from "antd";
+import { GlobalOutlined } from "@ant-design/icons";
 // types
-import type { MenuProps } from 'antd'
+import type { MenuProps } from "antd";
 
 export default function Lang() {
   const t = useTranslations("Language");
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleChangeLang = (lang: 'es' | 'en') => {
+  const handleChangeLang = (lang: "es" | "en") => {
     router.replace(pathname, { locale: lang, scroll: false });
-  }
+  };
 
-  const items: MenuProps['items'] = [
+  const items: MenuProps["items"] = [
     {
-      key: '1',
-      label: (<button onClick={() => handleChangeLang('es')}>{t('spanish')}</button>)
+      key: "1",
+      label: (
+        <button onClick={() => handleChangeLang("es")}>{t("spanish")}</button>
+      ),
     },
     {
-      key: '2',
-      label: (<button onClick={() => handleChangeLang('en')}>{t('english')}</button>)
-    }
-  ]
+      key: "2",
+      label: (
+        <button onClick={() => handleChangeLang("en")}>{t("english")}</button>
+      ),
+    },
+  ];
 
   return (
-    <Dropdown menu={{ items }} placement='bottomRight'>
-      <button className='rounded-full p-2 flex items-center border-none outline-none text-[#888] hover:text-white hover:bg-[#1b1b1b]'>
+    <Dropdown menu={{ items }} placement="bottomRight">
+      <button className="text-[#888] hover:text-white">
         <GlobalOutlined />
       </button>
     </Dropdown>
-  )
+  );
 }

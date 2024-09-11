@@ -9,7 +9,7 @@ export default function MenuNavbar({ items, mode }: MenuNavbarProps) {
     <Menu
       items={items}
       mode={mode}
-      className={`flex ${mode === "inline" ? "w-full flex-col" : "max-w-full"}`}
+      className={`flex ${mode === "inline" ? "w-full flex-col" : "w-full justify-end"}`}
     />
   );
 }

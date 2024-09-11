@@ -62,9 +62,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full max-w-screen-2xl m-auto grid lg:flex gap-y-2 justify-between items-center navigation px-2 py-3">
+    <nav className="w-full max-w-screen-2xl m-auto grid lg:flex gap-y-2 justify-between items-center navigation px-3 py-3">
       <Logo />
-      <div className="w-full justify-end items-center gap-x-1 hidden lg:flex">
+      <div className="w-full justify-end items-center gap-x-3 hidden lg:flex">
         <MenuNavbar items={items} mode="horizontal" />
         {status === "authenticated" && <UserMenu items={userItems} />}
         <Lang />

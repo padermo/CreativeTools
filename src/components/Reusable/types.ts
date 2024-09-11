@@ -10,7 +10,6 @@ export interface SelectOption {
 
 export interface SelectReusableProps {
   id: string;
-  value: string;
   options: [SelectOption];
   placeholder: string;
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
