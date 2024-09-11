@@ -17,7 +17,7 @@ export default function PageLayout({ children }: Children) {
           <header className="w-full absolute lg:fixed top-0 z-10 lg:bg-black/50 lg:backdrop-blur-sm lg:border-b lg:border-b-neutral-800">
             <Navbar />
           </header>
-          <main className="max-w-screen-xl m-auto text-white">
+          <main className="max-w-screen-xl m-auto text-white px-2">
             {children}
             <ScrollToTop />
             <Consent />

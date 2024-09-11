@@ -78,7 +78,7 @@ export default function Navbar() {
         />
       </div>
       <div
-        className={`${isViewMenu ? "grid" : "hidden"} menu-area rounded-md bg-[#1b1b1b] w-full lg:hidden`}
+        className={`${isViewMenu ? "grid" : "hidden"} menu-area rounded-md bg-[#111] w-full shadow-lg border border-neutral-800 lg:hidden`}
       >
         <MenuNavbar
           items={status === "authenticated" ? [...items, ...userItems] : items}
