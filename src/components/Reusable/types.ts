@@ -1,7 +1,7 @@
-import type { ChangeEvent, ClipboardEvent, ReactNode } from 'react';
-import type { RadioChangeEvent } from 'antd';
-import type { ButtonType, ButtonHTMLType } from 'antd/es/button';
-import { Children } from '@/types/generals.types';
+import type { ChangeEvent, ClipboardEvent, ReactNode } from "react";
+import type { RadioChangeEvent } from "antd";
+import type { ButtonType, ButtonHTMLType } from "antd/es/button";
+import { Children } from "@/types/generals.types";
 
 export interface SelectOption {
   value: string;
@@ -13,9 +13,7 @@ export interface SelectReusableProps {
   value: string;
   options: [SelectOption];
   placeholder: string;
-  onChange: (
-    event: ChangeEvent<HTMLSelectElement>
-  ) => void;
+  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export interface RadioReusableProps {
@@ -27,9 +25,9 @@ export interface InputReusableProps {
   id: string;
   value: string;
   placeholder: string;
-  type: 'password' | 'normal' | 'area';
+  type: "password" | "normal" | "area";
   onChange: (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   onPaste?: (event: ClipboardEvent<HTMLInputElement>) => void;
 }
@@ -46,4 +44,9 @@ export interface ButtonProps {
   htmlType: ButtonHTMLType;
   icon?: ReactNode;
   text?: string;
+}
+
+export interface ModalProps extends Children {
+  title: string;
+  onClose: () => void;
 }
