@@ -9,7 +9,6 @@ export default function Pages() {
   };
   return (
     <Pagination
-      className="outline outline-yellow-300"
       defaultCurrent={1}
       defaultPageSize={10}
       total={pages.totalItems}
