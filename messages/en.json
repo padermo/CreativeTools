@@ -5,10 +5,10 @@
   },
   "Content": {
     "Search": {
-      "title": "Find all kinds of utilities you can use for your projects"
+      "title": "Find all kinds of utilities for your projects and unleash your creativity"
     },
     "Account": {
-      "title": "By creating an account, you'll be able to create new utilities and/or add them to your favorites list.",
+      "title": "By creating an account, you can create new utilities and/or add to your favorites list",
       "cta": "Join"
     }
   },
@@ -43,6 +43,7 @@
     "title": "Contact"
   },
   "Navbar": {
+    "menu": ["Home", "Tools", "Log In", "Sign Up"],
     "title": "Menu",
     "home": "Home",
     "tools": "Tools",
@@ -196,7 +197,14 @@
     },
     "alerts": {
       "favorites": "Sign in to add favorites",
-      "liked": "Sign in to like"
+      "liked": "Sign in to like",
+      "share": {
+        "copy": "Copied",
+        "errors": {
+          "copy": "An error occurred while copying the URL",
+          "share": "An error occurred while sharing the URL"
+        }
+      }
     }
   },
   "CreateItem": {
@@ -271,7 +279,7 @@
     "tooltip": "To Top"
   },
   "Cookies": {
-    "title":"Cookies",
+    "title": "Cookies",
     "text": "We use cookies to enhance your experience while browsing our site.",
     "success": "Agreed",
     "notice": "Cookie Notice",
@@ -316,5 +324,9 @@
       },
       "back": "Back."
     }
+  },
+  "Language": {
+    "spanish": "Spanish",
+    "english": "English"
   }
 }

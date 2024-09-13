@@ -1,6 +1,6 @@
 {
   "name": "creative-tools",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.5",
-    "antd": "^5.15.2",
+    "@ant-design/nextjs-registry": "^1.0.1",
+    "antd": "^5.20.1",
     "axios": "^1.6.8",
     "cookies-next": "^4.1.1",
     "jose": "^5.2.3",

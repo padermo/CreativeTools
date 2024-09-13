@@ -39,9 +39,53 @@ body {
   }
 }
 
-.search {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('../assets/tools_image.webp');
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+#circle,
+#draw,
+#light-lines {
+  transition: fill .5s ease-in-out, stroke .5s ease-in-out, filter .5s ease-in-out;
+}
+
+#circle {
+  fill: #2C2C2C;
+  stroke: #3F3F3F;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+}
+
+.light-bulb:hover #circle {
+  fill: #FFD700;
+  stroke: #FFEC8B;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}
+
+#draw {
+  stroke: #4C4C4C;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.light-bulb:hover #draw {
+  stroke: #FF4500;
+  filter: drop-shadow(0 0 6px rgb(255, 69, 0, 0.6));
+}
+
+#light-lines {
+  stroke: transparent;
+}
+
+.light-bulb:hover #light-lines {
+  stroke: #FFEC8B;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}
+
+.navigation {
+  grid-template-areas:
+    "button none"
+    "menu menu";
+}
+
+.button-area {
+  grid-area: button;
+}
+
+.menu-area {
+  grid-area: menu;
 }

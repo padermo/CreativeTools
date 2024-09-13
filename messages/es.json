@@ -5,10 +5,10 @@
   },
   "Content": {
     "Search": {
-      "title": "Encuentra todo tipo de utilidades que podrás emplear para tus proyectos"
+      "title": "Encuentra todo tipo de utilidades para tus proyectos y dale rienda suelta a tu creatividad"
     },
     "Account": {
-      "title": "Al crear una cuenta podrás crear nuevas utilidades y/o agregar a tu lista de favoritos.",
+      "title": "Crea una cuenta para personalizar tu experiencia: añade nuevas herramientas y guarda tus favoritas para un acceso rápido",
       "cta": "Únete"
     }
   },
@@ -43,6 +43,7 @@
     "title": "Contacto"
   },
   "Navbar": {
+    "menu": ["Home", "Tools", "Log In", "Sign Up"],
     "title": "Menú",
     "home": "Inicio",
     "tools": "Herramientas",
@@ -192,7 +193,14 @@
     },
     "alerts": {
       "favorites": "Inicia sesión para agregar favoritos",
-      "liked": "Inicia sesión para dar me gusta"
+      "liked": "Inicia sesión para dar me gusta",
+      "share": {
+        "copy": "Copiado",
+        "errors": {
+          "copy": "Se produjo un error al copiar la url",
+          "share": "Se ha producido un error al compartir la url"
+        }
+      }
     }
   },
   "CreateItem": {
@@ -256,7 +264,7 @@
       },
       "handlers": {
         "errors": {
-          "description":{
+          "description": {
             "required": "Este campo es obligatorio."
           }
         }
@@ -267,9 +275,9 @@
     "tooltip": "Ir Arriba"
   },
   "Cookies": {
-    "title":"Cookies",
-    "text":"Utilizamos cookies para mejorar tu experiencia mientras navegas por nuestro sitio.",
-    "success" : "De acuerdo",
+    "title": "Cookies",
+    "text": "Utilizamos cookies para mejorar tu experiencia mientras navegas por nuestro sitio.",
+    "success": "De acuerdo",
     "notice": "Aviso de Cookies",
     "policy": {
       "title": "Política de Cookies",
@@ -312,5 +320,9 @@
       },
       "back": "Volver."
     }
+  },
+  "Language": {
+    "spanish": "Español",
+    "english": "Ingles"
   }
 }
