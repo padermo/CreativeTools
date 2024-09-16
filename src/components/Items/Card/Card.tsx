@@ -38,8 +38,8 @@ export default function Card({
         </div>
         <StatusFree
           isFree={isFree}
-          free={t("accessType").split(",")[0]}
-          pay={t("accessType").split(",")[1]}
+          free={t.raw("accessType")[0].value}
+          pay={t.raw("accessType")[1].value}
         />
       </div>
     </div>

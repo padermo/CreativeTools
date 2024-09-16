@@ -1,5 +1,4 @@
 import type { ChangeEvent, ClipboardEvent, ReactNode } from "react";
-import type { RadioChangeEvent } from "antd";
 import type { ButtonType, ButtonHTMLType } from "antd/es/button";
 import { Children } from "@/types/generals.types";
 
@@ -9,15 +8,11 @@ export interface SelectOption {
 }
 
 export interface SelectReusableProps {
-  id: string;
-  options: [SelectOption];
+  id?: string;
+  options: SelectOption[];
   placeholder: string;
-  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-}
-
-export interface RadioReusableProps {
-  children: ReactNode;
-  onChange: (e: RadioChangeEvent) => void;
+  width?: string;
+  onChange: (value: string) => void;
 }
 
 export interface InputReusableProps {

@@ -7,6 +7,7 @@ export default function SelectReusable({
   id,
   options,
   placeholder,
+  width = "w-full",
   onChange,
 }: SelectReusableProps) {
   return (
@@ -15,7 +16,8 @@ export default function SelectReusable({
       options={options}
       onChange={onChange}
       placeholder={placeholder}
-      className="w-full"
+      className={width}
+      showSearch={false}
     />
   );
 }

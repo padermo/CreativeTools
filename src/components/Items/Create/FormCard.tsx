@@ -1,29 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useForm, Controller } from "react-hook-form";
 import { useItems } from "@/context/ItemsContext";
 import { useAlert } from "@/context/AlertContext";
-import { category, subcategory, accessType } from "@/utils/dataSend";
 import { isURL } from "validator";
-import { Radio } from "antd";
 import ButtonReusable from "@/components/Reusable/Button";
 import InputReusable from "@/components/Reusable/Input";
 import SelectReusable from "@/components/Reusable/Select";
-import RadioReusable from "@/components/Reusable/Radio";
 import axiosConfig from "@/axios/axiosConfig";
 import axios from "axios";
 
 // types
 import type { FormCardInputs } from "../items.types";
-import type { SelectOption } from "@/components/Reusable/types";
 import type { HandlerModalFunction } from "@/types/context.types";
 import type { SubcategoryKeys } from "@/types/generals.types";
 
 export default function FormCard({ handleModal }: HandlerModalFunction) {
   const [loading, setLoading] = useState<boolean>(false);
-  const [subcategoryData, setSubcategoryData] = useState<[SelectOption]>([
-    { value: "", label: "" },
-  ]);
 
   const { token, mutateItems } = useItems();
   const { handleAlert } = useAlert();
@@ -32,11 +25,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
   const t = useTranslations("Tools");
 
   const { handleSubmit, reset, watch, control } = useForm<FormCardInputs>();
-  const categoryValues = t("categories")
-    .split(",")
-    .map((value, index) => {
-      return { value: category[index], label: value };
-    }) as [SelectOption];
+
   const categorySelect: SubcategoryKeys = watch("category") as SubcategoryKeys;
 
   const onSubmit = handleSubmit(async (data) => {
@@ -65,18 +54,6 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
       reset();
     }
   });
-
-  useEffect(() => {
-    if (categorySelect) {
-      setSubcategoryData(
-        t(`subcategories.${categorySelect}`)
-          .split(",")
-          .map((value, index) => {
-            return { value: subcategory[categorySelect][index], label: value };
-          }) as [SelectOption],
-      );
-    }
-  }, [categorySelect, t]);
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-4">
@@ -160,7 +137,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
             <>
               <SelectReusable
                 id="category"
-                options={categoryValues}
+                options={t.raw("categories")}
                 placeholder={c("inputs.category.placeholder")}
                 onChange={field.onChange}
               />
@@ -190,7 +167,7 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
             <>
               <SelectReusable
                 id="subcategory"
-                options={subcategoryData}
+                options={t.raw(`subcategories.${categorySelect}`)}
                 placeholder={c("inputs.subcategory.placeholder")}
                 onChange={field.onChange}
               />
@@ -216,21 +193,19 @@ export default function FormCard({ handleModal }: HandlerModalFunction) {
             },
           }}
           render={({ field, fieldState: { error } }) => (
-            <div className="flex items-center">
-              <RadioReusable onChange={field.onChange}>
-                <Radio value={accessType[0]}>
-                  {t("accessType").split(",")[0]}
-                </Radio>
-                <Radio value={accessType[1]}>
-                  {t("accessType").split(",")[1]}
-                </Radio>
-              </RadioReusable>
+            <>
+              <SelectReusable
+                id="subcategory"
+                options={t.raw("accessType")}
+                placeholder={c("inputs.isFree.placeholder")}
+                onChange={field.onChange}
+              />
               {error && (
                 <span className="text-red-600 text-xs block">
                   {error.message}
                 </span>
               )}
-            </div>
+            </>
           )}
         />
       </div>

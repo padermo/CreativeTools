@@ -1,22 +1,28 @@
-import type { Dispatch, JSXElementConstructor, ReactElement, SetStateAction } from 'react';
-import type { KeyedMutator } from 'swr';
+import type {
+  ChangeEvent,
+  Dispatch,
+  JSXElementConstructor,
+  ReactElement,
+  SetStateAction,
+} from "react";
+import type { KeyedMutator } from "swr";
 
-export type TypeModal = 'create'|'report'|'contact';
+export type TypeModal = "create" | "report" | "contact";
 
-export interface HandlerModalFunction{
-  handleModal: (type:TypeModal, report?:SetDataReportModal) => void;
+export interface HandlerModalFunction {
+  handleModal: (type: TypeModal, report?: SetDataReportModal) => void;
 }
 
-export interface ModalContextValues extends HandlerModalFunction{
-  isOpenModalCreate:boolean;
-  isOpenModalReport:boolean;
-  isOpenModalContact:boolean;
+export interface ModalContextValues extends HandlerModalFunction {
+  isOpenModalCreate: boolean;
+  isOpenModalReport: boolean;
+  isOpenModalContact: boolean;
   dataReportModal: SetDataReportModal;
 }
 
-export interface SetDataReportModal{
-  _id:string;
-  name:string;
+export interface SetDataReportModal {
+  _id: string;
+  name: string;
 }
 
 export interface StateItems {
@@ -44,23 +50,21 @@ export interface ContextItemsValues {
   favoriteItems: StateItems[];
   loadingItems: boolean;
   loadingFavorites: boolean;
-  setSelectedCategory: Dispatch<SetStateAction<string>>;
-  setSelectedSubcategory: Dispatch<SetStateAction<string>>;
-  setSelectedAccessType: Dispatch<SetStateAction<string>>;
-  setSelectedLiked: Dispatch<SetStateAction<string>>;
   setSelectedPage: Dispatch<SetStateAction<number>>;
-  handleCategory: (value:string) => void;
+  handleCategory: (value: string) => void;
+  handleSubcategory: (value: string) => void;
+  handleFilters: (value: string, type: "popularity" | "access") => void;
   getAllItems: () => void;
   mutateFavorite: KeyedMutator<any>;
   mutateItems: KeyedMutator<any>;
 }
 
-export interface MessageAlert{
-  type: 'success' | 'info' | 'warning' | 'error';
-  content:string;
+export interface MessageAlert {
+  type: "success" | "info" | "warning" | "error";
+  content: string;
 }
 
-export interface AlertContextValues{
+export interface AlertContextValues {
   contextHolder: ReactElement<any, string | JSXElementConstructor<any>>;
-  handleAlert:({type,content}:MessageAlert)=>void;
+  handleAlert: ({ type, content }: MessageAlert) => void;
 }

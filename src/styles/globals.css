@@ -78,7 +78,7 @@ body {
 
 .navigation {
   grid-template-areas:
-    "button none"
+    "none button"
     "menu menu";
 }
 

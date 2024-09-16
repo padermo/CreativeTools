@@ -1,11 +1,16 @@
-'use client'
-import { useItems } from '@/context/ItemsContext'
-import { useTranslations } from 'next-intl';
-import ButtonReusable from '@/components/Reusable/Button'
+import { useTranslations } from "next-intl";
+import ButtonReusable from "@/components/Reusable/Button";
+import type { ClearProps } from "@/types/generals.types";
 
-export default function Clear(){
-  const { getAllItems } = useItems();
-  const t = useTranslations('Tools')
+export default function Clear({ getAllItems }: ClearProps) {
+  const t = useTranslations("Tools");
 
-  return <ButtonReusable text={t('all')} htmlType='button' type='primary' onClick={getAllItems}/>
+  return (
+    <ButtonReusable
+      text={t("all")}
+      htmlType="button"
+      type="primary"
+      onClick={getAllItems}
+    />
+  );
 }
