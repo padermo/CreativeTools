@@ -7,61 +7,61 @@ export default function CardSkeleton() {
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
       <Skeleton.Avatar
         active
         size={240}
         shape="square"
-        style={{ borderRadius: "6px", backgroundColor: "#1b1b1b" }}
+        style={{ borderRadius: "2px", backgroundColor: "#111" }}
       />
     </div>
   );

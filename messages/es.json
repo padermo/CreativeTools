@@ -44,10 +44,10 @@
   },
   "Navbar": {
     "menu": [
-      "Home",
-      "Tools",
-      "Log In",
-      "Sign Up"
+      "Inicio",
+      "Herramientas",
+      "Iniciar sesión",
+      "Registrarse"
     ],
     "title": "Menú",
     "home": "Inicio",
@@ -348,7 +348,7 @@
     ],
     "liked": [
       {
-        "value": "most_liked",
+        "value": "most",
         "label": "Mas Gustadas"
       }
     ],
