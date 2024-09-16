@@ -18,7 +18,7 @@ export default function Card({
 }: CardProps) {
   const t = useTranslations("Tools");
   return (
-    <div className="w-60 h-60 xl:h-auto lg:w-auto md:w-auto rounded-sm shadow-md flex flex-col items-center justify-between bg-[#1b1b1b] p-4 hover:outline hover:outline-neutral-800">
+    <div className="w-60 h-60 xl:h-auto lg:w-auto md:w-auto rounded-sm shadow-md flex flex-col items-center justify-between bg-[#111] p-4 hover:outline hover:outline-neutral-800">
       <div className="w-full flex justify-end items-center">
         <Report _id={_id} name={name} />
       </div>
