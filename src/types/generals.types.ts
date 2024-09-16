@@ -80,13 +80,17 @@ export interface ReportModalProps extends DataReportItem {
 
 export interface FormReportProps
   extends SetDataReportModal,
-    HandlerModalFunction {}
+  HandlerModalFunction { }
 
 export interface FormContactInputs {
   to: string;
   content: string;
 }
 
-export interface FormContactProps extends HandlerModalFunction {}
+export interface FormContactProps extends HandlerModalFunction { }
 
 export type SubcategoryKeys = "documents" | "resources" | "modules";
+
+export interface ClearProps {
+  getAllItems: () => void;
+}

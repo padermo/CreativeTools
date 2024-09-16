@@ -99,6 +99,9 @@ export default function ConfigThemeAnt({ children }: Children) {
             contentBg: "#1b1b1b",
             colorText: "#fff",
           },
+          Form: {
+            itemMarginBottom: 0,
+          },
         },
       }}
     >

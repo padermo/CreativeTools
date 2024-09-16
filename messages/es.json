@@ -43,7 +43,12 @@
     "title": "Contacto"
   },
   "Navbar": {
-    "menu": ["Home", "Tools", "Log In", "Sign Up"],
+    "menu": [
+      "Home",
+      "Tools",
+      "Log In",
+      "Sign Up"
+    ],
     "title": "Menú",
     "home": "Inicio",
     "tools": "Herramientas",
@@ -167,11 +172,163 @@
     }
   },
   "Tools": {
-    "categories": "Documentación,Recursos,Módulos",
+    "categories": [
+      {
+        "value": "documentation",
+        "label": "Documentación"
+      },
+      {
+        "value": "resources",
+        "label": "Recursos"
+      },
+      {
+        "value": "modules",
+        "label": "Módulos"
+      }
+    ],
     "subcategories": {
-      "documents": "Lenguajes Programación,Frameworks,Librerías,Apis,Bases DeDatos,Sistemas Operativos,Protocolos De Red,Otros",
-      "resources": "Iconos,Colores,Imágenes,Animaciones,Alertas,Compresores,Gradientes,Emuladores,Carruseles,Componentes,Patrones,Editores,Fuentes,Generadores,Videos,Mockups,Plantillas,Vectores,Sonidos,IA,Otros",
-      "modules": "Npm,Yarn,Pnpm,Pipy,Otros"
+      "documentation": [
+        {
+          "value": "programming_languages",
+          "label": "Lenguajes Programación"
+        },
+        {
+          "value": "frameworks",
+          "label": "Frameworks"
+        },
+        {
+          "value": "libraries",
+          "label": "Librerías"
+        },
+        {
+          "value": "apis",
+          "label": "Apis"
+        },
+        {
+          "value": "databases",
+          "label": "Bases De Datos"
+        },
+        {
+          "value": "operating_systems",
+          "label": "Sistemas Operativos"
+        },
+        {
+          "value": "network_protocols",
+          "label": "Protocolos De Red"
+        },
+        {
+          "value": "others",
+          "label": "Otros"
+        }
+      ],
+      "resources": [
+        {
+          "value": "icons",
+          "label": "Iconos"
+        },
+        {
+          "value": "colors",
+          "label": "Colores"
+        },
+        {
+          "value": "images",
+          "label": "Imágenes"
+        },
+        {
+          "value": "animations",
+          "label": "Animaciones"
+        },
+        {
+          "value": "alerts",
+          "label": "Alertas"
+        },
+        {
+          "value": "compressors",
+          "label": "Compresores"
+        },
+        {
+          "value": "gradients",
+          "label": "Gradientes"
+        },
+        {
+          "value": "emulators",
+          "label": "Emuladores"
+        },
+        {
+          "value": "carousels",
+          "label": "Carruseles"
+        },
+        {
+          "value": "components",
+          "label": "Componentes"
+        },
+        {
+          "value": "patterns",
+          "label": "Patrones"
+        },
+        {
+          "value": "editors",
+          "label": "Editores"
+        },
+        {
+          "value": "fonts",
+          "label": "Fuentes"
+        },
+        {
+          "value": "generators",
+          "label": "Generadores"
+        },
+        {
+          "value": "videos",
+          "label": "Videos"
+        },
+        {
+          "value": "mockups",
+          "label": "Mockups"
+        },
+        {
+          "value": "templates",
+          "label": "Plantillas"
+        },
+        {
+          "value": "vectors",
+          "label": "Vectores"
+        },
+        {
+          "value": "sounds",
+          "label": "Sonidos"
+        },
+        {
+          "value": "ia",
+          "label": "IA"
+        },
+        {
+          "value": "others",
+          "label": "Otros"
+        }
+      ],
+      "modules": [
+        {
+          "value": "npm",
+          "label": "Npm"
+        },
+        {
+          "value": "yarn",
+          "label": "Yarn"
+        },
+        {
+          "value": "pnpm",
+          "label": "Pnpm"
+        },
+        {
+          "value": "pipy",
+          "label": "Pipy"
+        },
+        {
+          "value": "others",
+          "label": "Otros"
+        }
+      ]
     },
     "sections": {
       "subcategory": "Subcategorías",
@@ -179,8 +336,22 @@
       "liked": "Popularidad"
     },
     "all": "Todo",
-    "accessType": "Gratis,Pago",
-    "liked": "Mas Gustadas",
+    "accessType": [
+      {
+        "value": "free",
+        "label": "Gratis"
+      },
+      {
+        "value": "pay",
+        "label": "Pago"
+      }
+    ],
+    "liked": [
+      {
+        "value": "most_liked",
+        "label": "Mas Gustadas"
+      }
+    ],
     "cards": {
       "options": {
         "report": "Reportar",
@@ -222,7 +393,8 @@
         "placeholder": "Seleccione Subcategoría"
       },
       "isFree": {
-        "text": "Tipo de Acceso"
+        "text": "Tipo de Acceso",
+        "placeholder": "Seleccione Tipo de Acceso"
       }
     },
     "handlers": {

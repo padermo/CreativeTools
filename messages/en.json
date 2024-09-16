@@ -43,7 +43,12 @@
     "title": "Contact"
   },
   "Navbar": {
-    "menu": ["Home", "Tools", "Log In", "Sign Up"],
+    "menu": [
+      "Home",
+      "Tools",
+      "Log In",
+      "Sign Up"
+    ],
     "title": "Menu",
     "home": "Home",
     "tools": "Tools",
@@ -167,11 +172,163 @@
     }
   },
   "Tools": {
-    "categories": "Documentation,Resources,Modules",
+    "categories": [
+      {
+        "value": "documentation",
+        "label": "Documentation"
+      },
+      {
+        "value": "resources",
+        "label": "Resources"
+      },
+      {
+        "value": "modules",
+        "label": "Modules"
+      }
+    ],
     "subcategories": {
-      "documents": "Programming Languages,Frameworks,Libraries,APIs,Databases,Operating Systems,Network Protocols,Others",
-      "resources": "Icons,Colors,Images,Animations,Alerts,Compressors,Gradients,Emulators,Carousels,Components,Patterns,Editors,Fonts,Generators,Videos,Mockups,Templates,Vectors,Sounds,IA,Others",
-      "modules": "Npm,Yarn,Pnpm,Pipy,Others"
+      "documentation": [
+        {
+          "value": "programming_languages",
+          "label": "Programming Languages"
+        },
+        {
+          "value": "frameworks",
+          "label": "Frameworks"
+        },
+        {
+          "value": "libraries",
+          "label": "Libraries"
+        },
+        {
+          "value": "apis",
+          "label": "APIs"
+        },
+        {
+          "value": "databases",
+          "label": "Databases"
+        },
+        {
+          "value": "operating_systems",
+          "label": "Operating Systems"
+        },
+        {
+          "value": "network_protocols",
+          "label": "Network Protocols"
+        },
+        {
+          "value": "others",
+          "label": "Others"
+        }
+      ],
+      "resources": [
+        {
+          "value": "iconos",
+          "label": "Icons"
+        },
+        {
+          "value": "colors",
+          "label": "Colors"
+        },
+        {
+          "value": "images",
+          "label": "Images"
+        },
+        {
+          "value": "animations",
+          "label": "Animations"
+        },
+        {
+          "value": "alerts",
+          "label": "Alerts"
+        },
+        {
+          "value": "compressors",
+          "label": "Compressors"
+        },
+        {
+          "value": "gradients",
+          "label": "Gradients"
+        },
+        {
+          "value": "emulators",
+          "label": "Emulators"
+        },
+        {
+          "value": "carousels",
+          "label": "Carousels"
+        },
+        {
+          "value": "components",
+          "label": "Components"
+        },
+        {
+          "value": "patterns",
+          "label": "Patterns"
+        },
+        {
+          "value": "editors",
+          "label": "Editors"
+        },
+        {
+          "value": "fonts",
+          "label": "Fonts"
+        },
+        {
+          "value": "generators",
+          "label": "Generators"
+        },
+        {
+          "value": "videos",
+          "label": "Videos"
+        },
+        {
+          "value": "mockups",
+          "label": "Mockups"
+        },
+        {
+          "value": "templates",
+          "label": "Templates"
+        },
+        {
+          "value": "vectors",
+          "label": "Vectors"
+        },
+        {
+          "value": "sounds",
+          "label": "Sounds"
+        },
+        {
+          "value": "ia",
+          "label": "IA"
+        },
+        {
+          "value": "others",
+          "label": "Others"
+        }
+      ],
+      "modules": [
+        {
+          "value": "npm",
+          "label": "Npm"
+        },
+        {
+          "value": "yarn",
+          "label": "Yarn"
+        },
+        {
+          "value": "pnpm",
+          "label": "Pnpm"
+        },
+        {
+          "value": "pipy",
+          "label": "Pipy"
+        },
+        {
+          "value": "others",
+          "label": "Others"
+        }
+      ]
     },
     "sections": {
       "subcategory": "Subcategories",
@@ -179,8 +336,22 @@
       "liked": "Popularity"
     },
     "all": "All",
-    "accessType": "Free,Pay",
-    "liked": "Most Liked",
+    "accessType": [
+      {
+        "value": "free",
+        "label": "Free"
+      },
+      {
+        "value": "pay",
+        "label": "Pay"
+      }
+    ],
+    "liked": [
+      {
+        "value": "most_liked",
+        "label": "Most Liked"
+      }
+    ],
     "cards": {
       "status": {
         "free": "Free",
@@ -226,7 +397,8 @@
         "placeholder": "Selected Subcategory"
       },
       "isFree": {
-        "text": "Access Type"
+        "text": "Access Type",
+        "placeholder": "Selected Access Type"
       }
     },
     "handlers": {

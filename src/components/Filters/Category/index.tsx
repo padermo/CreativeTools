@@ -1,27 +1,29 @@
-import { useTranslations } from 'next-intl'
-import { category } from '@/utils/dataSend'
-import { useItems } from '@/context/ItemsContext';
-import ButtonReusable from '@/components/Reusable/Button'
-import Clear from '../Clear';
-import CreateItemButton from '@/components/Items/Create/CreateItemButton';
+import { useTranslations } from "next-intl";
+import { useItems } from "@/context/ItemsContext";
+import ButtonReusable from "@/components/Reusable/Button";
+import Clear from "../Clear";
+import CreateItemButton from "@/components/Items/Create/CreateItemButton";
+import type { ClearProps } from "@/types/generals.types";
 
-// type
-import type { SelectOption } from '@/components/Reusable/types';
-
-export default function Category() {
+export default function Category({ getAllItems }: ClearProps) {
   const { handleCategory } = useItems();
-  const t = useTranslations('Tools');
-  const categoryData: [SelectOption] = t('categories').split(',').map((value, index) => { return { value: category[index], label: value } }) as [SelectOption];
+  const t = useTranslations("Tools");
 
   return (
-    <div className='flex flex-wrap items-center justify-start gap-2'>
-      {
-        categoryData && categoryData.map(item => (
-          <ButtonReusable key={item.value} text={item.label} htmlType='button' type='primary' onClick={() => handleCategory(item.value)} />
-        ))
-      }
-      <Clear />
+    <div className="flex flex-wrap items-center justify-start gap-2">
+      {t
+        .raw("categories")
+        .map((item: { value: string; label: string }, index: number) => (
+          <ButtonReusable
+            key={index}
+            text={item.label}
+            htmlType="button"
+            type="primary"
+            onClick={() => handleCategory(item.value)}
+          />
+        ))}
+      <Clear getAllItems={getAllItems} />
       <CreateItemButton />
     </div>
-  )
+  );
 }
