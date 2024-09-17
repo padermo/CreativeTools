@@ -174,7 +174,7 @@
   "Tools": {
     "categories": [
       {
-        "value": "documentation",
+        "value": "documents",
         "label": "Documentación"
       },
       {
@@ -187,9 +187,9 @@
       }
     ],
     "subcategories": {
-      "documentation": [
+      "documents": [
         {
-          "value": "programming_languages",
+          "value": "programming languages",
           "label": "Lenguajes Programación"
         },
         {
@@ -201,7 +201,7 @@
           "label": "Librerías"
         },
         {
-          "value": "apis",
+          "value": "APIs",
           "label": "Apis"
         },
         {
@@ -209,11 +209,11 @@
           "label": "Bases De Datos"
         },
         {
-          "value": "operating_systems",
+          "value": "operating systems",
           "label": "Sistemas Operativos"
         },
         {
-          "value": "network_protocols",
+          "value": "network protocols",
           "label": "Protocolos De Red"
         },
         {
