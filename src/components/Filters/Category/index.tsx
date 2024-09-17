@@ -1,12 +1,13 @@
 import { useTranslations } from "next-intl";
-import { useItems } from "@/context/ItemsContext";
 import ButtonReusable from "@/components/Reusable/Button";
 import Clear from "../Clear";
 import CreateItemButton from "@/components/Items/Create/CreateItemButton";
-import type { ClearProps } from "@/types/generals.types";
+import type { CategoryProps } from "@/types/generals.types";
 
-export default function Category({ getAllItems }: ClearProps) {
-  const { handleCategory } = useItems();
+export default function Category({
+  handleResetSelect,
+  handleResetCategory,
+}: CategoryProps) {
   const t = useTranslations("Tools");
 
   return (
@@ -19,10 +20,10 @@ export default function Category({ getAllItems }: ClearProps) {
             text={item.label}
             htmlType="button"
             type="primary"
-            onClick={() => handleCategory(item.value)}
+            onClick={() => handleResetCategory(item.value)}
           />
         ))}
-      <Clear getAllItems={getAllItems} />
+      <Clear handleResetSelect={handleResetSelect} />
       <CreateItemButton />
     </div>
   );
