@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import ButtonReusable from "@/components/Reusable/Button";
 import type { ClearProps } from "@/types/generals.types";
 
-export default function Clear({ getAllItems }: ClearProps) {
+export default function Clear({ handleResetSelect }: ClearProps) {
   const t = useTranslations("Tools");
 
   return (
@@ -10,7 +10,7 @@ export default function Clear({ getAllItems }: ClearProps) {
       text={t("all")}
       htmlType="button"
       type="primary"
-      onClick={getAllItems}
+      onClick={handleResetSelect}
     />
   );
 }

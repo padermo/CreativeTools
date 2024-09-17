@@ -28,11 +28,6 @@ export interface FilterProps {
   handleCreateModal: () => void;
 }
 
-export interface CategoryProps {
-  category: string[];
-  handleCategory: (index: number) => void;
-}
-
 export interface ComplementFilters {
   title: string;
   list: string[];
@@ -92,5 +87,9 @@ export interface FormContactProps extends HandlerModalFunction { }
 export type SubcategoryKeys = "documents" | "resources" | "modules";
 
 export interface ClearProps {
-  getAllItems: () => void;
+  handleResetSelect: () => void;
+}
+
+export interface CategoryProps extends ClearProps {
+  handleResetCategory: (value: string) => void;
 }
