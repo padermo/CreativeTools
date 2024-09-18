@@ -44,19 +44,35 @@
   },
   "Navbar": {
     "menu": [
-      "Inicio",
-      "Herramientas",
-      "Iniciar sesión",
-      "Registrarse"
+      {
+        "href": "/",
+        "label": "Inicio"
+      },
+      {
+        "href": "/tools",
+        "label": "Herramientas"
+      }
     ],
-    "title": "Menú",
-    "home": "Inicio",
-    "tools": "Herramientas",
-    "favorites": "Favoritos",
-    "logout": "Cerrar Sesión",
-    "config": "Configuraciones",
-    "login": "Iniciar Sesión",
-    "register": "Registrarse"
+    "auth": [
+      {
+        "href": "/auth/login",
+        "label": "Iniciar Sesion"
+      },
+      {
+        "href": "/auth/register",
+        "label": "Registrase"
+      }
+    ],
+    "user": [
+      {
+        "href": "/favorites",
+        "label": "Favoritos"
+      },
+      {
+        "href": null,
+        "label": "Cerrar Sesion"
+      }
+    ]
   },
   "Login": {
     "form": {

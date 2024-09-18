@@ -44,19 +44,35 @@
   },
   "Navbar": {
     "menu": [
-      "Home",
-      "Tools",
-      "Log In",
-      "Sign Up"
+      {
+        "href": "/",
+        "label": "Home"
+      },
+      {
+        "href": "/tools",
+        "label": "Tools"
+      }
     ],
-    "title": "Menu",
-    "home": "Home",
-    "tools": "Tools",
-    "favorites": "Favorites",
-    "logout": "Log Out",
-    "config": "Configurations",
-    "login": "Log In",
-    "register": "Sign Up"
+    "auth": [
+      {
+        "href": "/auth/login",
+        "label": "Log In"
+      },
+      {
+        "href": "/auth/register",
+        "label": "Sign Up"
+      }
+    ],
+    "user": [
+      {
+        "href": "/favorites",
+        "label": "Favorites"
+      },
+      {
+        "href": null,
+        "label": "Log Out"
+      }
+    ]
   },
   "Login": {
     "form": {

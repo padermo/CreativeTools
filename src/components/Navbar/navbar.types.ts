@@ -1,7 +1,7 @@
 import type { ItemType } from "antd/es/menu/interface";
 
 export interface MenuNavbarProps {
-  items: [];
+  items: ItemType[];
   mode: "horizontal" | "vertical" | "inline";
 }
 
