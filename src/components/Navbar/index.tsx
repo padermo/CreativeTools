@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { signOut, useSession } from "next-auth/react";
 import { removeCookie } from "@/app/actions";
@@ -49,10 +49,9 @@ export default function Navbar() {
       return menu;
     });
 
-  const userItems: MenuProps["items"] = t
-    .raw("user")
-    .map((opt: { href: string | null; label: string }) => {
-      const menu = {
+  const userItems: MenuProps["items"] = useCallback(() => {
+    return t.raw("user").map((opt: { href: string | null; label: string }) => {
+      return {
         key: opt.label,
         label:
           opt.href !== null ? (
@@ -61,8 +60,8 @@ export default function Navbar() {
             <button onClick={logout}>{opt.label}</button>
           ),
       };
-      return menu;
     });
+  }, [status, t])();
 
   return (
     <nav className="w-full max-w-screen-2xl m-auto grid lg:flex gap-y-2 justify-between items-center navigation px-2 py-3">
