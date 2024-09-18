@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { signOut, useSession } from "next-auth/react";
 import { removeCookie } from "@/app/actions";
@@ -11,14 +10,15 @@ import UserMenu from "./UserMenu";
 import Logo from "../SVG/Logo";
 import Lang from "../Config/Lang";
 import ButtonReusable from "../Reusable/Button";
+
+// types
 import type { MenuProps } from "antd";
+import type { ItemType } from "antd/es/menu/interface";
 
 export default function Navbar() {
   const [isViewMenu, setIsViewMenu] = useState<boolean>(false);
   const t = useTranslations("Navbar");
   const { status } = useSession();
-
-  const routing = ["/", "/tools", "/auth/login", "/auth/register"];
 
   const handleOpenMenu = () => {
     setIsViewMenu(!isViewMenu);
@@ -28,44 +28,57 @@ export default function Navbar() {
     signOut();
     removeCookie();
   };
-  const authItems = useCallback(() => {
-    return t.raw("menu").filter((item: string) => {
-      if (item === "Log In" || item === "Sign Up") {
-        return status !== "authenticated";
-      }
-      return true;
+
+  const navigateOptions: MenuProps["items"] = t
+    .raw("menu")
+    .map((opt: { href: string; label: string }) => {
+      const menu = {
+        key: opt.label,
+        label: <Link href={opt.href}>{opt.label}</Link>,
+      };
+      return menu;
     });
-  }, [status, t]);
 
-  const items = authItems().map((item: string, index: number) => {
-    let menu = {
-      label: <Link href={routing[index]}>{item}</Link>,
-      key: item,
-    };
-    return menu;
-  });
+  const navigateOptionsAuth: MenuProps["items"] = t
+    .raw("auth")
+    .map((opt: { href: string; label: string }) => {
+      const menu = {
+        key: opt.label,
+        label: <Link href={opt.href}>{opt.label}</Link>,
+      };
+      return menu;
+    });
 
-  const userItems: MenuProps["items"] = [
-    {
-      key: "1",
-      label: <Link href={"/favorites"}>{t("favorites")}</Link>,
-    },
-    {
-      key: "2",
-      label: (
-        <button name="logout" onClick={logout}>
-          {t("logout")}
-        </button>
-      ),
-    },
-  ];
+  const userItems: MenuProps["items"] = t
+    .raw("user")
+    .map((opt: { href: string | null; label: string }) => {
+      const menu = {
+        key: opt.label,
+        label:
+          opt.href !== null ? (
+            <Link href={opt.href}>{opt.label}</Link>
+          ) : (
+            <button onClick={logout}>{opt.label}</button>
+          ),
+      };
+      return menu;
+    });
 
   return (
     <nav className="w-full max-w-screen-2xl m-auto grid lg:flex gap-y-2 justify-between items-center navigation px-2 py-3">
       <Logo />
-      <div className="w-full justify-end items-center gap-x-3 hidden lg:flex">
-        <MenuNavbar items={items} mode="horizontal" />
-        {status === "authenticated" && <UserMenu items={userItems} />}
+      <div className="w-full justify-end items-center gap-2 hidden lg:flex">
+        <MenuNavbar
+          items={
+            status === "unauthenticated"
+              ? [...(navigateOptions ?? []), ...(navigateOptionsAuth ?? [])]
+              : (navigateOptions ?? [])
+          }
+          mode="horizontal"
+        />
+        {status === "authenticated" && (
+          <UserMenu items={userItems as ItemType[]} />
+        )}
         <Lang />
       </div>
       <div className="button-area lg:hidden">
@@ -80,7 +93,11 @@ export default function Navbar() {
         className={`${isViewMenu ? "grid" : "hidden"} menu-area rounded-md bg-[#111] w-full shadow-lg border border-neutral-800 lg:hidden`}
       >
         <MenuNavbar
-          items={status === "authenticated" ? [...items, ...userItems] : items}
+          items={
+            status === "authenticated"
+              ? [...(navigateOptions ?? []), ...(userItems ?? [])]
+              : [...(navigateOptions ?? []), ...(navigateOptionsAuth ?? [])]
+          }
           mode="inline"
         />
       </div>
