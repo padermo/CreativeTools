@@ -19,14 +19,17 @@ export default function FormEmail({ setViewFormPassword }: FormEmailProps) {
   const { handleSubmit, control, reset } = useForm<InputsFormEmail>();
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log("clic");
     const { email } = data;
     try {
       setLoading(true);
       const res = await axiosConfig.post("/recovery", { email });
-      if ([200, 201].includes(res?.status)) {
+      console.log(res);
+      if (res.data?.validate) {
         localStorage.setItem("email", res.data.email);
         setViewFormPassword(res.data.validate);
-        setLoading(false);
+      } else {
+        handleAlert({ type: "info", content: t("alerts.email") });
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -35,6 +38,7 @@ export default function FormEmail({ setViewFormPassword }: FormEmailProps) {
         }
       }
     } finally {
+      setLoading(false);
       reset();
     }
   });
@@ -72,7 +76,13 @@ export default function FormEmail({ setViewFormPassword }: FormEmailProps) {
         />
       </div>
 
-      <ButtonReusable text={t("buttons.sent")} htmlType="submit" type="primary" loading={loading} onClick={onSubmit} />
+      <ButtonReusable
+        text={t("buttons.sent")}
+        htmlType="submit"
+        type="primary"
+        loading={loading}
+        onClick={onSubmit}
+      />
     </form>
   );
 }

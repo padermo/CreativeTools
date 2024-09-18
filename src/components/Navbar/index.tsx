@@ -28,7 +28,6 @@ export default function Navbar() {
     signOut();
     removeCookie();
   };
-
   const authItems = useCallback(() => {
     return t.raw("menu").filter((item: string) => {
       if (item === "Log In" || item === "Sign Up") {
