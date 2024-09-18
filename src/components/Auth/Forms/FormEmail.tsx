@@ -19,12 +19,10 @@ export default function FormEmail({ setViewFormPassword }: FormEmailProps) {
   const { handleSubmit, control, reset } = useForm<InputsFormEmail>();
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log("clic");
     const { email } = data;
     try {
       setLoading(true);
       const res = await axiosConfig.post("/recovery", { email });
-      console.log(res);
       if (res.data?.validate) {
         localStorage.setItem("email", res.data.email);
         setViewFormPassword(res.data.validate);
