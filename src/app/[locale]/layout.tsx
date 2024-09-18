@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import ModalProvider from "@/context/ModalContext";
 import Favicon from "/public/favicon.ico";
+import SessionsProvider from "@/components/Provider/SessionProvider";
 import "@/styles/globals.css";
 
 const poppins = Poppins({
@@ -27,7 +28,9 @@ export default function RootLayout({
     <html lang={locale}>
       <body className={`${poppins.className} relative bg-black`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ModalProvider>{children}</ModalProvider>
+          <SessionsProvider>
+            <ModalProvider>{children}</ModalProvider>
+          </SessionsProvider>
         </NextIntlClientProvider>
       </body>
     </html>
