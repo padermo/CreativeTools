@@ -25,9 +25,7 @@ export default function FormLogin() {
     try {
       setLoading(true);
       const res = await logIn(email, password);
-      if (res?.error) {
-        throw new Error(res.error);
-      } else {
+      if (res) {
         router.push("/");
         router.refresh();
       }
