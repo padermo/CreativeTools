@@ -2,6 +2,7 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import axiosConfig from "@/axios/axiosConfig";
 import { createCookie, removeCookie, getCookie } from "@/app/actions";
+import { useRouter } from "@/navigation";
 
 //types
 import type { Children } from "@/types/generals.types";
@@ -13,6 +14,7 @@ export default function AuthProvider({ children }: Children) {
   const [status, setStatus] = useState<"authenticated" | "unauthenticated">(
     "unauthenticated",
   );
+  const router = useRouter();
 
   const logIn = async (email: string, password: string) => {
     try {

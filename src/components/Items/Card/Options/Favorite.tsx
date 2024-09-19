@@ -31,12 +31,15 @@ export default function Favorite({ _id }: FavoriteProps) {
   };
 
   useEffect(() => {
-    if (favoriteItems?.map((item) => item._id).includes(_id)) {
+    if (
+      favoriteItems?.map((item) => item._id).includes(_id) &&
+      status === "authenticated"
+    ) {
       setExistsUser(true);
     } else {
       setExistsUser(false);
     }
-  }, [favoriteItems, _id]);
+  }, [favoriteItems, status, _id]);
 
   return (
     <>

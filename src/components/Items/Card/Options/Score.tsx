@@ -31,12 +31,12 @@ export default function Liked({ score, liked, _id }: ScoreProps) {
   };
 
   useEffect(() => {
-    if (liked.includes(userId)) {
+    if (liked.includes(userId) && status === "authenticated") {
       setExistsUser(true);
     } else {
       setExistsUser(false);
     }
-  }, [userId, liked]);
+  }, [userId, liked, status]);
 
   return (
     <>
