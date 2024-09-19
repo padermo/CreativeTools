@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getToken } from "next-auth/jwt";
+import { getCookie } from "./app/actions";
 import createMiddleware from "next-intl/middleware";
 import { locales } from "./navigation";
 
@@ -19,7 +19,7 @@ export default async function middleware(req: NextRequest) {
     "i",
   );
 
-  const token = await getToken({ req });
+  const token = await getCookie();
   const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
   const isAuthPage = [
     "/auth/login",
@@ -30,7 +30,7 @@ export default async function middleware(req: NextRequest) {
     "/es/auth/recovery",
   ].includes(req.nextUrl.pathname);
 
-  if (token && isAuthPage) {
+  if (token?.value && isAuthPage) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 

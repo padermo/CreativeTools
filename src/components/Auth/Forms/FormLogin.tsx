@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "@/navigation";
-import { signIn } from "next-auth/react";
 import { useAlert } from "@/context/AlertContext";
+import { useAuth } from "@/context/AuthContext";
 import ButtonReusable from "@/components/Reusable/Button";
 import InputReusable from "@/components/Reusable/Input";
 
@@ -18,18 +18,14 @@ export default function FormLogin() {
   const { contextHolder, handleAlert } = useAlert();
   const router = useRouter();
   const { handleSubmit, reset, control } = useForm<InputProps>();
+  const { logIn } = useAuth();
 
   const onSubmit = handleSubmit(async (data) => {
+    const { email, password } = data;
     try {
       setLoading(true);
-      const res = await signIn("credentials", {
-        email: data.email,
-        password: data.password,
-        redirect: false,
-      });
-      if (res?.error) {
-        throw new Error(res.error);
-      } else {
+      const res = await logIn(email, password);
+      if (res) {
         router.push("/");
         router.refresh();
       }
@@ -110,7 +106,13 @@ export default function FormLogin() {
         />
       </div>
 
-      <ButtonReusable text={t("button")} htmlType="submit" type="primary" loading={loading} onClick={onSubmit} />
+      <ButtonReusable
+        text={t("button")}
+        htmlType="submit"
+        type="primary"
+        loading={loading}
+        onClick={onSubmit}
+      />
       {contextHolder}
     </form>
   );

@@ -1,10 +1,9 @@
 "use client";
 import { useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import { signOut, useSession } from "next-auth/react";
-import { removeCookie } from "@/app/actions";
 import { Link } from "@/navigation";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import { useAuth } from "@/context/AuthContext";
 import MenuNavbar from "./Menu";
 import UserMenu from "./UserMenu";
 import Logo from "../SVG/Logo";
@@ -18,15 +17,10 @@ import type { ItemType } from "antd/es/menu/interface";
 export default function Navbar() {
   const [isViewMenu, setIsViewMenu] = useState<boolean>(false);
   const t = useTranslations("Navbar");
-  const { status } = useSession();
+  const { status, logOut } = useAuth();
 
   const handleOpenMenu = () => {
     setIsViewMenu(!isViewMenu);
-  };
-
-  const logout = async () => {
-    signOut();
-    removeCookie();
   };
 
   const navigateOptions: MenuProps["items"] = t
@@ -57,7 +51,7 @@ export default function Navbar() {
           opt.href !== null ? (
             <Link href={opt.href}>{opt.label}</Link>
           ) : (
-            <button onClick={logout}>{opt.label}</button>
+            <button onClick={logOut}>{opt.label}</button>
           ),
       };
     });
