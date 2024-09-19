@@ -23,8 +23,11 @@ export default async function middleware(req: NextRequest) {
   const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
   const isAuthPage = [
     "/auth/login",
+    "/es/auth/login",
     "/auth/register",
+    "/es/auth/register",
     "/auth/recovery",
+    "/es/auth/recovery",
   ].includes(req.nextUrl.pathname);
 
   if (token && isAuthPage) {
