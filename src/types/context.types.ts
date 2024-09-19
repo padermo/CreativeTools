@@ -67,3 +67,9 @@ export interface AlertContextValues {
   contextHolder: ReactElement<any, string | JSXElementConstructor<any>>;
   handleAlert: ({ type, content }: MessageAlert) => void;
 }
+
+export interface AuthContextValues {
+  status: "authenticated" | "unauthenticated";
+  logIn: (email: string, password: string) => Promise<boolean>;
+  logOut: () => void;
+}
