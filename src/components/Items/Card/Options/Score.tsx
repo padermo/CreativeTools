@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import { useItems } from "@/context/ItemsContext";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/context/AuthContext";
 import { useAlert } from "@/context/AlertContext";
 import { useTranslations } from "next-intl";
 import axiosConfig from "@/axios/axiosConfig";
@@ -14,7 +14,7 @@ export default function Liked({ score, liked, _id }: ScoreProps) {
   const t = useTranslations("Tools");
   const [existsUser, setExistsUser] = useState<boolean>(false);
   const { userId, token, mutateItems } = useItems();
-  const { status } = useSession();
+  const { status } = useAuth();
   const { handleAlert } = useAlert();
 
   const handleScore = async () => {
