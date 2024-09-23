@@ -57,6 +57,7 @@ export interface InputProps {
 
 export interface InputWatchProps extends InputProps {
   confirm_password: string;
+  captcha: string;
 }
 
 export interface FormReportInputs {

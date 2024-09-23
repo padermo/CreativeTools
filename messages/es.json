@@ -134,6 +134,9 @@
         "confirm_password": {
           "required": "Este campo es obligatorio.",
           "pattern": "La contraseña no coincide."
+        },
+        "captcha": {
+          "required": "Este campo es obligatorio."
         }
       }
     },
